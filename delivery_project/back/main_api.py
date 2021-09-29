@@ -7,3 +7,10 @@ bp = Blueprint('main', __name__, url_prefix='/')
 def home():
     test_list = testTable.query.all()
     return render_template('test.html', test_list = test_list)
+
+@bp.route('/testasts')
+def asdf(input):
+    
+
+
+    return 
