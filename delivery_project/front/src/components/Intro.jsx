@@ -5,9 +5,9 @@ const Intro = () => {
 
     return (
         <div>
-            <p>
+            <h1>
                 Intro 클린한끼
-            </p>
+            </h1>
         </div>
     );
 } 

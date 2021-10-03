@@ -5,9 +5,9 @@ const Menu = () => {
 
     return (
         <div>
-            <p>
+            <h1>
                 Menu 클린한끼
-            </p>
+            </h1>
         </div>
     );
 } 

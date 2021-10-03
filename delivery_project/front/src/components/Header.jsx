@@ -29,7 +29,7 @@ const Header = () => {
               <Link to="/menu" className="nav-link">
                 메뉴
               </Link>
-              <Link to="/covid" className="nav-link">
+              <Link to="/map" className="nav-link">
                 지도
               </Link>
             </Nav>

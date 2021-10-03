@@ -28,7 +28,7 @@ const Main = () => {
         const autoImage = () => { 
             let imgNum = Math.round(Math.random()*9);  
             setFoods(imgArray[imgNum])
-            setTimeout(autoImage, 3000);
+            setTimeout(autoImage, 1500);
         }
         autoImage();
         // return fade out 효과 
@@ -36,29 +36,19 @@ const Main = () => {
 
     return (
         <main role="main">
-            <article className="intro">
-                <div>
-                    <h2>
-                        위생에 더 예민해진 코로나 시대,
-                        더 깨끗한 밥상을 위해 클린한끼가 함께합니다!
-                    </h2>
-                </div>
-            </article>
-            <ShowImage>
-                <Dish>
-                    <Foods>
-                        <img 
-                            className="foods" 
-                            alt="음식" 
-                            src={foods} 
-                            style={{width:"100%", height:"100%", objectFit:"cover"}}/>
-                    </Foods>
+            <Dish>
+                <Foods>
                     <img 
-                        src={dish} 
-                        alt="접시" 
-                        style={{}}/>
-                </Dish>
-            </ShowImage>
+                        className="foods" 
+                        alt="음식" 
+                        src={foods} 
+                        style={{width:"100%", height:"100%", objectFit:"cover"}}/>
+                </Foods>
+                <img 
+                    src={dish} 
+                    alt="접시" 
+                    style={{}}/>
+            </Dish>
             <Button>메뉴판</Button>
         </main>
     )
@@ -66,12 +56,9 @@ const Main = () => {
 
 export default Main;
 
-const ShowImage = styled.article``
-
 const Dish = styled.div`
     position: relative ;
     border: red solid 10px;
-    margin-left: 25%;
 `
 const Foods = styled.div`
     width: 550px;
