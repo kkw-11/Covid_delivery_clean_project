@@ -1,31 +1,43 @@
-import './App.css';
-import GlobalStyles from "./GlobalStyles";
-import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Main from './components/Main';
-import MenuHunt from './components/MenuHunt';
-import MenuWorldcup from './components/MenuWorldcup';
-import SearchPlace from './components/SearchPlace';
+import "./App.css";
+import {
+  BrowserRouter,
+  Link,
+  Route,
+  Switch,
+  useHistory,
+} from "react-router-dom";
+import GlobalStyles from './GlobalStyles';
+
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Intro from "./components/Intro";
+import Menu from "./components/Menu";
+import Map from "./components/Map";
 
 
+const App = () => {
 
-function App() {
   return (
-    <div>
+    <BrowserRouter>
       <GlobalStyles />
-      <Navbar />
-      <BrowserRouter>
-        <Switch>
-          {/* 메인 페이지 */}
-          <Route exact path="/" component={Main}/> 
-          {/* 메뉴 추천 페이지 */}
-          <Route path="/menu-hunt" component={MenuHunt}/>
-          <Route path="/menu-worldcup" component={MenuWorldcup}/>
-          {/* 가게 추천 페이지 */}
-          <Route path="/search-place" component={SearchPlace}/>
-        </Switch>
-      </BrowserRouter>
-    </div>
+      <Header />
+      {/* 
+            Header 내에서도 Link 컴포넌트를 사용하기 위해 BrowsetRouter에 포함.
+            Header 컴포넌트는 Route에 감싸주지 않았기 때문에 어떤 경로에도 고정으로 적용
+          */}
+      <Route path="/" exact>
+        <Main />
+      </Route>
+      <Route path="/intro">
+        <Intro />
+      </Route>
+      <Route path="/menu">
+        <Menu />
+      </Route>
+      <Route path="/map">
+        <Map />
+      </Route>
+    </BrowserRouter>
   );
 }
 
