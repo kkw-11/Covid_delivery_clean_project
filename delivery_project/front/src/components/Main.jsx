@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
+import GlobalStyles from '../GlobalStyles';
 import dish from '../images/dish.jpg';
 import food1 from '../images/1.jfif';
 import food2 from '../images/2.jfif';
@@ -12,7 +13,11 @@ import food8 from '../images/8.jfif';
 import food9 from '../images/9.jfif';
 import food10 from '../images/10.jfif';
 
-// 1. 스무스하게 넘어가기 (fade in, out)
+// 1. 스무스하게 넘어가기 (fade in, out) 
+// 2. 버튼 기능 
+// 3. absolute > % => 왜 고정이 안됨..
+// 4. table img border 경계 희미하게 => 그림자 주는 방법밖에..
+// 5. food img border 전체 경게 희미하게 , 그림자를 경계와 비슷한 색으로 
 
 export default function Main() {
     let imgArray = [food1, food2, food3, food4, food5, food6, food7, food8, food9, food10];
@@ -21,14 +26,15 @@ export default function Main() {
         const autoImage = () => { 
             let imgNum = Math.round(Math.random()*9);  
             setFoods(imgArray[imgNum])
-            console.log(foods);
             setTimeout(autoImage, 3000);
         }
         autoImage();
+        // return fade out 효과 
     }, [])
 
     return (
         <main role="main">
+            <GlobalStyles/>
             <article className="intro">
                 <div>
                     <h2>
@@ -38,30 +44,44 @@ export default function Main() {
                 </div>
             </article>
             <ShowImage>
-                <Table>
-                    <Foods>
-                        <img className="foods" alt="음식" src={foods} style={{width:"100%", height:"100%", objectFit:"cover"}}/>
-                    </Foods>
-                    <img src={dish} alt="접시" style={{position:"relative", marginLeft:"25%"}}></img>
-                </Table>
+                <Dish>
+                    <Foods><img className="foods" alt="음식" src={foods} style={{width:"100%", height:"100%", objectFit:"cover"}}/></Foods>
+                    <img src={dish} alt="접시" style={{}}/>
+                </Dish>
             </ShowImage>
+            <Button>메뉴판</Button>
         </main>
     )
 }
 
 const ShowImage = styled.article``
 
-const Table = styled.div`
-    position: relative;
+const Dish = styled.div`
+    position: relative ;
+    border: red solid 10px;
+    margin-left: 25%;
 `
 const Foods = styled.div`
-    width: 850px;
-    height: 850px;
+    width: 550px;
+    height: 550px;
     box-sizing: box-border;
     position: absolute;
-    margin-top: 180px;
-    margin-left: 1150px;
+    margin-top: 10%;
+    margin-left: 37%;
     z-index: 100;
     border-radius: 70%;
+    box-shadow: 0 15px 10px rgba(0,0,0, .5);
     overflow: hidden;
+`
+const Button = styled.button`
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 70px;
+    font-size: 200px;
+    // font-family: 'Nanum Pen Script', cursive;
+    text-align: center;
+    padding: 50px 50px;
+
 `
