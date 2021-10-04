@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 import Background from '../images/introback.jpg';
+import dish from '../images/dish3.jpg';
 import graph from '../images/graphimg.png';
 
 import 'bootstrap/dist/css/bootstrap.css';
@@ -270,48 +271,66 @@ function Chart4() {
     );
 }
 
+const Table = styled.div`
+    position: fixed;
+    left:50%; 
+    transform: translate(-50%);
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+`
+const Graph = styled.div`
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    margin-top: 5%;
+    margin-left: -5%;
+    z-index: 100;
+    overflow: hidden;
+`
+
 const Intro = () => {
 
     return (
         <div>
-            <div style={{ position:'absolute' }}>
-            <img src={Background} style={{ width:'100vw'}}/>
-            </div>
-            <div>
-                <Carousel variant="dark" style={{ height: '100vh' }}>
-                    <Carousel.Item style={{ width:'100vw' }}>
-                        <div style={{ width: '30%', margin: '15% auto' }}>
+            <Table>
+            <Graph>
+                <Carousel variant="dark">
+                    <Carousel.Item>
+                        <div style={{ width: '50%', margin: '5% auto' }}>
                             <Chart1 />
                         <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>1. 배달대행건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
                         </div>
                     </Carousel.Item>
-                    <Carousel.Item style={{ width:'100vw' }}>
-                        <div style={{ width: '30%', margin: ' 17% auto' }}>
+                    <Carousel.Item>
+                        <div style={{ width: '50%', margin: '5% auto' }}>
                             <Chart2 />
                         <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>2. 식품위생 위반건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
                         </div>
                     </Carousel.Item>
-                    <Carousel.Item style={{ width:'100vw' }}>
-                        <div style={{ width: '46%', margin: '10% auto' }}>
-                            <img src={graph} style={{ width: '900px', height: '600px' }} />
+                    <Carousel.Item>
+                        <div style={{ width: '50%', margin: '5% auto' }}>
+                            <img src={graph} style={{ width: '500px', height: '300px' }} />
                         <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>3. 배달음식 관련 불편사항 통계 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
                         </div>
                     </Carousel.Item>
-                    <Carousel.Item style={{ width:'100vw' }}>
-                        <div style={{ width: '20%', margin: '15% auto' }}>
+                    <Carousel.Item>
+                        <div style={{ width: '50%', margin: '5% auto' }}>
                             <Chart3 />
                         <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>4. 전국식당 위생등급을 받은 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
                         </div>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <div style={{ width: '25%', margin: '15% auto' }}>
+                        <div style={{ width: '50%', margin: '5% auto' }}>
                             <Chart4 />
                         <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>5. 프랜차이즈 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
                         </div>
                     </Carousel.Item>
                 </Carousel>
                 
-                </div>
+                </Graph>
+                <img src={dish}/>
+                </Table>
         </div>
     );
 }
