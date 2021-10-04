@@ -3,29 +3,28 @@ import {useHistory} from 'react-router-dom'
 import styled from 'styled-components';
 import GlobalStyles from '../GlobalStyles';
 import dish from '../images/dish3.jpg';
-import food1 from '../images/1.jfif';
-import food2 from '../images/2.jfif';
-import food3 from '../images/3.jfif';
-import food4 from '../images/4.jfif';
-import food5 from '../images/5.jfif'; // 질문2: 서버 배포 시, url 이용하나.
-import food6 from '../images/6.jfif';
-import food7 from '../images/7.jfif';
-import food8 from '../images/8.jfif';
-import food9 from '../images/9.jfif';
-import food10 from '../images/10.jfif';
+import food1 from '../images/1.PNG';
+import food2 from '../images/2.PNG';
+import food3 from '../images/3.PNG';
+import food4 from '../images/4.PNG';
+import food5 from '../images/5.PNG'; // 질문2: 서버 배포 시, url 이용하나.
+import food6 from '../images/6.PNG';
+import food7 from '../images/7.PNG';
+import food8 from '../images/8.PNG';
+import food9 from '../images/9.PNG';
 import menu from '../images/menu11.jpg';
 
 // 질문1: 스무스하게 넘어가기 (fade in, out) => useEffect return에서는 실행불가. 
 
 export default function Main() {
 
-    let imgArray = [food1, food2, food3, food4, food5, food6, food7, food8, food9, food10];
+    let imgArray = [food1, food2, food3, food4, food5, food6, food7, food8, food9];
     const [foods, setFoods] = useState(food1);
     const history = useHistory();
 
     useEffect(() => {
         const autoImage = () => { 
-            let imgNum = Math.round(Math.random()*9);
+            let imgNum = Math.round(Math.random()*8);
             setFoods(imgArray[imgNum]);
             setTimeout(autoImage, 3000);
         }

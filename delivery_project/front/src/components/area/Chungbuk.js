@@ -4,7 +4,7 @@ import "./area.css";
 function Chungbuk({ fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
-      id="충북"
+      id="충청북도"
       className="area"
       onClick={onClick}
       onMouseOver={onMouseOver}

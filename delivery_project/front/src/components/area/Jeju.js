@@ -4,7 +4,7 @@ import "./area.css";
 function Jeju({ fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
-      id="제주"
+      id="제주특별자치도"
       className="area"
       onClick={onClick}
       onMouseOver={onMouseOver}

@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify
 from models import *
+from collections import defaultdict
+import json
 
 bp = Blueprint('main', __name__, url_prefix='/')
 
@@ -21,3 +23,16 @@ from covid_crawler import getTodayCovid
 def covid():
     data = getTodayCovid()
     return jsonify(data)
+
+@bp.route('/gradecount', methods=['POST'])
+def gradecount():
+    result = {'data': defaultdict(int)}
+    clean_store = cleanTable.query.all()
+    for store in clean_store:
+        addr = str(store.addr)
+        region_big, region_small = addr.split()[0], addr.split()[1]
+        if region_big == "서울특별시":
+            result['data'][region_small] += 1
+        else:
+            result['data'][region_big] += 1
+    return jsonify(result)

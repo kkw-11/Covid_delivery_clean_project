@@ -4,7 +4,7 @@ import "./area.css";
 function Incheon({ fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
-      id="인천"
+      id="인천광역시"
       className="area"
       onClick={onClick}
       onMouseOver={onMouseOver}

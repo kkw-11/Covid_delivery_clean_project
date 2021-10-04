@@ -113,17 +113,16 @@ const StyleBox = styled.div`
   padding: 10px;
 `;
 
-function CovidInfo({ area, date, todayNum, level }) {
+function CovidInfo({ area, num }) {
 
   return (
     <StyleBox>
       {area !== "" && (
         <>
           <h2>
-            {area} 코로나 정보 ({date} 기준)
+            {area} 위생가게 정보
           </h2>
-          <p>거리두기 단계 : {level}</p>
-          <p>확진자 수 : {todayNum}</p>
+          <p>위생가게 수 : {num}</p>
         </>
       )}
     </StyleBox>
@@ -142,7 +141,6 @@ function Map() {
   const [covidData, setCovidData] = useState(null);
   const [selectArea, setSelectArea] = useState({
     area: "",
-    level: 0,
   });
 
   // 서울시 클릭했을 때 서울시 지도 나타내기
@@ -171,7 +169,7 @@ function Map() {
     let isComponentMounted = true
     
     const fetchData = async () => {
-        const response = await axios.post(BACKEND_URL + "/covidData");
+        const response = await axios.post("http://localhost:1234/gradecount");
         console.log(response.data)
         if (isComponentMounted) {
             setCovidData(response.data);
@@ -195,9 +193,9 @@ function Map() {
 
     setSelectArea({
       area: area,
-      level: covidData.data[area]["level"],
-      todayNum: covidData.data[area]["num"],
+      num: covidData.data[area],
     });
+    console.log(selectArea)
   };
 
   // useRef를 사용하여 ref를 생성합니다.
@@ -243,9 +241,7 @@ function Map() {
         <>
           <CovidInfo
             area={selectArea.area}
-            date={covidData.updated_data}
-            todayNum={selectArea.todayNum}
-            level={selectArea.level}
+            num={selectArea.num}
           />
           {isClicked ? (
             <LayerPopup visible={isClicked} ref={outsideRef}>
