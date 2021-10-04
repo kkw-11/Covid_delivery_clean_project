@@ -76,6 +76,7 @@ const Menu = styled.img`
     margin-top: 2%;
     &:hover {
         transform: scale(1.2);
+        transition-duration: 0.4s;
         cursor: pointer;
     }
 `
