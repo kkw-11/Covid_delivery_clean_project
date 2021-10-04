@@ -4,7 +4,7 @@ import "./area.css";
 function Gyeonggi({ fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
-      id="경기"
+      id="경기도"
       className="area"
       onClick={onClick}
       onMouseOver={onMouseOver}
