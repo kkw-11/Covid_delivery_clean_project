@@ -274,41 +274,44 @@ const Intro = () => {
 
     return (
         <div>
-            <div style={{ backgroundImage: `url(${Background})`, height: "100vh", backgroundSize: "100% 100%" }}>
-                <Carousel variant="dark" style={{ height: '100vh' }}>
-                    <Carousel.Item>
-                        <div style={{ width: '30%', margin: ' 250px auto 0 auto' }}>
-                            <Chart1 />
-                        </div>
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '100px 300px 0 300px' }}>1. 배달대행건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div style={{ width: '30%', margin: ' 250px auto 0 auto' }}>
-                            <Chart2 />
-                        </div>
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '100px 300px 0 300px' }}>2. 식품위생 위반건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div style={{ margin: '120px auto 0 auto' }}>
-                            <img src={graph} style={{ width: '900px', height: '600px' }} />
-                        </div>
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 300px 0 300px' }}>3. 배달음식 관련 불편사항 통계 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div style={{ width: '20%', margin: ' 220px auto 0 auto' }}>
-                            <Chart3 />
-                        </div>
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '100px 300px 0 300px' }}>4. 전국식당 위생등급을 받은 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div style={{ width: '25%', margin: ' 250px auto 0 auto' }}>
-                            <Chart4 />
-                        </div>
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '100px 300px 0 300px' }}>5. 프랜차이즈 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                    </Carousel.Item>
-
-                </Carousel>
+            <div style={{ position:'absolute' }}>
+            <img src={Background} style={{ width:'100vw'}}/>
             </div>
+            <div>
+                <Carousel variant="dark" style={{ height: '100vh' }}>
+                    <Carousel.Item style={{ width:'100vw' }}>
+                        <div style={{ width: '30%', margin: '15% auto' }}>
+                            <Chart1 />
+                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>1. 배달대행건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item style={{ width:'100vw' }}>
+                        <div style={{ width: '30%', margin: ' 17% auto' }}>
+                            <Chart2 />
+                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>2. 식품위생 위반건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item style={{ width:'100vw' }}>
+                        <div style={{ width: '46%', margin: '10% auto' }}>
+                            <img src={graph} style={{ width: '900px', height: '600px' }} />
+                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>3. 배달음식 관련 불편사항 통계 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item style={{ width:'100vw' }}>
+                        <div style={{ width: '20%', margin: '15% auto' }}>
+                            <Chart3 />
+                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>4. 전국식당 위생등급을 받은 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+                        </div>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <div style={{ width: '25%', margin: '15% auto' }}>
+                            <Chart4 />
+                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>5. 프랜차이즈 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+                        </div>
+                    </Carousel.Item>
+                </Carousel>
+                
+                </div>
         </div>
     );
 }
