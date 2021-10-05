@@ -6,7 +6,6 @@ import dish from '../images/dish3.jpg';
 import graph from '../images/graphimg.png';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import { Carousel } from 'react-bootstrap';
 import ReactApexChart from 'react-apexcharts';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import axios from "axios";
@@ -293,44 +292,26 @@ const Intro = () => {
 
     return (
         <div>
-            <Table>
-            <Graph>
-                <Carousel variant="dark">
-                    <Carousel.Item>
-                        <div style={{ width: '50%', margin: '5% auto' }}>
-                            <Chart1 />
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>1. 배달대행건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                        </div>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div style={{ width: '50%', margin: '5% auto' }}>
-                            <Chart2 />
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>2. 식품위생 위반건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                        </div>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div style={{ width: '50%', margin: '5% auto' }}>
-                            <img src={graph} style={{ width: '500px', height: '300px' }} />
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>3. 배달음식 관련 불편사항 통계 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                        </div>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div style={{ width: '50%', margin: '5% auto' }}>
-                            <Chart3 />
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>4. 전국식당 위생등급을 받은 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                        </div>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div style={{ width: '50%', margin: '5% auto' }}>
-                            <Chart4 />
-                        <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>5. 프랜차이즈 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
-                        </div>
-                    </Carousel.Item>
-                </Carousel>
-                
-                </Graph>
-                <img src={dish}/>
-                </Table>
+            <div style={{ width: '50%', margin: '5% auto' }}>
+                <Chart1 />
+                <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>1. 배달대행건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+            </div>
+            <div style={{ width: '50%', margin: '5% auto' }}>
+                <Chart2 />
+                <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>2. 식품위생 위반건수에 대한 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+            </div>
+            <div style={{ width: '50%', margin: '5% auto' }}>
+                <img src={graph} style={{ width: '500px', height: '300px' }} />
+                <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>3. 배달음식 관련 불편사항 통계 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+            </div>
+            <div style={{ width: '50%', margin: '5% auto' }}>
+                <Chart3 />
+                <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>4. 전국식당 위생등급을 받은 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+            </div>
+            <div style={{ width: '50%', margin: '5% auto' }}>
+                <Chart4 />
+                <p style={{ backgroundColor: '#F1F1F3', borderRadius: '5px', padding: '0.6em 1em', margin: '30px 0 0' }}>5. 프랜차이즈 비율 소개 ~~~~~~~~~~~~~~~~~~~<br></br>~~~~~</p>
+            </div>
         </div>
     );
 }

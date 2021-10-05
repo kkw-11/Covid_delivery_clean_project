@@ -30,7 +30,7 @@ import {BACKEND_URL} from "../env";
 const fillColor = "#cdcccc";
 
 
-function CovidView({ covidData, onAreaClick }) {
+function CovidView({ onAreaClick }) {
   
   return (
     <svg width="800px" height="900px" viewBox="0 0 800 1200">
@@ -245,11 +245,12 @@ function Map() {
           />
           {isClicked ? (
             <LayerPopup visible={isClicked} ref={outsideRef}>
-              <SeoulExpansion />
+              <SeoulExpansion 
+                onAreaClick={handlerAreaSelect}
+              />
             </LayerPopup>
           ) : (
             <CovidView
-            covidData={covidData.data}
             onAreaClick={handlerAreaSelect}
           />
           )}
