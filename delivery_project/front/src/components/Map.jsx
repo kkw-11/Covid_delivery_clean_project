@@ -18,6 +18,7 @@ const Map = () => {
     area: "",
   });
   
+  
   useEffect(() => {
     let isComponentMounted = true // 무한 재렌더링 방지용
     
@@ -37,16 +38,15 @@ const Map = () => {
 
   const handlerAreaSelect = (area) => {
     
-    if (area == "서울") {setIsClicked(true)} // 서울 지도 확대해서 보여주기
+    if (area == "서울특별시") {setIsClicked(true)} // 서울 지도 확대해서 보여주기
 
-    window.scrollTo(0,200) // 클릭시 최상단으로 이동
+    window.scrollTo(0,150) // 클릭시 최상단으로 이동
 
     setSelectArea({
       area: area,
       num: mapData.data[area],
     });
     
-    console.log(selectArea)
   };
 
   //////////////////////////////////////////////
@@ -55,8 +55,6 @@ const Map = () => {
   
   const outsideRef = useRef(null); // useRef를 사용하여 ref를 생성합니다.
   useOutsideClick(outsideRef);
-
-  console.log(outsideRef); // 최초 실행시 null임을 확인할 수 있습니다.
 
   function useOutsideClick(ref) {
     useEffect(() => {
@@ -94,15 +92,16 @@ const Map = () => {
             num={selectArea.num}
           />
           {isClicked ? (
-            <LayerPopup visible={isClicked} ref={outsideRef}>
+            <SeoulMap visible={isClicked} ref={outsideRef}>
               <SeoulExpansion 
+                color={mapData.data}
                 onAreaClick={handlerAreaSelect}
               />
-            </LayerPopup>
+            </SeoulMap>
           ) : (
             <MapView
-            num={selectArea.num}
-            onAreaClick={handlerAreaSelect}
+              color={mapData.data}
+              onAreaClick={handlerAreaSelect}
           />
           )}
         </>
@@ -121,10 +120,10 @@ const StyleMap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center; */
-  
+
 `;
 
-const LayerPopup = styled.div`
+const SeoulMap = styled.div`
     display: ${props => (props.visible ? "block" : "none")};
     z-index: 100;
 `;

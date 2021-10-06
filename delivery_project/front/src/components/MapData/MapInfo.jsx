@@ -26,6 +26,5 @@ export default MapInfo;
 const StyleBox = styled.div`
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  width: 100%;
   padding: 10px;
 `;

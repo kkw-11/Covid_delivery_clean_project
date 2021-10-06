@@ -33,6 +33,7 @@ def gradecount():
         region_big, region_small = addr.split()[0], addr.split()[1]
         if region_big == "서울특별시":
             result['data'][region_small] += 1
+            result['data'][region_big] += 1
         else:
             result['data'][region_big] += 1
     return jsonify(result)
