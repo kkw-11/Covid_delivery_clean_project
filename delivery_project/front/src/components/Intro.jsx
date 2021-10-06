@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "styled-components";
-import {Graphs, Graphs2} from "./Graphs"
+import {Graphs1, Graphs2, Graphs3, Graphs4} from "./Graphs"
 import Map from "./Map"
 
 const Intro = () => {
@@ -9,15 +9,18 @@ const Intro = () => {
             <Introdeuce><h4>한줄 소개</h4></Introdeuce>
             <ContainerWrap>
                 <GraphWrap>
-                    <Graph1>
-                        <Graphs/>
-                    </Graph1>
-                    <Graph2>
+                    <GraphBox1>
+                        <Graphs1/>
+                    </GraphBox1>
+                    <GraphBox2>
                         <Graphs2/>
-                    </Graph2>
-                    <Graph3>
-                        <h4>매우우수 / 우수 / 좋음</h4>
-                    </Graph3>
+                    </GraphBox2>
+                    <GraphBox3>
+                        <Graphs3 />
+                    </GraphBox3>
+                    <GraphBox4>
+                        <Graphs4 />
+                    </GraphBox4>
                 </GraphWrap>
                 <Map />
             </ContainerWrap>
@@ -43,15 +46,20 @@ const GraphWrap = styled.div`
   border: 5px solid darkkhaki;
 `
 
-const Graph1 = styled.div`
+const GraphBox1 = styled.div`
   border: 5px solid crimson;
 `
 
-const Graph2 = styled.div`
+const GraphBox2 = styled.div`
   border: 5px solid turquoise;
 `
 
-const Graph3 = styled.div`
+const GraphBox3 = styled.div`
   border: 5px solid yellow;
+  padding-bottom: 20%;
+`
+
+const GraphBox4 = styled.div`
+  border: 5px solid lightgreen;
   padding-bottom: 20%;
 `

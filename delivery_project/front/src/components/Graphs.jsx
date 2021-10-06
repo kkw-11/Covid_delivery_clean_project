@@ -99,7 +99,7 @@ function Test2() {
     );
 }
 
-const Graphs = () => {
+const Graphs1 = () => {
 
     const [check, setCheck] = useState(1);
 
@@ -250,4 +250,20 @@ const Graphs2 = () => {
     );
 }
 
-export {Graphs, Graphs2};
+const Graphs3 = () =>{
+    return (
+        <div>
+            <h4>지도 눌렀을 때 나오는 그래프</h4>
+        </div>
+    )
+}
+
+const Graphs4 = () =>{
+    return (
+        <div>
+            <h4>매우우수 / 우수 / 좋음</h4>
+        </div>
+    )
+}
+
+export {Graphs1, Graphs2, Graphs3, Graphs4};
