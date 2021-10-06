@@ -24,13 +24,13 @@ import "./area/area.css";
 
 
 // 위생가게별 수치별 색상
-const fillColor = ["#4088da"];
+const fillColor = ["#cdcccc"];
 
 
-const MapView = ({ onAreaClick }) => {
+const MapView = ({ num, onAreaClick }) => {
   
   return (
-    <svg width="800px" height="900px" viewBox="0 0 800 1200">
+    <svg width="100%" height="900px" viewBox="0 0 800 1200">
       <Seoul
         fill={fillColor}
         onClick={(e) => onAreaClick(e.target.id)}

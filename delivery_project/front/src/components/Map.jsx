@@ -39,7 +39,7 @@ const Map = () => {
     
     if (area == "서울") {setIsClicked(true)} // 서울 지도 확대해서 보여주기
 
-    window.scrollTo(0,0) // 클릭시 최상단으로 이동
+    window.scrollTo(0,200) // 클릭시 최상단으로 이동
 
     setSelectArea({
       area: area,
@@ -84,7 +84,7 @@ const Map = () => {
 
   return (
     <StyleMap>
-      <h1>클린한끼</h1> <br />
+        <h4>지역별 위생가게수 현황</h4> <br />
       {mapData === null ? (
         <p>Loading...</p>
       ) : (
@@ -101,6 +101,7 @@ const Map = () => {
             </LayerPopup>
           ) : (
             <MapView
+            num={selectArea.num}
             onAreaClick={handlerAreaSelect}
           />
           )}
@@ -113,18 +114,20 @@ const Map = () => {
 
 export default Map;
 
+
+const StyleMap = styled.div`
+  border: 5px solid blue;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  
+`;
+
 const LayerPopup = styled.div`
     display: ${props => (props.visible ? "block" : "none")};
     z-index: 100;
 `;
 
-const StyleMap = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-`;
 
 
-
-  

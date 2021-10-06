@@ -26,7 +26,7 @@ export default function Main() {
         const autoImage = () => { 
             let imgNum = Math.round(Math.random()*8);
             setFoods(imgArray[imgNum]);
-            setTimeout(autoImage, 3000);
+            setTimeout(autoImage, 2000);
         }
         autoImage();
     }, []);

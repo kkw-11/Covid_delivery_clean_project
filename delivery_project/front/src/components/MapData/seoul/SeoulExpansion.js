@@ -5,7 +5,7 @@ function SeoulExpansion({onAreaClick}) {
 
     return (
     <>
-        <svg height= { 650 } width= { 800 } margin= { 100 }>
+        <svg height= { 650 } width= { 735 } margin= { 100 }>
             <defs>
                 <filter id="dropshadow">
                     <feGaussianBlur in="SourceAlpha" stdDeviation="0" />

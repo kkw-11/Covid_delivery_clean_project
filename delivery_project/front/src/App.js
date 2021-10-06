@@ -12,7 +12,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Intro from "./components/Intro";
 import Menu from "./components/Menu";
-import Map from "./components/Map";
+import Store from "./components/Store";
 
 
 const App = () => {
@@ -34,8 +34,8 @@ const App = () => {
       <Route path="/menu">
         <Menu />
       </Route>
-      <Route path="/map">
-        <Map />
+      <Route path="/store">
+        <Store />
       </Route>
     </BrowserRouter>
   );

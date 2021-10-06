@@ -320,7 +320,7 @@ const MenuBox = styled.div`
         background-color: ${props => (props.select ? "#bdbebd" : "lightgray")};
 
         &:hover {
-            color: green;
+            background-color: green;
         } 
     }
 
@@ -330,7 +330,7 @@ const MenuBox = styled.div`
         background-color: ${props => (props.select ? "#bdbebd" : "lightgray")};
 
         &:hover {
-            color: red;
+            background-color: red;
         } 
     }
 `
