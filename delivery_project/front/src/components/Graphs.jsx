@@ -266,4 +266,50 @@ const Graphs4 = () =>{
     )
 }
 
-export {Graphs1, Graphs2, Graphs3, Graphs4};
+////////////////////////////////////////
+// 그래프 보여지는 화면 한번에 정리하기//
+//////////////////////////////////////
+const Graphs = () =>{
+
+    return (
+        <GraphWrap>
+            <GraphBox1>
+                <Graphs1/>
+            </GraphBox1>
+            <GraphBox2>
+                <Graphs2/>
+            </GraphBox2>
+            <GraphBox3>
+                <Graphs3 />
+            </GraphBox3>
+            <GraphBox4>
+                <Graphs4 />
+            </GraphBox4>
+        </GraphWrap>
+    )
+}
+
+export default Graphs;
+
+
+const GraphWrap = styled.div`
+  border: 5px solid darkkhaki;
+`
+
+const GraphBox1 = styled.div`
+  border: 5px solid crimson;
+`
+
+const GraphBox2 = styled.div`
+  border: 5px solid turquoise;
+`
+
+const GraphBox3 = styled.div`
+  border: 5px solid yellow;
+  padding-bottom: 20%;
+`
+
+const GraphBox4 = styled.div`
+  border: 5px solid lightgreen;
+  padding-bottom: 20%;
+`
