@@ -1,5 +1,6 @@
 import React from "react";
 import "./SeoulExpansion.css";
+import SeoulMapLegend from "./SeoulMapLegend"
 
 const fillColor = [
     "rgb(244, 249, 160)",
@@ -33,6 +34,7 @@ const SeoulExpansion = ({color, onAreaClick}) => {
 
     return (
     <>
+        <SeoulMapLegend />
         <svg height= { 650 } width= { 735 } margin= { 100 }>
             <defs>
                 <filter id="dropshadow">
@@ -234,7 +236,7 @@ const SeoulExpansion = ({color, onAreaClick}) => {
             <text id="LCD11740" className="TEXT" x="675" y="358">강동구</text>
             </g>
         </svg>
-      </>
+    </>
   )
 }
 

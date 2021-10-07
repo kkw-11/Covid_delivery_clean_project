@@ -20,19 +20,7 @@ import {
   Jeju,
 } from "./area/all_area";
 import "./area/area.css";
-
-// 위생가게별 수치별 색상
-//     "rgb(1, 1, 1)",
-//     "rgb(1, 15, 84)",
-//     "rgb(3, 51, 128)",
-//     "rgb(0, 64, 191)",
-//     "rgb(1, 108, 213)",
-//     "rgb(1, 157, 195)",
-//     "rgb(1, 187, 215)",
-//     "rgb(2, 207, 178)",
-//     "rgb(6, 208, 176)",
-//     "rgb(176, 233, 89)",
-//     "rgb(204, 241, 140)"
+import MapLegend from "./MapLegend"
 
 const fillColor = [
   "rgb(244, 249, 160)",

@@ -88,6 +88,7 @@ const Map = (props) => {
       ) : (
         <>
           <MapInfo
+            className="text-box"
             area={selectArea.area}
             num={selectArea.num}
           />

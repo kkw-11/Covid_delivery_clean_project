@@ -26,7 +26,7 @@ const Introduce = styled.div`
     padding-bottom: 5%;
 `
 
-const ContainerWrap = styled.div`
+const Container = styled.div`
   border: 5px solid green;
   display: grid;
   grid-template-columns: 50% 1fr;
