@@ -5,6 +5,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ReactApexChart from 'react-apexcharts';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+import 'semantic-ui-css/semantic.min.css'
+import { Progress } from 'semantic-ui-react'
+
 const data = [
     {
         name: "2018년",
@@ -251,6 +254,7 @@ const Graphs2 = () => {
 }
 
 const Graphs3 = () =>{
+
     return (
         <div>
             <h4>지도 눌렀을 때 나오는 그래프</h4>
@@ -259,10 +263,43 @@ const Graphs3 = () =>{
 }
 
 const Graphs4 = () =>{
+
+    const CardContainer = styled.div`
+        display: flex;
+    `
+    const CardBox = styled.div`
+        background-color: white;
+        box-shadow: 1px 1px 1px 1px #bdbebd;
+        border-radius: 3px;
+        width: 25%;
+        margin: 20px auto;
+        padding: 0;
+
+        > p {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+    `
+
     return (
-        <div>
-            <h4>매우우수 / 우수 / 좋음</h4>
-        </div>
+        <CardContainer>
+            <CardBox>
+                <p style={{color:"crimson"}}>매우 우수</p>
+                <p>62</p>
+                <Progress style={{ margin: "30px auto", width: "80%" }} error value={35} total={100} />
+            </CardBox>
+            <CardBox>
+                <p style={{color:"green"}}>우수</p>
+                <p>652</p>
+                <Progress style={{ margin: "30px auto", width: "80%" }} success value={80} total={100} />
+            </CardBox>
+            <CardBox>
+                <p style={{color:"#c79806"}}>좋음</p>
+                <p>76</p>
+                <Progress style={{ margin: "30px auto", width: "80%" }} warning value={45} total={100} />
+            </CardBox>
+        </CardContainer>
     )
 }
 
@@ -311,5 +348,4 @@ const GraphBox3 = styled.div`
 
 const GraphBox4 = styled.div`
   border: 5px solid lightgreen;
-  padding-bottom: 20%;
 `
