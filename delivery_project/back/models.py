@@ -26,3 +26,4 @@ class cleanTable(db.Model):
     addr = db.Column(db.String(255))
     hg_asgn_no = db.Column(db.String(255))
     hg_asgn_nm = db.Column(db.String(255))
+    franchise = db.Column(db.Integer)

@@ -87,7 +87,7 @@ const data3 = [
         "식품위생법 위반건수": 2388
     }
 ];
-
+{/* 
 function Test() {
     return (
         <div style={{ width: '100%', height: '90%', backgroundColor: 'gray' }}></div>
@@ -98,9 +98,10 @@ function Test2() {
         <div style={{ width: '100%', height: '90%', backgroundColor: 'green' }}></div>
     );
 }
+*/}
 
 const Graphs1 = () => {
-
+    {/* 
     const [check, setCheck] = useState(1);
 
     const Click = (e) => {
@@ -108,7 +109,7 @@ const Graphs1 = () => {
     };
     useEffect(() => {
     }, [check])
-
+    */}
     return (
         <div>
             <div style={{ height: '5vh' }}>
@@ -120,7 +121,7 @@ const Graphs1 = () => {
                 </div>
             </div>
             <div style={{ height: '35vh' }}>
-                <div style={{ width: '25%', float: 'left', height: '100%' }}>
+                <div style={{ width: '50%', float: 'left', height: '100%' }}>
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart
                             data={data}
@@ -145,7 +146,7 @@ const Graphs1 = () => {
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
-                <div style={{ width: '25%', float: 'left', height: '100%' }}>
+                <div style={{ width: '50%', float: 'right', height: '100%' }}>
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart
                             data={data2}
@@ -170,11 +171,13 @@ const Graphs1 = () => {
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
+                    {/*
                 <div style={{ width: '50%', float: 'right', height: '100%' }}>
                     <button id='1' onClick={Click}>버튼</button>
                     <button id='2' onClick={Click}>버튼2</button>
                     {check == 1 ? (<Test></Test>) : (<Test2></Test2>)}
                 </div>
+                    */}
             </div>
         </div>
     );
@@ -250,10 +253,12 @@ const Graphs2 = () => {
     );
 }
 
-const Graphs3 = () =>{
+const Graphs3 = ({area}) =>{
+    
     return (
         <div>
             <h4>지도 눌렀을 때 나오는 그래프</h4>
+            {area}
         </div>
     )
 }
@@ -269,7 +274,7 @@ const Graphs4 = () =>{
 ////////////////////////////////////////
 // 그래프 보여지는 화면 한번에 정리하기//
 //////////////////////////////////////
-const Graphs = () =>{
+const Graphs = ({area}) =>{
 
     return (
         <GraphWrap>
@@ -280,7 +285,7 @@ const Graphs = () =>{
                 <Graphs2/>
             </GraphBox2>
             <GraphBox3>
-                <Graphs3 />
+                <Graphs3 area={area}/>
             </GraphBox3>
             <GraphBox4>
                 <Graphs4 />

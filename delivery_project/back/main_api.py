@@ -26,14 +26,23 @@ def covid():
 
 @bp.route('/gradecount', methods=['POST'])
 def gradecount():
-    result = {'data': defaultdict(int)}
+    result = {'data': {'all': defaultdict(int), 'franchise':defaultdict(int)}}
     clean_store = cleanTable.query.all()
     for store in clean_store:
         addr = str(store.addr)
         region_big, region_small = addr.split()[0], addr.split()[1]
         if region_big == "서울특별시":
-            result['data'][region_small] += 1
-            result['data'][region_big] += 1
+            result['data']['all'][region_small] += 1
+            result['data']['all'][region_big] += 1
+            if store.franchise == 0:
+                result['data']['franchise'][region_small] += 1
+                result['data']['franchise'][region_big] += 1
         else:
-            result['data'][region_big] += 1
+            result['data']['all'][region_big] += 1
+            if store.franchise == 0:
+                result['data']['franchise'][region_big] += 1
+        result['data']['all']['전국'] += 1
+        if store.franchise == 0:
+            result['data']['franchise']['전국'] += 1
+
     return jsonify(result)

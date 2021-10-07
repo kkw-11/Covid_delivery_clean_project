@@ -10,7 +10,7 @@ import "./MapData/area/area.css";
 import {BACKEND_URL} from "../env";
 
 
-const Map = () => {
+const Map = (props) => {
 
   const [isClicked, setIsClicked] = useState(false) // 서울시 클릭했을 때 서울시 지도 나타내기
   const [mapData, setMapData] = useState(null);
@@ -44,9 +44,9 @@ const Map = () => {
 
     setSelectArea({
       area: area,
-      num: mapData.data[area],
+      num: mapData.data['all'][area],
     });
-    
+    props.setArea(area)
   };
 
   //////////////////////////////////////////////
