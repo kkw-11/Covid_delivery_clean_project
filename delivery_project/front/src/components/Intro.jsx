@@ -7,10 +7,10 @@ const Intro = () => {
     return (
         <>
             <Introduce><h4>한줄 소개</h4></Introduce>
-            <ContainerWrap>
+            <Container>
                 <Graphs />
                 <Map />
-            </ContainerWrap>
+            </Container>
         </>
     )
 }
@@ -23,7 +23,7 @@ const Introduce = styled.div`
     padding-bottom: 5%;
 `
 
-const ContainerWrap = styled.div`
+const Container = styled.div`
   border: 5px solid green;
   display: grid;
   grid-template-columns: 50% 1fr;
