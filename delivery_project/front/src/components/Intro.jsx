@@ -10,10 +10,10 @@ const Intro = () => {
     return (
         <>
             <Introduce><h4>한줄 소개</h4></Introduce>
-            <ContainerWrap>
+            <Container>
                 <Graphs area={area}/>
                 <Map setArea={setArea} />
-            </ContainerWrap>
+            </Container>
         </>
     )
 }
