@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom'
 import styled from 'styled-components';
-import GlobalStyles from '../GlobalStyles';
 import dish from '../images/dish3.jpg';
 import food1 from '../images/1.PNG';
 import food2 from '../images/2.PNG';
 import food3 from '../images/3.PNG';
 import food4 from '../images/4.PNG';
-import food5 from '../images/5.PNG'; // 질문2: 서버 배포 시, url 이용하나.
+import food5 from '../images/5.PNG'; 
 import food6 from '../images/6.PNG';
 import food7 from '../images/7.PNG';
 import food8 from '../images/8.PNG';
@@ -16,7 +15,7 @@ import menu from '../images/menu11.jpg';
 
 // 질문1: 스무스하게 넘어가기 (fade in, out) => useEffect return에서는 실행불가. 
 
-export default function Main() {
+function Main() {
 
     let imgArray = [food1, food2, food3, food4, food5, food6, food7, food8, food9];
     const [foods, setFoods] = useState(food1);
@@ -33,14 +32,13 @@ export default function Main() {
 
     return (
         <main role="main">
-            <GlobalStyles/>
-                <Table>
-                    <Dish>
-                        <Foods><img alt="음식" src={foods} style={{width:"100%", height:"100%", objectFit:"cover"}}/></Foods>
-                        <img alt="접시" src={dish}/>
-                    </Dish>
-                    <Menu src={menu} onClick={() => {history.push('/intro');}}/>
-                </Table>
+            <Table>
+                <Dish>
+                    <Foods><img alt="음식" src={foods} style={{width:"100%", height:"100%", objectFit:"cover"}}/></Foods>
+                    <img alt="접시" src={dish}/>
+                </Dish>
+                <Menu src={menu} onClick={() => {history.push('/intro');}}/>
+            </Table>    
         </main>
     )
 }
@@ -79,3 +77,5 @@ const Menu = styled.img`
         cursor: pointer;
     }
 `
+
+export default Main;
