@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import axios from "axios";
+import { BACKEND_URL } from "../env";
 
 import 'bootstrap/dist/css/bootstrap.css';
-import ReactApexChart from 'react-apexcharts';
-import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { ProgressBar } from 'react-bootstrap';
 
 import 'semantic-ui-css/semantic.min.css'
 import { Progress } from 'semantic-ui-react'
+
+import ReactApexChart from 'react-apexcharts';
+import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
 
 const data = [
     {
@@ -90,7 +95,7 @@ const data3 = [
         "식품위생법 위반건수": 2388
     }
 ];
-
+{/* 
 function Test() {
     return (
         <div style={{ width: '100%', height: '90%', backgroundColor: 'gray' }}></div>
@@ -101,9 +106,10 @@ function Test2() {
         <div style={{ width: '100%', height: '90%', backgroundColor: 'green' }}></div>
     );
 }
+*/}
 
 const Graphs1 = () => {
-
+    {/* 
     const [check, setCheck] = useState(1);
 
     const Click = (e) => {
@@ -111,7 +117,7 @@ const Graphs1 = () => {
     };
     useEffect(() => {
     }, [check])
-
+    */}
     return (
         <div>
             <div style={{ height: '5vh' }}>
@@ -123,7 +129,7 @@ const Graphs1 = () => {
                 </div>
             </div>
             <div style={{ height: '35vh' }}>
-                <div style={{ width: '25%', float: 'left', height: '100%' }}>
+                <div style={{ width: '50%', float: 'left', height: '100%' }}>
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart
                             data={data}
@@ -148,7 +154,7 @@ const Graphs1 = () => {
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
-                <div style={{ width: '25%', float: 'left', height: '100%' }}>
+                <div style={{ width: '50%', float: 'right', height: '100%' }}>
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart
                             data={data2}
@@ -173,11 +179,13 @@ const Graphs1 = () => {
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
+                {/*
                 <div style={{ width: '50%', float: 'right', height: '100%' }}>
                     <button id='1' onClick={Click}>버튼</button>
                     <button id='2' onClick={Click}>버튼2</button>
                     {check == 1 ? (<Test></Test>) : (<Test2></Test2>)}
                 </div>
+                    */}
             </div>
         </div>
     );
@@ -253,15 +261,115 @@ const Graphs2 = () => {
     );
 }
 
+<<<<<<< HEAD
 const Graphs3 = () =>{
+=======
+const Graphs3 = ({ area }) => {
+
+    const [franchise, setFranchise] = useState(null);
+    const [allstore, setAllstore] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await axios.post(`${BACKEND_URL}/gradecount`);
+            setFranchise(response.data);
+            const response2 = await axios.post(`${BACKEND_URL}/allstorecount`);
+            setAllstore(response2.data);
+        };
+        fetchData()
+    }, []);
+>>>>>>> b9ed34a41a8ce55cfd3f18c5a8811126f6a46d1d
 
     return (
         <div>
-            <h4>지도 눌렀을 때 나오는 그래프</h4>
+            {franchise === null || allstore === null ? (
+                <p>Loading...</p>
+            ) : (
+                <>
+                    <div style={{ height: '5vh' }}>
+                        <div style={{ width: '50%', float: 'left', height: '100%', textAlign: 'center', lineHeight: '5vh' }}>
+                            <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>프랜차이즈 비율</span></p>
+                        </div>
+                        <div style={{ width: '50%', float: 'right', height: '100%', textAlign: 'center', lineHeight: '5vh' }}>
+                            <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>위생가게 비율</span></p>
+                        </div>
+                    </div>
+                    <div style={{ height: '35vh' }}>
+                        <div style={{ width: '50%', float: 'left', height: '100%', textAlign: '-webkit-center' }}>
+                            <ReactApexChart
+                                options={{
+                                    chart: {
+                                        width: '100%',
+                                        type: 'donut',
+                                    },
+                                    labels: ["프랜차이즈", "프랜차이즈X"],
+                                    theme: {
+                                        palette: 'palette5'
+                                    },
+                                    plotOptions: {
+                                        pie: {
+                                            dataLabels: {
+                                                offset: -5
+                                            }
+                                        }
+                                    },
+                                    dataLabels: {
+                                        formatter(val, opts) {
+                                            const name = opts.w.globals.labels[opts.seriesIndex]
+                                            return [name, val.toFixed(1) + '%']
+                                        }
+                                    },
+                                    legend: {
+                                        show: false
+                                    }
+                                }}
+                                series={[franchise.data['all'][area] - franchise.data['franchise'][area], franchise.data['franchise'][area]]}
+                                type="donut"
+                                width="85%"
+                            />
+                        </div>
+                        <div style={{ width: '50%', float: 'right', height: '100%' }}>
+                            <ReactApexChart
+                                options={{
+                                    chart: {
+                                        width: '100%',
+                                        type: 'donut',
+                                    },
+                                    labels: ["위생가게", "전체가게"],
+                                    theme: {
+                                        palette: 'palette3'
+                                    },
+                                    plotOptions: {
+                                        pie: {
+                                            startAngle: -90,
+                                            endAngle: 90,
+                                            offsetY: 10
+                                        }
+                                    },
+                                    dataLabels: {
+                                        formatter(val, opts) {
+                                            const name = opts.w.globals.labels[opts.seriesIndex]
+                                            return [name, val.toFixed(1) + '%']
+                                        }
+                                    },
+                                    legend: {
+                                        show: false
+                                    }
+                                }}
+                                series={[franchise.data['all'][area], allstore.data[area]-franchise.data['all'][area]]}
+                                type="donut"
+                                width="85%"
+                            />
+                        </div>
+                    </div>
+
+                </>
+            )}
         </div>
     )
 }
 
+<<<<<<< HEAD
 const Graphs4 = () =>{
 
     const CardContainer = styled.div`
@@ -300,27 +408,68 @@ const Graphs4 = () =>{
                 <Progress style={{ margin: "30px auto", width: "80%" }} warning value={45} total={100} />
             </CardBox>
         </CardContainer>
+=======
+const Graphs4 = ({ area }) => {
+
+    const [grade, setGrade] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await axios.post(`${BACKEND_URL}/regioncount`);
+            setGrade(response.data);
+        };
+        fetchData()
+    }, []);
+
+    return (
+        <div>
+            {grade === null ? (
+                <p>Loading...</p>
+            ) : (<>
+            <div style={{ height: '10vh', textAlign:'-webkit-center', lineHeight:'12vh' }}>
+                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
+                        매우 우수<br></br>{grade.data[area]['매우우수']}
+                        <ProgressBar animated now={grade.data[area]['매우우수']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="success"/>
+                    </div>
+                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
+                        우수<br></br>{grade.data[area]['우수']}<br></br>
+                        <ProgressBar animated now={grade.data[area]['우수']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="warning"/>
+                    </div>
+                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
+                        좋음<br></br>{grade.data[area]['좋음']}
+                        <ProgressBar animated now={grade.data[area]['좋음']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="danger"/>
+                    </div>
+                </div>
+
+
+            {/* 
+            <ProgressBar animated now={50} />
+            {grade.data[area]['우수']}
+            */}
+            </>)}
+        </div>
+>>>>>>> b9ed34a41a8ce55cfd3f18c5a8811126f6a46d1d
     )
 }
 
 ////////////////////////////////////////
 // 그래프 보여지는 화면 한번에 정리하기//
 //////////////////////////////////////
-const Graphs = () =>{
+const Graphs = ({ area }) => {
 
     return (
         <GraphWrap>
             <GraphBox1>
-                <Graphs1/>
+                <Graphs4 area={area} />
             </GraphBox1>
             <GraphBox2>
-                <Graphs2/>
+                <Graphs3 area={area} />
             </GraphBox2>
             <GraphBox3>
-                <Graphs3 />
+                <Graphs1 />
             </GraphBox3>
             <GraphBox4>
-                <Graphs4 />
+                <Graphs2 />
             </GraphBox4>
         </GraphWrap>
     )
@@ -343,7 +492,6 @@ const GraphBox2 = styled.div`
 
 const GraphBox3 = styled.div`
   border: 5px solid yellow;
-  padding-bottom: 20%;
 `
 
 const GraphBox4 = styled.div`

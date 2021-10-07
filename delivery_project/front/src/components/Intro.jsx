@@ -5,12 +5,15 @@ import Map from "./Map"
 
 
 const Intro = () => {
+    
+    const [area, setArea] = useState('전국')
+
     return (
         <>
             <Introduce><h4>한줄 소개</h4></Introduce>
             <Container>
-                <Graphs />
-                <Map />
+                <Graphs area={area}/>
+                <Map setArea={setArea} />
             </Container>
         </>
     )
