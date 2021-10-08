@@ -1,9 +1,0 @@
-.area {
-    cursor: pointer;
-    transition: 0.5s;
-}
-
-.area:hover {
-    opacity: 0.7;
-    fill: #49B265 !important;
-}

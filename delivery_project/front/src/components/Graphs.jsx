@@ -416,7 +416,7 @@ const Graphs = ({ area }) => {
             <GraphBox4>
                 <Graphs2 />
             </GraphBox4>
-        </GraphWrap>
+        </GraphWrap> 
     )
 }
 

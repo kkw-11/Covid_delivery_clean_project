@@ -102,9 +102,14 @@ function Menu2() {
 }
 
 const Processing = styled.div`
-    display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    width: 50%;
+    float: left;
+    position: fixed;
+
+    & ~ & {
+        margin: 0 0 0 500px;
+    }
     // align-items: center;
     // justify-content: center;
     // align-container: flex-start;
@@ -121,6 +126,7 @@ const Processing = styled.div`
     .foods {
         flex: 1;
         position: relative;
+        text-align: center;
     }
     .food {
         position: absolute;
