@@ -24,7 +24,7 @@ function MenuCup() {
     const [winners, setWinners] = useState([]);
     const [round, setRound] = useState();
     const [count, setCount] = useState();
-    const [winner, setWinner] = useState([]);
+    const [winner, setWinner] = useState();
     const [finished, setFinished] = useState();
 
     useEffect(() => {
@@ -41,7 +41,7 @@ function MenuCup() {
             if (winners.length === 0) {
                 setFinished(true);
                 setCount(count + 1);
-                setWinner([food]);
+                setWinner(food);
             } else {
                 let updatedFood = [...winners, food];
                 setFoods(updatedFood);
@@ -69,18 +69,14 @@ function MenuCup() {
 
     return (
         <main role='main'>
-            {finished ?
-                winner.map(food => {
-                    return (
-                        <Finished>
-                            <div className='winner-wrap'>
-                                <div className='winner'><img className='winner-img' src={food.src} /></div>
-                                <img src={dish} />
-                                <div className='winner-name'>{food.name}</div>
-                            </div>
-                        </Finished>
-                    );
-                })
+            {finished ? 
+                <Finished>
+                    <div className='winner-wrap'>
+                        <div className='winner'><img className='winner-img' src={winner.src} /></div>
+                        <img src={dish} />
+                        <div className='winner-name'>{winner.name}</div>
+                    </div>
+                </Finished>
                 :
                 match.map(food => {
                     return (
@@ -88,10 +84,12 @@ function MenuCup() {
                             <div className='round'>{round}</div>
                             <div className='food-wrap' key={food.name} onClick={worldcupHandler(food)}>
                                 <div style={{position : "fixed"}}>
-                                    <div className='food'><img className='food-img' src={food.src} /></div>
-                                    <img className='dish' src={dishonly} />
+                                    <div style={{position : "fixed"}}>
+                                        <div className='food'><img className='food-img' src={food.src} /></div>
+                                        <img className='dish' src={dishonly} />
+                                    </div>
+                                    <div className='food-name'>{food.name}</div>
                                 </div>
-                                <div className='food-name'>{food.name}</div>
                             </div>
                         </Processing>
                     );
@@ -162,6 +160,7 @@ const Processing = styled.div`
         width: 500px;
         left: 50%;
         transform: translate(-50%);
+        margin-left: 300px;
         margin-top: 550px;
         text-align: center;
         border: red solid 10px;

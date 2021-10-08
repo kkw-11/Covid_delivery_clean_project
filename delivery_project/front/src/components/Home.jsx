@@ -37,7 +37,7 @@ function Home() {
                     <Foods><img alt="음식" src={foods} style={{width:"100%", height:"100%", objectFit:"cover"}}/></Foods>
                     <img alt="접시" src={dish}/>
                 </Dish>
-                <Menu src={menu} onClick={() => {history.push('/intro');}}/>
+                <Menu src={menu} onClick={() => {history.push('/menu');}}/>
             </Table>    
         </main>
     )
