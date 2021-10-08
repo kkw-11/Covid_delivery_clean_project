@@ -467,21 +467,21 @@ export default Graphs;
 
 
 const GraphWrap = styled.div`
-  border: 5px solid darkkhaki;
+  border-right: 5px solid #bdbebd;
 `
 
 const GraphBox1 = styled.div`
-  border: 5px solid crimson;
+  border-bottom: 5px solid #bdbebd;
 `
 
 const GraphBox2 = styled.div`
-  border: 5px solid turquoise;
+  border-bottom: 5px solid #bdbebd;
 `
 
 const GraphBox3 = styled.div`
-  border: 5px solid yellow;
+  border-bottom: 5px solid #bdbebd;
 `
 
 const GraphBox4 = styled.div`
-  border: 5px solid lightgreen;
+  /* border: 5px solid lightgreen; */
 `

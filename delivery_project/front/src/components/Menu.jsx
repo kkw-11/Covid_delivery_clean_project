@@ -38,6 +38,7 @@ const Menu = () => {
       <Link to="/menuHunt" >메뉴 지뢰찾기</Link> <br/><br/>
       <Link to="/menuCup" >메뉴 월드컵</Link>
       </StyleBox2>
+
         
       </p>
 
