@@ -12,8 +12,8 @@ const Menu = () => {
       <p>
   
       Q2  평소 우리동네에서 어떤 메뉴를 드실 지 고민이 많으신가요?
-      <p><Link to="/menuHunt">16강</Link></p> <br/>
-      <Link to="/menuCup">지뢰찾기</Link>
+      <p><Link to="/menuHunt">메뉴찾기</Link></p> <br/>
+      <Link to="/menuCup">메뉴8강</Link>
         
       </p>
       </div>

@@ -110,7 +110,7 @@ export default Map;
 
 
 const StyleMap = styled.div`
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
   /* display: flex;
   flex-direction: column;
   justify-content: center;
