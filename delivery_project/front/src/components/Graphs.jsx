@@ -392,12 +392,6 @@ const Graphs4 = ({ area }) => {
                         <ProgressBar animated now={grade.data[area]['좋음']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="danger"/>
                     </div>
                 </div>
-
-
-            {/* 
-            <ProgressBar animated now={50} />
-            {grade.data[area]['우수']}
-            */}
             </>)}
         </div>
     )
