@@ -4,7 +4,7 @@ import Graphs from "./Graphs"
 import Map from "./Map"
 
 
-const Intro = () => {
+const CleanStore = () => {
     
     const [area, setArea] = useState('전국')
 
@@ -19,7 +19,7 @@ const Intro = () => {
     )
 }
 
-export default Intro;
+export default CleanStore;
 
 
 const Introduce = styled.div`

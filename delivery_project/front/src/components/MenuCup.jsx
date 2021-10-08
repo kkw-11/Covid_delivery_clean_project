@@ -13,7 +13,7 @@ import food6 from '../images/6.PNG';
 import food7 from '../images/7.PNG';
 import food8 from '../images/8.PNG';
 
-function Menu2() {
+function MenuCup() {
     const allfoods = [
         { name: "치킨", src: food1 }, { name: "돈까스", src: food2 }, { name: "피자", src: food3 }, { name: "부침개", src: food4 },
         { name: "스테이크", src: food5 }, { name: "파스타", src: food6 }, { name: "초밥", src: food7 }, { name: "짜장면", src: food8 },
@@ -203,4 +203,4 @@ const Finished = styled.div`
         transform: translate(-50%);
     }
 `
-export default Menu2;
+export default MenuCup;

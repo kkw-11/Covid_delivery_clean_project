@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
-const Store = () => {
+const StoreDetail = () => {
     return (
         <div>
             <h1>가게 오픈 준비중</h1>
@@ -9,4 +9,4 @@ const Store = () => {
     )
 }
 
-export default Store;
+export default StoreDetail;
