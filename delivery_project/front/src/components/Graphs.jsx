@@ -261,9 +261,6 @@ const Graphs2 = () => {
     );
 }
 
-<<<<<<< HEAD
-const Graphs3 = () =>{
-=======
 const Graphs3 = ({ area }) => {
 
     const [franchise, setFranchise] = useState(null);
@@ -278,7 +275,6 @@ const Graphs3 = ({ area }) => {
         };
         fetchData()
     }, []);
->>>>>>> b9ed34a41a8ce55cfd3f18c5a8811126f6a46d1d
 
     return (
         <div>
@@ -369,8 +365,17 @@ const Graphs3 = ({ area }) => {
     )
 }
 
-<<<<<<< HEAD
-const Graphs4 = () =>{
+const Graphs4 = ({ area }) => {
+
+    const [grade, setGrade] = useState(null)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await axios.post(`${BACKEND_URL}/regioncount`);
+            setGrade(response.data);
+        };
+        fetchData()
+    }, []);
 
     const CardContainer = styled.div`
         display: flex;
@@ -391,64 +396,47 @@ const Graphs4 = () =>{
     `
 
     return (
-        <CardContainer>
-            <CardBox>
-                <p style={{color:"crimson"}}>매우 우수</p>
-                <p>62</p>
-                <Progress style={{ margin: "30px auto", width: "80%" }} error value={35} total={100} />
-            </CardBox>
-            <CardBox>
-                <p style={{color:"green"}}>우수</p>
-                <p>652</p>
-                <Progress style={{ margin: "30px auto", width: "80%" }} success value={80} total={100} />
-            </CardBox>
-            <CardBox>
-                <p style={{color:"#c79806"}}>좋음</p>
-                <p>76</p>
-                <Progress style={{ margin: "30px auto", width: "80%" }} warning value={45} total={100} />
-            </CardBox>
-        </CardContainer>
-=======
-const Graphs4 = ({ area }) => {
-
-    const [grade, setGrade] = useState(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.post(`${BACKEND_URL}/regioncount`);
-            setGrade(response.data);
-        };
-        fetchData()
-    }, []);
-
-    return (
-        <div>
+        <>
             {grade === null ? (
                 <p>Loading...</p>
-            ) : (<>
-            <div style={{ height: '10vh', textAlign:'-webkit-center', lineHeight:'12vh' }}>
-                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
-                        매우 우수<br></br>{grade.data[area]['매우우수']}
-                        <ProgressBar animated now={grade.data[area]['매우우수']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="success"/>
-                    </div>
-                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
-                        우수<br></br>{grade.data[area]['우수']}<br></br>
-                        <ProgressBar animated now={grade.data[area]['우수']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="warning"/>
-                    </div>
-                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
-                        좋음<br></br>{grade.data[area]['좋음']}
-                        <ProgressBar animated now={grade.data[area]['좋음']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="danger"/>
-                    </div>
-                </div>
-
-
-            {/* 
-            <ProgressBar animated now={50} />
-            {grade.data[area]['우수']}
-            */}
-            </>)}
-        </div>
->>>>>>> b9ed34a41a8ce55cfd3f18c5a8811126f6a46d1d
+            ) : (
+                <CardContainer>
+                    <CardBox>
+                        <p style={{color:"#db2828", lineHeight: '7vh'}}>매우 우수</p>
+                        <p>{grade.data[area]['매우우수']}</p>
+                        <Progress 
+                            active
+                            color={"red"}
+                            style={{ margin: "8% auto", width: "80%" }} 
+                            value={grade.data[area]['매우우수']} 
+                            total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']} 
+                        />
+                    </CardBox>
+                    <CardBox>
+                        <p style={{color:"#21ba45", lineHeight: '7vh'}}>우수</p>
+                        <p>{grade.data[area]['우수']}</p>
+                        <Progress 
+                            active
+                            color={"green"}
+                            style={{ margin: "8% auto", width: "80%" }} 
+                            value={grade.data[area]['우수']} 
+                            total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']} 
+                        />
+                    </CardBox>
+                    <CardBox>
+                        <p style={{color:"#f2c037", lineHeight: '7vh'}}>좋음</p>
+                        <p>{grade.data[area]['좋음']}</p>
+                        <Progress 
+                            active
+                            color={"yellow"}
+                            style={{ margin: "8% auto", width: "80%" }}  
+                            value={grade.data[area]['좋음']} 
+                            total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']} 
+                        />
+                    </CardBox>
+                </CardContainer>
+            )}
+        </>
     )
 }
 

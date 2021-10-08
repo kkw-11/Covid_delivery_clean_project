@@ -10,7 +10,7 @@ class testTable(db.Model):
 
 class cleanTable(db.Model):
     
-    __tablename__ = 'clean_store'
+    __tablename__ = 'clean_store2'
 
     index = db.Column(db.Integer, primary_key=True, nullable=False)
     asgn_to = db.Column(db.Integer)
