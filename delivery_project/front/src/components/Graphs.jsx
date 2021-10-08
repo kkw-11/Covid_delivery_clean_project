@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from "axios";
+import { BACKEND_URL } from "../env";
 
 import 'bootstrap/dist/css/bootstrap.css';
+import { ProgressBar } from 'react-bootstrap';
+
+import 'semantic-ui-css/semantic.min.css'
+import { Progress } from 'semantic-ui-react'
+
 import ReactApexChart from 'react-apexcharts';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-import { BACKEND_URL } from "../env";
-import { ProgressBar } from 'react-bootstrap';
 
 const data = [
     {
@@ -363,7 +367,7 @@ const Graphs3 = ({ area }) => {
 
 const Graphs4 = ({ area }) => {
 
-    const [grade, setGrade] = useState(null);
+    const [grade, setGrade] = useState(null)
 
     useEffect(() => {
         const fetchData = async () => {
@@ -373,27 +377,66 @@ const Graphs4 = ({ area }) => {
         fetchData()
     }, []);
 
+    const CardContainer = styled.div`
+        display: flex;
+    `
+    const CardBox = styled.div`
+        background-color: white;
+        box-shadow: 1px 1px 1px 1px #bdbebd;
+        border-radius: 3px;
+        width: 25%;
+        margin: 20px auto;
+        padding: 0;
+
+        > p {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+    `
+
     return (
-        <div>
+        <>
             {grade === null ? (
                 <p>Loading...</p>
-            ) : (<>
-            <div style={{ height: '10vh', textAlign:'-webkit-center', lineHeight:'12vh' }}>
-                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
-                        매우 우수<br></br>{grade.data[area]['매우우수']}
-                        <ProgressBar animated now={grade.data[area]['매우우수']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="success"/>
-                    </div>
-                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
-                        우수<br></br>{grade.data[area]['우수']}<br></br>
-                        <ProgressBar animated now={grade.data[area]['우수']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="warning"/>
-                    </div>
-                    <div style={{ width:'20%', height:'100%', textAlign:'center', display:'inline-block', lineHeight:'2vh'}}>
-                        좋음<br></br>{grade.data[area]['좋음']}
-                        <ProgressBar animated now={grade.data[area]['좋음']/(grade.data[area]['매우우수']+grade.data[area]['우수']+grade.data[area]['좋음'])*100} variant="danger"/>
-                    </div>
-                </div>
-            </>)}
-        </div>
+            ) : (
+                <CardContainer>
+                    <CardBox>
+                        <p style={{color:"#db2828", lineHeight: '7vh'}}>매우 우수</p>
+                        <p>{grade.data[area]['매우우수']}</p>
+                        <Progress 
+                            active
+                            color={"red"}
+                            style={{ margin: "8% auto", width: "80%" }} 
+                            value={grade.data[area]['매우우수']} 
+                            total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']} 
+                        />
+                    </CardBox>
+                    <CardBox>
+                        <p style={{color:"#21ba45", lineHeight: '7vh'}}>우수</p>
+                        <p>{grade.data[area]['우수']}</p>
+                        <Progress 
+                            active
+                            color={"green"}
+                            style={{ margin: "8% auto", width: "80%" }} 
+                            value={grade.data[area]['우수']} 
+                            total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']} 
+                        />
+                    </CardBox>
+                    <CardBox>
+                        <p style={{color:"#f2c037", lineHeight: '7vh'}}>좋음</p>
+                        <p>{grade.data[area]['좋음']}</p>
+                        <Progress 
+                            active
+                            color={"yellow"}
+                            style={{ margin: "8% auto", width: "80%" }}  
+                            value={grade.data[area]['좋음']} 
+                            total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']} 
+                        />
+                    </CardBox>
+                </CardContainer>
+            )}
+        </>
     )
 }
 
@@ -424,21 +467,21 @@ export default Graphs;
 
 
 const GraphWrap = styled.div`
-  border: 5px solid darkkhaki;
+  border-right: 5px solid #bdbebd;
 `
 
 const GraphBox1 = styled.div`
-  border: 5px solid crimson;
+  border-bottom: 5px solid #bdbebd;
 `
 
 const GraphBox2 = styled.div`
-  border: 5px solid turquoise;
+  border-bottom: 5px solid #bdbebd;
 `
 
 const GraphBox3 = styled.div`
-  border: 5px solid yellow;
+  border-bottom: 5px solid #bdbebd;
 `
 
 const GraphBox4 = styled.div`
-  border: 5px solid lightgreen;
+  /* border: 5px solid lightgreen; */
 `

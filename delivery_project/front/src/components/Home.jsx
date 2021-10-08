@@ -15,7 +15,7 @@ import menu from '../images/menu11.jpg';
 
 // 질문1: 스무스하게 넘어가기 (fade in, out) => useEffect return에서는 실행불가. 
 
-function Main() {
+function Home() {
 
     let imgArray = [food1, food2, food3, food4, food5, food6, food7, food8, food9];
     const [foods, setFoods] = useState(food1);
@@ -36,9 +36,8 @@ function Main() {
                 <Dish>
                     <Foods><img alt="음식" src={foods} style={{width:"100%", height:"100%", objectFit:"cover"}}/></Foods>
                     <img alt="접시" src={dish}/>
-                    test
                 </Dish>
-                <Menu src={menu} onClick={() => {history.push('/intro');}}/>
+                <Menu src={menu} onClick={() => {history.push('/menu');}}/>
             </Table>    
         </main>
     )
@@ -80,4 +79,4 @@ const Menu = styled.img`
     }
 `
 
-export default Main;
+export default Home;

@@ -4,7 +4,8 @@ import Map from "./Map"
 import Grade from "./GraphsData/Grade"
 import Graph from "./GraphsData/Graph"
 
-const Intro = () => {
+
+const CleanStore = () => {
     
     const [area, setArea] = useState('전국')
 
@@ -26,11 +27,11 @@ const Intro = () => {
     )
 }
 
-export default Intro;
+export default CleanStore;
 
 const GirdContainer = styled.div`
     display: grid;
     width:100%;
     grid-template-columns: 25% 50% 25%;
     height: 100vh;
-`;
+`

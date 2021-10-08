@@ -61,6 +61,6 @@ const Circle = styled.div`
 const Num = styled.div`
     position: absolute;
     padding: 0px;
-    margin: -8px 15px;
+    margin: -9px 15px;
 `
 

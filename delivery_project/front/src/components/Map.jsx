@@ -10,7 +10,7 @@ import "./MapData/area/area.css";
 import {BACKEND_URL} from "../env";
 
 
-const Map = (props) => {
+const Map = ({ setArea }) => {
 
   const [isClicked, setIsClicked] = useState(false) // 서울시 클릭했을 때 서울시 지도 나타내기
   const [mapData, setMapData] = useState(null);
@@ -20,20 +20,14 @@ const Map = (props) => {
   
   
   useEffect(() => {
-    let isComponentMounted = true // 무한 재렌더링 방지용
-    
+
     const fetchData = async () => {
         const response = await axios.post(`${BACKEND_URL}/gradecount`);
         console.log(response.data)
-        if (isComponentMounted) {
-            setMapData(response.data);
-        }
+        
+        setMapData(response.data);
       };
     fetchData()
-
-    return () => {
-        isComponentMounted = false
-      }
   }, []);
 
   const handlerAreaSelect = (area) => {
@@ -46,7 +40,8 @@ const Map = (props) => {
       area: area,
       num: mapData.data['all'][area],
     });
-    props.setArea(area)
+
+    setArea(area)
   };
 
   //////////////////////////////////////////////
@@ -82,7 +77,6 @@ const Map = (props) => {
 
   return (
     <StyleMap>
-        <h4>지역별 위생가게수 현황</h4> <br />
       {mapData === null ? (
         <p>Loading...</p>
       ) : (
@@ -116,7 +110,7 @@ export default Map;
 
 
 const StyleMap = styled.div`
-  border: 5px solid blue;
+  /* border: 5px solid blue; */
   /* display: flex;
   flex-direction: column;
   justify-content: center;

@@ -23,14 +23,8 @@ const Header = () => {
                   Nav.Link에서는 a 태그를 포함하기 때문에 새로고침을 막기 위해 react-router-dom에서 Link 사용
                   react-router-dom에서 Link를 가져와 링크를 변경하면 SPA 특성 유지하면서 새로고침은 안하게 함.
               */}
-              <Link to="/intro" className="nav-link">
-                빅데이터
-              </Link>
-              <Link to="/menu" className="nav-link">
-                메뉴추천
-              </Link>
-              <Link to="/store" className="nav-link">
-                가게추천
+              <Link to="/CleanStore" className="nav-link">
+                대시보드
               </Link>
             </Nav>
           </Container>

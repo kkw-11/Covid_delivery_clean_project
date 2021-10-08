@@ -113,3 +113,18 @@ def allstorecount():
     }
 }
     return jsonify(result)
+
+@bp.route('/regioncount', methods=['POST'])
+def regioncount():
+    result = {'data': defaultdict(lambda : defaultdict(int))}
+    store_list = cleanTable.query.all()
+    for store in store_list:
+        addr = str(store.addr)
+        region_big, region_small = addr.split()[0], addr.split()[1]
+        if region_big == "서울특별시":
+            result['data'][region_big][store.hg_asgn_lv] += 1
+            result['data'][region_small][store.hg_asgn_lv] += 1
+        else:
+            result['data'][region_big][store.hg_asgn_lv] += 1
+        result['data']['전국'][store.hg_asgn_lv] += 1
+    return jsonify(result)
