@@ -10,11 +10,14 @@
 ## 1. 프로젝트 소개
 
 **어떠한 데이터셋와 도구 및 기술을 사용했는지에 대한 설명과 엔드유저에게 보이는 웹서비스에 대한 소개**
-  - 
-  - 사용하려는 데이터(제안된 데이터 중 하나 또는 선택한 다른 데이터 세트)를 명시, 이에 대한 설명
-  - 기술 스택 (python, flask, javascript, react, MySQL 등)
-  - 사용된 라이브러리 (pandas, numpy, matplotlib, wordcloud, chart.js 등)
-  - 웹서비스에 대한 자세한 개요 (코로나로 인한 배달서비스 급증에 따른 소비자 민원 조사 및 위생상태 불량 적발 건수 데이터 분석과 이러한 사용자들의 불만해결을 위한 지역별 위생 가게 정보 제공)
+- 전국 인허가 데이터 행정안전부_일반음식점(수시)20210731 https://www.data.go.kr/data/15045016/fileData.do 
+- 행정안전부휴게음식점(수시)_20210731 https://www.localdata.go.kr/data/dataView.do  
+- 식품안전나라 '식품접객업소 위생등급 지정현황' 식품의약품안전처 open api 이용 https://www.foodsafetykorea.go.kr/apiMain.do  
+- 통계청 온라인 쇼핑 거래액 ( 음식 서비스) http://kostat.go.kr/understand/info/info_lge/1/detail_lang.action?bmode=detail_lang&cd=SL4420
+- 사용하려는 데이터(제안된 데이터 중 하나 또는 선택한 다른 데이터 세트)를 명시, 이에 대한 설명
+- 기술 스택 (python, flask, javascript, react, MySQL 등)
+- 사용된 라이브러리 (pandas, numpy, matplotlib, wordcloud, chart.js 등)
+- 웹서비스에 대한 자세한 개요 (코로나로 인한 배달서비스 급증에 따른 소비자 민원 조사 및 위생상태 불량 적발 건수 데이터 분석과 이러한 사용자들의 불만해결을 위한 지역별 위생 가게 정보 제공)
 
 ## 2. 프로젝트 목표
 
@@ -29,13 +32,16 @@
   - 프로젝트만의 차별점, 기대 효과
 
 ## 4. 프로젝트 구성도
-  - 와이어프레임/스토리보드 추가
+  - [클린한끼](https://whimsical.com/v3-3ctRi38AoRBshnap5YwmxJ)
 
 ## 5. 프로젝트 팀원 역할 분담
 | 이름 | 담당 업무 |
 | ------ | ------ |
-| 멤버1 | 팀장/프론트엔드 개발 |
-| 멤버2 | 백엔드 개발/데이터 분석 |
+| 강경모 | 팀장/프론트엔드 개발 |
+| 고예림 | 프론트엔드 개발 |
+| 김기원 | 기획/데이터분석/백엔드 개발|
+| 민경준 | 프론트엔드 개발/백엔드 개발/데이터분석 |
+| 최윤성| 기획/데이터분석/백엔드 개발 |
 
 **멤버별 responsibility**
 
