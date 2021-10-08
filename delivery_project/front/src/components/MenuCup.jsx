@@ -7,16 +7,27 @@ import dishonly from '../images/dish-only.jpg'
 import food1 from '../images/1.PNG';
 import food2 from '../images/2.PNG';
 import food3 from '../images/3.PNG';
-import food4 from '../images/4.PNG';
+import food4 from '../images/17.PNG';
 import food5 from '../images/5.PNG';
 import food6 from '../images/6.PNG';
 import food7 from '../images/7.PNG';
 import food8 from '../images/8.PNG';
+import food9 from '../images/18.PNG';
+import food10 from '../images/10.PNG';
+import food11 from '../images/11.PNG';
+import food12 from '../images/12.PNG';
+import food13 from '../images/13.PNG';
+import food14 from '../images/14.PNG';
+import food15 from '../images/15.PNG';
+import food16 from '../images/16.PNG';
+
 
 function MenuCup() {
     const allfoods = [
-        { name: "치킨", src: food1 }, { name: "돈까스", src: food2 }, { name: "피자", src: food3 }, { name: "부침개", src: food4 },
+        { name: "치킨", src: food1 }, { name: "돈까스", src: food2 }, { name: "피자", src: food3 }, { name: "족발", src: food4 },
         { name: "스테이크", src: food5 }, { name: "파스타", src: food6 }, { name: "초밥", src: food7 }, { name: "짜장면", src: food8 },
+        { name: "닭갈비", src: food9 }, { name: "떡볶이", src: food10 }, { name: "보쌈", src: food11 }, { name: "쌀국수", src: food12 },
+        { name: "삼겹살구이", src: food13 }, { name: "갈비찜", src: food14 }, { name: "순대국밥", src: food15 }, { name: "부대찌개", src: food16 },
     ]
 
     const [foods, setFoods] = useState([]);
@@ -31,7 +42,7 @@ function MenuCup() {
         allfoods.sort(() => Math.random() - 0.5);
         setFoods(allfoods);
         setMatch([allfoods[0], allfoods[1]]);
-        setRound('8강');
+        setRound('16강');
         setCount(1);
         setFinished(false);
     }, []);
@@ -56,11 +67,13 @@ function MenuCup() {
             setCount(count + 1);
         }
 
-        if (count < 4) {
+        if (count < 8) {
+            setRound('16강');
+        } else if (count >= 8 && count < 12) {
             setRound('8강');
-        } else if (count >= 4 && count < 6) {
+        } else if (count >= 12 && count < 14) {
             setRound('4강');
-        } else if (count >= 6 && count < 7) {
+        } else if (count >= 14 && count < 15) {
             setRound('2강');
         } else {
             setRound('우승 메뉴')
@@ -125,7 +138,7 @@ const Processing = styled.div`
     .food-wrap {
         flex: 1;
         position: relative;
-        border: solid blue 10px;
+        // border: solid blue 10px;
     }
     .dish {
         margin: 0% 3%;
@@ -161,9 +174,9 @@ const Processing = styled.div`
         left: 50%;
         transform: translate(-50%);
         margin-left: 300px;
-        margin-top: 550px;
+        margin-top: 570px;
         text-align: center;
-        border: red solid 10px;
+        // border: red solid 10px;
     }
 `
 const Finished = styled.div`
