@@ -17,7 +17,6 @@ const Menu = () => {
 
         <Link to="/issue" > 이슈확인하기
 
-
         </Link>      
           <br/>
           <br/>
