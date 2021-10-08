@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import dish from '../images/dish3.jpg';
 import dishleft from '../images/dish-left.jpg';
 import dishright from '../images/dish-right.jpg';
-import dishonly from '../images/dishonly.jpg'
+import dishonly from '../images/dish-only.jpg'
 import food1 from '../images/1.PNG';
 import food2 from '../images/2.PNG';
 import food3 from '../images/3.PNG';
@@ -12,9 +12,6 @@ import food5 from '../images/5.PNG';
 import food6 from '../images/6.PNG';
 import food7 from '../images/7.PNG';
 import food8 from '../images/8.PNG';
-
-// 1. 접시 안에 음식 넣기
-// 2. 마지막 승자 css 비율 바꾸기
 
 function Menu2() {
     const allfoods = [
@@ -74,12 +71,12 @@ function Menu2() {
         <main role='main'>
             {finished ?
                 winner.map(food => {
-                    console.log(food);
                     return (
                         <Finished>
-                            <div className='winner'>
-                                <div className='winner_food'><img className='winner_img' src={food.src} /></div>
+                            <div className='winner-wrap'>
+                                <div className='winner'><img className='winner-img' src={food.src} /></div>
                                 <img src={dish} />
+                                <div className='winner-name'>{food.name}</div>
                             </div>
                         </Finished>
                     );
@@ -89,26 +86,35 @@ function Menu2() {
                     return (
                         <Processing>
                             <div className='round'>{round}</div>
-                            <div className='foods' key={food.name} onClick={worldcupHandler(food)}>
-                                <div className='food'><img className='food_img' src={food.src} /></div>
-                                <div className='food_name'>{food.name}</div>
-                                <img src={dishonly} />
+                            <div className='food-wrap' key={food.name} onClick={worldcupHandler(food)}>
+                                <div style={{position : "fixed"}}>
+                                    <div className='food'><img className='food-img' src={food.src} /></div>
+                                    <img className='dish' src={dishonly} />
+                                </div>
+                                <div className='food-name'>{food.name}</div>
                             </div>
                         </Processing>
                     );
-                })}
+                })
+            }
         </main>
     );
 }
 
 const Processing = styled.div`
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
+    width: 40%;
     height: 100vh;
-    // align-items: center;
-    // justify-content: center;
-    // align-container: flex-start;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    margin-left: 6.5%;
     // position: fixed;
+
+    // & ~ & {
+    //     margin: 0 0 0 700px;
+    // }
     .round {
         position: absolute;
         z-index: 2;
@@ -118,9 +124,13 @@ const Processing = styled.div`
         padding: 5px 30px;
         font-size: 50px;
     }
-    .foods {
+    .food-wrap {
         flex: 1;
         position: relative;
+        border: solid blue 10px;
+    }
+    .dish {
+        margin: 0% 3%;
     }
     .food {
         position: absolute;
@@ -128,30 +138,33 @@ const Processing = styled.div`
         overflow: hidden;
         width: 375px;
         height: 375px;
-        margin-top: 6%;
-        margin-left: 6%;
+        margin-top: 16.5%;
+        margin-left: 18.5%;
         z-index: 100;
         border-radius: 70%;
         box-shadow: 10px 10px 13px black, -10px -10px 13px black;
     }
-    .food_img {
+    .food-img {
         width: 100%;
-        height:100%;
-        // object-fit: cover;
+        height: 100%;
+        object-fit: cover;
     }
-    .food_img: hover {
+    .food-img: hover {
         transform: scale(1.1);
         opacity: 0.7;
         cursor: pointer;
         transition: 0.5s;
     }
-    .food_name {
+    .food-name {
         position: absolute;
-        z-index: 3;
-        bottom: 3%;
+        z-index: 101;
         font-size: 80px;
+        width: 500px;
         left: 50%;
         transform: translate(-50%);
+        margin-top: 550px;
+        text-align: center;
+        border: red solid 10px;
     }
 `
 const Finished = styled.div`
@@ -161,12 +174,12 @@ const Finished = styled.div`
     height: 100vh;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 2%;
 
-    .winner {
+    .winner-wrap {
         position: relative;
     }
-    .winner_food{
+    .winner {
         width: 327px;
         height: 327px;
         position: absolute;
@@ -177,10 +190,17 @@ const Finished = styled.div`
         box-shadow: 10px 10px 13px black, -10px -10px 13px black;
         overflow: hidden;
     }
-    .winner_img {
+    .winner-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    .winner-name {
+        position: absolute;
+        z-index: 3;
+        font-size: 80px;
+        left: 50%;
+        transform: translate(-50%);
     }
 `
 export default Menu2;
