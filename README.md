@@ -10,11 +10,12 @@
 ## 1. 프로젝트 소개
 
 **어떠한 데이터셋와 도구 및 기술을 사용했는지에 대한 설명과 엔드유저에게 보이는 웹서비스에 대한 소개**
-- 전국 인허가 데이터 행정안전부_일반음식점(수시)20210731 https://www.data.go.kr/data/15045016/fileData.do 
-- 행정안전부휴게음식점(수시)_20210731 https://www.localdata.go.kr/data/dataView.do  
-- 식품안전나라 '식품접객업소 위생등급 지정현황' 식품의약품안전처 open api 이용 https://www.foodsafetykorea.go.kr/apiMain.do  
-- 통계청 온라인 쇼핑 거래액 ( 음식 서비스) http://kostat.go.kr/understand/info/info_lge/1/detail_lang.action?bmode=detail_lang&cd=SL4420
 - 사용하려는 데이터(제안된 데이터 중 하나 또는 선택한 다른 데이터 세트)를 명시, 이에 대한 설명
+  - [전국 인허가 데이터 행정안전부_일반음식점(수시)20210731](https://www.data.go.kr/data/15045016/fileData.do)
+  - [행정안전부휴게음식점(수시)_20210731](https://www.localdata.go.kr/data/dataView.do)
+  - [식품안전나라 '식품접객업소 위생등급 지정현황' 식품의약품안전처](https://www.foodsafetykorea.go.kr/apiMain.do)
+  - [통계청 온라인 쇼핑 거래액 ( 음식 서비스)](http://kostat.go.kr/understand/info/info_lge/1/detail_lang.action?bmode=detail_lang&cd=SL4420)
+
 - 기술 스택 (python, flask, javascript, react, MySQL 등)
 - 사용된 라이브러리 (pandas, numpy, matplotlib, wordcloud, chart.js 등)
 - 웹서비스에 대한 자세한 개요 (코로나로 인한 배달서비스 급증에 따른 소비자 민원 조사 및 위생상태 불량 적발 건수 데이터 분석과 이러한 사용자들의 불만해결을 위한 지역별 위생 가게 정보 제공)
