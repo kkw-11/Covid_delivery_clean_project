@@ -24,13 +24,7 @@ const Header = () => {
                   react-router-dom에서 Link를 가져와 링크를 변경하면 SPA 특성 유지하면서 새로고침은 안하게 함.
               */}
               <Link to="/CleanStore" className="nav-link">
-                빅데이터
-              </Link>
-              <Link to="/menuHunt" className="nav-link">
-                메뉴추천
-              </Link>
-              <Link to="/StoreDetail" className="nav-link">
-                가게추천
+                대시보드
               </Link>
             </Nav>
           </Container>

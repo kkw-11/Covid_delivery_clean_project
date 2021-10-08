@@ -23,12 +23,12 @@ export default CleanStore;
 
 
 const Introduce = styled.div`
-    border: 5px solid orange;
+    border: 5px solid #bdbebd;
     padding-bottom: 5%;
 `
 
 const Container = styled.div`
-  border: 5px solid green;
+  /* border: 5px solid green; */
   display: grid;
   grid-template-columns: 50% 1fr;
 `;

@@ -138,7 +138,6 @@ const Processing = styled.div`
     .food-wrap {
         flex: 1;
         position: relative;
-        // border: solid blue 10px;
     }
     .dish {
         margin: 0% 3%;
@@ -176,7 +175,6 @@ const Processing = styled.div`
         margin-left: 300px;
         margin-top: 570px;
         text-align: center;
-        // border: red solid 10px;
     }
 `
 const Finished = styled.div`
