@@ -74,7 +74,7 @@ const MapView = ({ franchise, allstore, onAreaClick }) => {
     <>
       <MapLegend isRelative={isRelative}/>
       <button 
-          style={{position: "absolute", margin:"1% 0 0 1%"}}
+          style={{position: "relative", margin:"1% 0 0 1%"}}
           onClick={() => {setIsRelative(!isRelative)}}
       >
           {isRelative ? "위생가게수치" : "위생가게비율"}

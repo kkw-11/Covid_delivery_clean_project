@@ -52,11 +52,11 @@ const SeoulExpansion = ({franchise, allstore, onAreaClick}) => {
     <>
         <SeoulMapLegend isRelative={isRelative} />
         <button 
-            style={{position: "absolute", margin:"1% 0 0 1%"}}
+            style={{position: "relative", margin:"1% 0 0 1%"}}
             onClick={() => {setIsRelative(!isRelative)}}
         >
             {isRelative ? "위생가게수치" : "위생가게비율"}
-        </button> 
+        </button>   
 
         <svg height= { 650 } width= { 735 } margin= { 100 } style={{position:'absolute', display:'flex'}}>
             <defs>

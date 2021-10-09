@@ -7,8 +7,6 @@ import SeoulExpansion from "./MapData/seoul/SeoulExpansion"
 import MapView from "./MapData/MapView"
 import MapInfo from "./MapData/MapInfo"
 import "./MapData/area/area.css";
-import 'bootstrap/dist/css/bootstrap.css';
-import { Button } from 'react-bootstrap';
 
 import {BACKEND_URL} from "../env";
 
@@ -39,7 +37,7 @@ const Map = ({ setArea }) => {
     
     if (area == "서울특별시") {setIsSeoul(true)} // 서울 지도 확대해서 보여주기
 
-    window.scrollTo(0,50) // 클릭시 최상단으로 이동
+    // window.scrollTo(0,50)
 
     setSelectArea({
       area: area,
@@ -98,9 +96,7 @@ const Map = ({ setArea }) => {
                 allstore={allstore.data}
                 onAreaClick={handlerAreaSelect}
               />
-              <div style={{ float:'right', margin:'5%', position:'relative' }}>
-                <Button variant="secondary" onClick={() => {setIsSeoul(false)}}>전국으로</Button>
-              </div>
+                <ReturnButton onClick={() => {setIsSeoul(false)}}> 전국으로 </ReturnButton>
             </SeoulMap>
           ) : (
             <MapView
@@ -133,5 +129,10 @@ const SeoulMap = styled.div`
     z-index: 100;
 `;
 
+const ReturnButton = styled.button`
+  float: right;
+  margin: 3%;
+  position: relative;
+`
 
 
