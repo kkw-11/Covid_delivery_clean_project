@@ -3,6 +3,7 @@ import "./area.css";
 
 function Gangwon({ fill, onClick, onMouseOver, onMouseLeave }) {
   return (
+
     <polyline
       id="강원도"
       className="area"

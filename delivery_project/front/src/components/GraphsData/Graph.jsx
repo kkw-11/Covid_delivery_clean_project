@@ -3,32 +3,16 @@ import styled from 'styled-components';
 import axios from "axios";
 import '../../fonts/font.css';
 
-import loading from '../../images/Spinner-1s-200px.gif';
+import loading from '../../images/4762-food-carousel.gif';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReactApexChart from 'react-apexcharts';
 
 import { BACKEND_URL } from "../../env";
 import { ProgressBar } from 'react-bootstrap';
 
-const Graphs1 = ({ area }) => {
+const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
 
-    const [franchise, setFranchise] = useState(null);
-    const [allfranchise, setAllfranchise] = useState(null);
-    const [storelist, setStorelist] = useState(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.post(`${BACKEND_URL}/regioncount`);
-            setFranchise(response.data);
-            const response2 = await axios.post(`${BACKEND_URL}/allfranchise`);
-            setAllfranchise(response2.data);
-            console.log(response2.data)
-            const response3 = await axios.post(`${BACKEND_URL}/storelist`);
-            setStorelist(response3.data);
-        };
-        fetchData()
-    }, []);
-
+    
     const StoreName = styled.p`
         font-family: Blackhan;
         font-size: 35px;
@@ -40,7 +24,8 @@ const Graphs1 = ({ area }) => {
     return (
         <div>
             {franchise === null || storelist === null || allfranchise === null ? (
-                <img src={loading} width={200} height={200}></img>
+            
+                <img src={loading} style= {{display: "block", margin: "40% auto"}} width={350} height={350} ></img>
             ) : (
                 <>
                     <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', margin:'1%' }}>
@@ -129,11 +114,16 @@ const Graphs1 = ({ area }) => {
     )
 }
 
-const Graph = ({ area }) => {
+const Graph = ({ area, franchise, allfranchise, storelist }) => {
 
     return (
         <>
-            <Graphs1 area={area} />
+            <Graphs1 
+                area={area} 
+                franchise={franchise}
+                allfranchise={allfranchise}
+                storelist={storelist}
+            />
         </>
     )
 }

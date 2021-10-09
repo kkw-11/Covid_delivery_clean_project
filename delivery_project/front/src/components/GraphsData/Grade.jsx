@@ -3,7 +3,7 @@ import axios from "axios";
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import gradeStandard from '../../images/gradestandard.png';
-import loading from '../../images/Spinner-1s-200px.gif';
+import loading from '../../images/25523-wok-pan-food-fry-on-fire.gif';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import { Button } from 'react-bootstrap';
@@ -23,18 +23,9 @@ const customStyles = {
 };
 
 
-const Grade = ({ area }) => {
+const Grade = ({ area, grade }) => {
 
-    const [grade, setGrade] = useState(null);
     const [modalIsOpen, setIsOpen] = useState(false);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.post(`${BACKEND_URL}/gradecount`);
-            setGrade(response.data);
-        };
-        fetchData()
-    }, []);
 
     const CardContainer = styled.div`
         display: block;
@@ -58,7 +49,7 @@ const Grade = ({ area }) => {
     return (
         <div>
             {grade === null ? (
-                <img src={loading} width={200} height={200}></img>
+                <img src={loading} width={400} height={500}></img>
             ) : (<>
                 <div style={{ width: '100%', textAlign: 'center', display: 'inline-block', padding: '3vh' }}>
                     <Button variant="info" onClick={() => { setIsOpen(true) }}>식약처 위생인증 기준</Button>

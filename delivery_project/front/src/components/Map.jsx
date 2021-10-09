@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import loading from '../images/Spinner-1s-200px.gif';
+import loading from '../images/67225-delivery-food-interaction.gif';
 import SeoulExpansion from "./MapData/seoul/SeoulExpansion"
 import MapView from "./MapData/MapView"
 import MapInfo from "./MapData/MapInfo"
@@ -81,7 +81,7 @@ const Map = ({ setArea }) => {
   return (
     <StyleMap>
         {franchise === null || allstore === null ? (
-          <img src={loading} width={200} height={200}></img>
+          <img src={loading} style= {{display: "block", margin: "5% auto"}} width={500} height={500}></img>
       ) : (
         <>
           {/* <MapInfo
