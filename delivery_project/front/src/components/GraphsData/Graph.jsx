@@ -43,10 +43,10 @@ const Graphs1 = ({ area }) => {
                 <img src={loading} width={200} height={200}></img>
             ) : (
                 <>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', marginTop:'10%' }}>
+                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', margin:'1%' }}>
                         <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>{area} 프랜차이즈 비율</span></p>
                     </div>
-                    <div style={{ width: '100%', textAlign: '-webkit-center' }}>
+                    <div style={{ width: '100%', textAlign: '-webkit-center'}}>
                         <ReactApexChart
                             options={{
                                 chart: {
@@ -79,7 +79,7 @@ const Graphs1 = ({ area }) => {
                             width="85%"
                         />
                     </div>
-                    <div style={{ width: '100%', textAlign: '-webkit-center', lineHeight: '5vh', marginTop:'0%', marginBottom: '-30%' }}>
+                    <div style={{ width: '100%', height: '15%', textAlign: '-webkit-center', lineHeight: '5vh', margin:'0'}}>
                             <ReactApexChart
                                 options={{
                                     chart: {
@@ -112,7 +112,7 @@ const Graphs1 = ({ area }) => {
                                 width="85%"
                             />
                         </div>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', marginTop:'10%', marginBottom: '5%' }}>
+                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', marginBottom: '10%' }}>
                         <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>{area} 위생가게 리스트</span></p>
                     </div>
                     <div style={{ width: '80%', textAlign: 'left', lineHeight: '5vh', marginLeft: '15%' }}>

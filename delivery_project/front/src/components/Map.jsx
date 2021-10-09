@@ -37,7 +37,7 @@ const Map = ({ setArea }) => {
     
     if (area == "서울특별시") {setIsSeoul(true)} // 서울 지도 확대해서 보여주기
 
-    // window.scrollTo(0,50)
+    window.scrollTo(0,50)
 
     setSelectArea({
       area: area,
