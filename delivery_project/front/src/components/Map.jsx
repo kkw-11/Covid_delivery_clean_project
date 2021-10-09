@@ -84,11 +84,11 @@ const Map = ({ setArea }) => {
           <img src={loading} width={200} height={200}></img>
       ) : (
         <>
-          <MapInfo
+          {/* <MapInfo
             className="text-box"
             area={selectArea.area}
             num={selectArea.num}
-          />
+          /> */}
           {isSeoul ? (
             <SeoulMap visible={isSeoul} ref={outsideRef}>
               <SeoulExpansion 
@@ -131,7 +131,7 @@ const SeoulMap = styled.div`
 
 const ReturnButton = styled.button`
   float: right;
-  margin: 3%;
+  margin: 1%;
   position: relative;
 `
 

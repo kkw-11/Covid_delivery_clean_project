@@ -27,6 +27,7 @@ const App = () => {
       <GlobalStyles />
       <Helmet>
         <title>클린한끼</title>
+        <link href="//font.elice.io/EliceDigitalBaeum.css" rel="stylesheet"></link>
       </Helmet>
 
       <Header />

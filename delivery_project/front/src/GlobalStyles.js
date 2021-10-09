@@ -4,6 +4,10 @@ import reset from "styled-reset";
 const globalStyles = createGlobalStyle`
     ${reset}
 
+    html, body {
+        font-family: "Elice Digital Baeum",sans-serif;
+    }
+    
     body {
         margin: 0;
         padding: 0;

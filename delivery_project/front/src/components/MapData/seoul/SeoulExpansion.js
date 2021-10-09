@@ -58,7 +58,7 @@ const SeoulExpansion = ({franchise, allstore, onAreaClick}) => {
             {isRelative ? "위생가게수치" : "위생가게비율"}
         </button>   
 
-        <svg height= { 650 } width= { 735 } margin= { 100 } style={{position:'absolute', display:'flex'}}>
+        <svg height= { 650 } width= { 735 } margin= { 100 } viewBox="0 0 800 700" style={{position:'absolute', display:'flex'}}>
             <defs>
                 <filter id="dropshadow">
                     <feGaussianBlur in="SourceAlpha" stdDeviation="0" />
