@@ -1,5 +1,7 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import axios from "axios";
+import { BACKEND_URL } from "../../env";
 import {
   Seoul,
   Gyeonggi,
@@ -50,83 +52,174 @@ const colorSpectrum = (num) => {
   else return 10
 }
 
-const MapView = ({ color, onAreaClick }) => {
+const relativeColorSpectrum  = (num) => {
+  if (num < 0.005) return 0
+  else if (num < 0.01) return 1
+  else if (num < 0.015) return 2
+  else if (num < 0.02) return 3
+  else if (num < 0.025) return 4
+  else if (num < 0.03) return 5
+  else if (num < 0.035) return 6
+  else if (num < 0.04) return 7
+  else if (num < 0.045) return 8
+  else if (num < 0.5) return 9
+  else return 10
+}
 
+const MapView = ({ franchise, allstore, onAreaClick }) => {
+
+  const [isRelative, setIsRelative] = useState(true)
+ 
   return (
     <>
-      <MapLegend />
+      <MapLegend isRelative={isRelative}/>
+      <button 
+          style={{position: "absolute", margin:"1% 0 0 1%"}}
+          onClick={() => {setIsRelative(!isRelative)}}
+      >
+          {isRelative ? "위생가게수치" : "위생가게비율"}
+      </button>   
+      
       <svg width="100%" height="1000px" viewBox="0 0 800 1200">
         <Seoul
-          fill={fillColor[colorSpectrum(color['all']["서울특별시"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["서울특별시"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["서울특별시"] / allstore["서울특별시"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Gyeonggi
-          fill={fillColor[colorSpectrum(color['all']["경기도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["경기도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["경기도"] / allstore["경기도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Gangwon
-          fill={fillColor[colorSpectrum(color['all']["강원도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["강원도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["강원도"] / allstore["강원도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Incheon
-          fill={fillColor[colorSpectrum(color['all']["인천광역시"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["인천광역시"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["인천광역시"] / allstore["인천광역시"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Chungnam
-          fill={fillColor[colorSpectrum(color['all']["충청남도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["충청남도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["충청남도"] / allstore["충청남도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Chungbuk
-          fill={fillColor[colorSpectrum(color['all']["충청북도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["충청북도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["충청북도"] / allstore["충청북도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Sejong
-          fill={fillColor[colorSpectrum(color['all']["세종특별자치시"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["세종특별자치시"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["세종특별자치시"] / allstore["세종특별자치시"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Daejeon
-          fill={fillColor[colorSpectrum(color['all']["대전광역시"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["대전광역시"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["대전광역시"] / allstore["대전광역시"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Gyeongnam
-          fill={fillColor[colorSpectrum(color['all']["경상남도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["경상남도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["경상남도"] / allstore["경상남도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Gyeongbuk
-          fill={fillColor[colorSpectrum(color['all']["경상북도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["경상북도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["경상북도"] / allstore["경상북도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Jeonbuk
-          fill={fillColor[colorSpectrum(color['all']["전라북도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["전라북도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["전라북도"] / allstore["전라북도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Jeonnam
-          fill={fillColor[colorSpectrum(color['all']["전라남도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["전라남도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["전라남도"] / allstore["전라남도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Ulsan
-          fill={fillColor[colorSpectrum(color['all']["울산광역시"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["울산광역시"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["울산광역시"] / allstore["울산광역시"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Busan
-          fill={fillColor[colorSpectrum(color['all']["부산광역시"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["부산광역시"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["부산광역시"] / allstore["부산광역시"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Daegu
-          fill={fillColor[colorSpectrum(color['all']["대구광역시"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["대구광역시"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["대구광역시"] / allstore["대구광역시"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Gwangju
-          fill={fillColor[colorSpectrum(color['all']["광주광역시"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["광주광역시"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["광주광역시"] / allstore["광주광역시"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
         <Jeju
-          fill={fillColor[colorSpectrum(color['all']["제주특별자치도"])]}
+          fill={
+            isRelative ? 
+              fillColor[colorSpectrum(franchise["all"]["제주특별자치도"])] : 
+              fillColor[relativeColorSpectrum(franchise["all"]["제주특별자치도"] / allstore["제주특별자치도"])]
+          }
           onClick={(e) => onAreaClick(e.target.id)}
         />
       </svg>
     </>
-  );
+  ); 
 }
 
 export default MapView;
