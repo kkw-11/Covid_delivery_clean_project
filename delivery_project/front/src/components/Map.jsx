@@ -12,33 +12,35 @@ import {BACKEND_URL} from "../env";
 
 const Map = ({ setArea }) => {
 
-  const [isClicked, setIsClicked] = useState(false) // 서울시 클릭했을 때 서울시 지도 나타내기
-  const [mapData, setMapData] = useState(null);
+  const [isSeoul, setIsSeoul] = useState(false) 
+  // 서울시 클릭했을 때 서울시 지도 나타내기
+
   const [selectArea, setSelectArea] = useState({
     area: "",
   });
   
-  
-  useEffect(() => {
+  const [franchise, setFranchise] = useState(null);
+  const [allstore, setAllstore] = useState(null);
 
-    const fetchData = async () => {
-        const response = await axios.post(`${BACKEND_URL}/gradecount`);
-        console.log(response.data)
-        
-        setMapData(response.data);
+  useEffect(() => {
+      const fetchData = async () => {
+          const response = await axios.post(`${BACKEND_URL}/gradecount`);
+          setFranchise(response.data);
+          const response2 = await axios.post(`${BACKEND_URL}/allstorecount`);
+          setAllstore(response2.data);
       };
-    fetchData()
+      fetchData()
   }, []);
 
   const handlerAreaSelect = (area) => {
     
-    if (area == "서울특별시") {setIsClicked(true)} // 서울 지도 확대해서 보여주기
+    if (area == "서울특별시") {setIsSeoul(true)} // 서울 지도 확대해서 보여주기
 
     window.scrollTo(0,150) // 클릭시 최상단으로 이동
 
     setSelectArea({
       area: area,
-      num: mapData.data['all'][area],
+      num: franchise.data['all'][area],
     });
 
     setArea(area)
@@ -59,7 +61,7 @@ const Map = ({ setArea }) => {
   
         // 현재 document에서 mousedown 이벤트가 동작하면 호출되는 함수입니다.
         if (ref.current && !ref.current.contains(event.target)) {
-          setIsClicked(false)
+          setIsSeoul(false)
         }
       }
   
@@ -77,7 +79,7 @@ const Map = ({ setArea }) => {
 
   return (
     <StyleMap>
-      {mapData === null ? (
+      {franchise === null || allstore === null ? (
         <p>Loading...</p>
       ) : (
         <>
@@ -86,16 +88,18 @@ const Map = ({ setArea }) => {
             area={selectArea.area}
             num={selectArea.num}
           />
-          {isClicked ? (
-            <SeoulMap visible={isClicked} ref={outsideRef}>
+          {isSeoul ? (
+            <SeoulMap visible={isSeoul} ref={outsideRef}>
               <SeoulExpansion 
-                color={mapData.data}
+                franchise={franchise.data}
+                allstore={allstore.data}
                 onAreaClick={handlerAreaSelect}
               />
             </SeoulMap>
           ) : (
             <MapView
-              color={mapData.data}
+              franchise={franchise.data}
+              allstore={allstore.data}
               onAreaClick={handlerAreaSelect}
           />
           )}

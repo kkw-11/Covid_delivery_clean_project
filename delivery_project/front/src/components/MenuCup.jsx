@@ -146,7 +146,7 @@ const Processing = styled.div`
         height: 100%;
         object-fit: cover;
     }
-    .food-img: hover {
+    .food-img:hover {
         transform: scale(1.1);
         opacity: 0.7;
         cursor: pointer;
