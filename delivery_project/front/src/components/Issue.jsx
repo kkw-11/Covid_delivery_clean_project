@@ -390,166 +390,134 @@ const Issue = () => {
     <>
       <br />
       <br />
-      <p>
-        <StyleBox>
-          <h1>*클린한끼 궁금증*</h1>
-        </StyleBox>
+      <StyleBox>
+        <h1>*클린한끼 궁금증*</h1>
+      </StyleBox>
 
-        <br />
-        <br />
-        <StyleBox2>
-          <div
-            className="Q1"
+      <br />
+      <br />
+      <StyleBox2>
+        <div
+          className="Q1"
+          onClick={() => {
+            setIsOpen1(true);
+          }}
+        >
+          1) 코로나 이후 온라인 음식 주문량은?
+        </div>
+
+        <Modal
+          isOpen={modalIsOpen1}
+          onRequestClose={() => {
+            setIsOpen1(false);
+          }}
+          style={customStyles}
+        >
+          <Graphs1 />
+          <button
             onClick={() => {
-              setIsOpen1(true);
-            }}
-          >
-            1) 코로나 이후 온라인 음식 주문량은?
-          </div>
-
-          <Modal
-            isOpen={modalIsOpen1}
-            onRequestClose={() => {
               setIsOpen1(false);
             }}
-            style={customStyles}
           >
-            <Graphs1 />
-            <button
-              onClick={() => {
-                setIsOpen1(false);
-              }}
-            >
-              X
-            </button>
-            {/* <img src={}></img> */}
-          </Modal>
-        </StyleBox2>
+            X
+          </button>
+          {/* <img src={}></img> */}
+        </Modal>
+      </StyleBox2>
 
-        <br />
-        <StyleBox2>
-          <div
-            className="Q2"
+      <br />
+      <StyleBox2>
+        <div
+          className="Q2"
+          onClick={() => {
+            setIsOpen2(true);
+          }}
+        >
+          2) 이것에 따른 이슈는 무엇일까요?
+        </div>
+        <Modal
+          isOpen={modalIsOpen2}
+          onRequestClose={() => {
+            setIsOpen2(false);
+          }}
+          style={customStyles}
+        >
+          동영상
+          <button
             onClick={() => {
-              setIsOpen2(true);
-            }}
-          >
-            2) 이것에 따른 이슈는 무엇일까요?
-          </div>
-          <Modal
-            isOpen={modalIsOpen2}
-            onRequestClose={() => {
               setIsOpen2(false);
             }}
-            style={customStyles}
           >
-            동영상
-            <button
-              onClick={() => {
-                setIsOpen2(false);
-              }}
-            >
-              X
-            </button>
-            {/* <img src={}></img> */}
-          </Modal>
-        </StyleBox2>
+            X
+          </button>
+          {/* <img src={}></img> */}
+        </Modal>
+      </StyleBox2>
 
-        <br />
-        <StyleBox2>
-          <div
-            className="Q3"
+      <br />
+      <StyleBox2>
+        <div
+          className="Q3"
+          onClick={() => {
+            setIsOpen3(true);
+          }}
+        >
+          3) 어떤 민원이 있었을까요?
+        </div>
+        <Modal
+          isOpen={modalIsOpen3}
+          onRequestClose={() => {
+            setIsOpen3(false);
+          }}
+          style={customStyles}
+        >
+          <Graphs2 />
+          <button
             onClick={() => {
-              setIsOpen3(true);
-            }}
-          >
-            3) 어떤 민원이 있었을까요?
-          </div>
-          <Modal
-            isOpen={modalIsOpen3}
-            onRequestClose={() => {
               setIsOpen3(false);
             }}
-            style={customStyles}
           >
-            <Graphs2 />
-            <button
-              onClick={() => {
-                setIsOpen3(false);
-              }}
-            >
-              X
-            </button>
-            {/* <img src={}></img> */}
-          </Modal>
-        </StyleBox2>
+            X
+          </button>
+          {/* <img src={}></img> */}
+        </Modal>
+      </StyleBox2>
 
-        <br />
-        <StyleBox2>
-          <div
-            className="Q4"
+      <br />
+      <StyleBox2>
+        <div
+          className="Q4"
+          onClick={() => {
+            setIsOpen4(true);
+          }}
+        >
+          4) 식품 위생법 적발건수는??
+        </div>
+        <Modal
+          isOpen={modalIsOpen4}
+          onRequestClose={() => {
+            setIsOpen4(false);
+          }}
+          style={customStyles}
+        >
+          <Graphs3 />
+          <button
             onClick={() => {
-              setIsOpen4(true);
-            }}
-          >
-            4) 식품 위생법 적발건수는??
-          </div>
-          <Modal
-            isOpen={modalIsOpen4}
-            onRequestClose={() => {
               setIsOpen4(false);
             }}
-            style={customStyles}
           >
-            <Graphs3 />
-            <button
-              onClick={() => {
-                setIsOpen4(false);
-              }}
-            >
-              X
-            </button>
-            {/* <img src={}></img> */}
-          </Modal>
-        </StyleBox2>
+            X
+          </button>
+          {/* <img src={}></img> */}
+        </Modal>
+      </StyleBox2>
 
-        <br />
-        <StyleBox2>
-          <div
-            className="Q5"
-            onClick={() => {
-              setIsOpen5(true);
-            }}
-          >
-            {" "}
-            + 식품 위생 인증기준을 찾아보아요 +
-          </div>
-          <Modal
-            isOpen={modalIsOpen5}
-            onRequestClose={() => {
-              setIsOpen5(false);
-            }}
-            style={customStyles}
-          >
-            그래프5
-            <button
-              onClick={() => {
-                setIsOpen5(false);
-              }}
-            >
-              X
-            </button>
-            {/* <img src={}></img> */}
-          </Modal>
-        </StyleBox2>
-
-        <br />
-        <StyleBox2>
-          <Link to="/cleanStore">
-            식약처에서 위생 인증을 받은 음식점을 지도에서 찾아보실래요?
-          </Link>
-        </StyleBox2>
-      </p>
+      <br />
+      <StyleBox2>
+        <Link to="/cleanStore">
+          식약처에서 위생 인증을 받은 음식점을 지도에서 찾아보실래요?
+        </Link>
+      </StyleBox2>
     </>
   );
 };
