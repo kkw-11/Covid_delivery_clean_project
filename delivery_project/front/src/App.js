@@ -17,12 +17,18 @@ import MenuHunt from "./components/MenuHunt";
 import MenuCup from "./components/MenuCup";
 // import Map from "./components/Map";
 
+import { Helmet } from 'react-helmet'
+
 
 const App = () => {
 
   return (
     <BrowserRouter>
       <GlobalStyles />
+      <Helmet>
+        <title>클린한끼</title>
+      </Helmet>
+
       <Header />
       {/* 
             Header 내에서도 Link 컴포넌트를 사용하기 위해 BrowsetRouter에 포함.
