@@ -35,7 +35,7 @@ const SeoulExpansion = ({color, onAreaClick}) => {
     return (
     <>
         <SeoulMapLegend />
-        <svg height= { 650 } width= { 735 } margin= { 100 }>
+        <svg height= { 650 } width= { 735 } margin= { 100 } style={{position:'absolute', display:'flex'}}>
             <defs>
                 <filter id="dropshadow">
                     <feGaussianBlur in="SourceAlpha" stdDeviation="0" />
@@ -69,7 +69,7 @@ const SeoulExpansion = ({color, onAreaClick}) => {
                 fill={fillColor[colorSpectrum(color['all']["중구"])]}
                 d="M 477 316 l 0 9 5 5 -1 3 -4 5 -4 5 -5 4 -4 7 -3 4 -4 3 -4 10 -2 -1 -3 -7 -2 -5 -2 1 -1 0 -2 -1 -3 1 0 0 -3 1 -4 2 -5 -5 -6 -3 -10 -3 -4 -1 -3 -1 -2 2 -4 -1 -3 -1 -9 0 -2 2 -4 3 0 -7 1 -4 -2 -2 0 -1 6 -3 6 -4 -1 -2 -2 -5 2 -3 4 -3 9 -1 10 1 9 2 9 -1 8 -1 9 -1 8 0 11 -1 z " />
             <path 
-                d="용산구" 
+                id="용산구" 
                 className="OUTLINE" 
                 onClick={(e)=>onAreaClick(e.target.id)} 
                 fill={fillColor[colorSpectrum(color['all']["용산구"])]}

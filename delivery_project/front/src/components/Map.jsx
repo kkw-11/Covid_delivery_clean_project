@@ -2,10 +2,13 @@ import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
+import loading from '../images/Spinner-1s-200px.gif';
 import SeoulExpansion from "./MapData/seoul/SeoulExpansion"
 import MapView from "./MapData/MapView"
 import MapInfo from "./MapData/MapInfo"
 import "./MapData/area/area.css";
+import 'bootstrap/dist/css/bootstrap.css';
+import { Button } from 'react-bootstrap';
 
 import {BACKEND_URL} from "../env";
 
@@ -22,7 +25,7 @@ const Map = ({ setArea }) => {
   useEffect(() => {
 
     const fetchData = async () => {
-        const response = await axios.post(`${BACKEND_URL}/gradecount`);
+        const response = await axios.post(`${BACKEND_URL}/regioncount`);
         console.log(response.data)
         
         setMapData(response.data);
@@ -34,7 +37,7 @@ const Map = ({ setArea }) => {
     
     if (area == "서울특별시") {setIsClicked(true)} // 서울 지도 확대해서 보여주기
 
-    window.scrollTo(0,150) // 클릭시 최상단으로 이동
+    window.scrollTo(0,50) // 클릭시 최상단으로 이동
 
     setSelectArea({
       area: area,
@@ -78,7 +81,7 @@ const Map = ({ setArea }) => {
   return (
     <StyleMap>
       {mapData === null ? (
-        <p>Loading...</p>
+        <img src={loading} width={200} height={200}></img>
       ) : (
         <>
           <MapInfo
@@ -92,6 +95,9 @@ const Map = ({ setArea }) => {
                 color={mapData.data}
                 onAreaClick={handlerAreaSelect}
               />
+              <div style={{ float:'right', margin:'5%', position:'relative' }}>
+                <Button variant="secondary" onClick={() => {setIsClicked(false)}}>전국으로</Button>
+              </div>
             </SeoulMap>
           ) : (
             <MapView

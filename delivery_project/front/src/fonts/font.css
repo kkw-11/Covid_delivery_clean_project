@@ -1,0 +1,9 @@
+@font-face {
+    font-family: BlackHan;
+    font-display: fallback;
+
+    src: url("./BlackHanSans-Regular.ttf") format("trutype"), url("./BlackHanSans-Regular.woff") format("woff"), url(".//BlackHanSans-Regular.eot?iefix") format("embedded-opentype");
+
+    font-weight: 400;
+    font-style: normal;
+}

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from "axios";
+import '../../fonts/font.css';
 
+import loading from '../../images/Spinner-1s-200px.gif';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReactApexChart from 'react-apexcharts';
 
@@ -16,7 +18,7 @@ const Graphs1 = ({ area }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.post(`${BACKEND_URL}/gradecount`);
+            const response = await axios.post(`${BACKEND_URL}/regioncount`);
             setFranchise(response.data);
             const response2 = await axios.post(`${BACKEND_URL}/allfranchise`);
             setAllfranchise(response2.data);
@@ -27,14 +29,22 @@ const Graphs1 = ({ area }) => {
         fetchData()
     }, []);
 
+    const StoreName = styled.p`
+        font-family: Blackhan;
+        font-size: 35px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    `
+
     return (
         <div>
             {franchise === null || storelist === null || allfranchise === null ? (
-                <p>Loading...</p>
+                <img src={loading} width={200} height={200}></img>
             ) : (
                 <>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', marginTop:'50%' }}>
-                        <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>프랜차이즈 비율</span></p>
+                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', marginTop:'10%' }}>
+                        <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>{area} 프랜차이즈 비율</span></p>
                     </div>
                     <div style={{ width: '100%', textAlign: '-webkit-center' }}>
                         <ReactApexChart
@@ -69,10 +79,7 @@ const Graphs1 = ({ area }) => {
                             width="85%"
                         />
                     </div>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', marginTop:'50%' }}>
-                        <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>프랜차이즈 비율</span></p>
-                    </div>
-                    <div style={{ width: '100%', float: 'center' }}>
+                    <div style={{ width: '100%', textAlign: '-webkit-center', lineHeight: '5vh', marginTop:'0%', marginBottom: '-30%' }}>
                             <ReactApexChart
                                 options={{
                                     chart: {
@@ -105,15 +112,15 @@ const Graphs1 = ({ area }) => {
                                 width="85%"
                             />
                         </div>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh' }}>
-                        <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>위생가게 리스트</span></p>
+                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', marginTop:'10%', marginBottom: '5%' }}>
+                        <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>{area} 위생가게 리스트</span></p>
                     </div>
-                    <div style={{ width: '100%' }}>
-                            {storelist.data[area][0]}<br></br>
-                            {storelist.data[area][1]}<br></br>
-                            {storelist.data[area][2]}<br></br>
-                            {storelist.data[area][3]}<br></br>
-                            {storelist.data[area][4]}
+                    <div style={{ width: '80%', textAlign: 'left', lineHeight: '5vh', marginLeft: '15%' }}>
+                            <StoreName>{storelist.data[area][0]}</StoreName>
+                            <StoreName>{storelist.data[area][1]}</StoreName>
+                            <StoreName>{storelist.data[area][2]}</StoreName>
+                            <StoreName>{storelist.data[area][3]}</StoreName>
+                            <StoreName>{storelist.data[area][4]}</StoreName>
                         </div>
 
                 </>
@@ -122,7 +129,7 @@ const Graphs1 = ({ area }) => {
     )
 }
 
-const Graphs = ({ area }) => {
+const Graph = ({ area }) => {
 
     return (
         <>
@@ -131,4 +138,4 @@ const Graphs = ({ area }) => {
     )
 }
 
-export default Graphs;
+export default Graph;
