@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom'
 import styled from 'styled-components';
-import dish from '../images/dish3.jpg';
+import dish from '../images/dish3-1.jpg';
 import food1 from '../images/1.PNG';
 import food2 from '../images/2.PNG';
 import food3 from '../images/3.PNG';
@@ -11,7 +11,7 @@ import food6 from '../images/6.PNG';
 import food7 from '../images/7.PNG';
 import food8 from '../images/8.PNG';
 import food9 from '../images/9.PNG';
-import menu from '../images/menu11.jpg';
+import menu from '../images/menu.jpg';
 
 // 질문1: 스무스하게 넘어가기 (fade in, out) => useEffect return에서는 실행불가. 
 
@@ -56,6 +56,7 @@ const Table = styled.div`
 
 const Dish = styled.div`
     position: relative;
+    margin-top: 1%;
 `
 
 const Foods = styled.div`
@@ -78,8 +79,8 @@ const FoodImgs = styled.img`
 
 const Menu = styled.img`
     position: absolute;
-    margin-left: 10%;
-    margin-top: 1.2%;
+    margin-left: 11%;
+    margin-top: 1.1%;
     &:hover {
         transform: scale(1.2);
         transition-duration: 0.4s;

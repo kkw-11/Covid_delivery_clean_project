@@ -15,17 +15,17 @@ const Menu = () => {
             <div className="menu-title">위생등급 우수식당 보러가기
               <hr className="hr"/>
               <div className="menu-list">
-                <Link to="/issue" >이슈 확인하기</Link>
+                <Link to="/issue" >위생 이슈</Link>
+                <br/> 
                 <br/>
-                <br/>
-                <Link to="/cleanStore" >대시보드</Link>
+                <Link to="/cleanStore" >위생 가게 현황</Link>
               </div>
             </div>
             
             <div className="menu-title">먹고싶은 메뉴 고르러가기
               <hr className="hr"/>
               <div className="menu-list">
-                <Link to="/menuHunt" >메뉴 지뢰찾기</Link>
+                <Link to="/menuHunt" >메뉴 지뢰 찾기</Link>
                 <br/>
                 <br/>
                 <Link to="/menuCup" >메뉴 월드컵 16강</Link>
@@ -49,9 +49,10 @@ const WrapOfMainWrap = styled.div`
 `
 
 const MainWrap = styled.div`
-  border: 7px solid;
+  border: 4px solid;
   margin: 0.5% 0.5%;
   padding: 40px;
+}
 `
 
 const MenuImage = styled.img`
