@@ -74,7 +74,7 @@ function MenuCup() {
         } else if (count >= 12 && count < 14) {
             setRound('4강');
         } else if (count >= 14 && count < 15) {
-            setRound('2강');
+            setRound('결승전');
         } else {
             setRound('우승 메뉴')
         }
@@ -95,10 +95,10 @@ function MenuCup() {
                     return (
                         <Processing>
                             <div className='round'>{round}</div>
-                            <div className='food-wrap' key={food.name} onClick={worldcupHandler(food)}>
+                            <div className='food-wrap' key={food.name} >
                                 <div style={{position : "fixed"}}>
                                     <div style={{position : "fixed"}}>
-                                        <div className='food'><img className='food-img' src={food.src} /></div>
+                                        <div className='food'><img className='food-img' src={food.src} onClick={worldcupHandler(food)}/></div>
                                         <img className='dish' src={dishonly} />
                                     </div>
                                     <div className='food-name'>{food.name}</div>
@@ -113,19 +113,13 @@ function MenuCup() {
 }
 
 const Processing = styled.div`
-    // display: flex;
-    // flex-wrap: wrap;
     width: 40%;
     height: 100vh;
     float: left;
     justify-content: center;
     align-items: center;
     margin-left: 6.5%;
-    // position: fixed;
 
-    // & ~ & {
-    //     margin: 0 0 0 700px;
-    // }
     .round {
         position: absolute;
         z-index: 2;
@@ -141,19 +135,19 @@ const Processing = styled.div`
         text-align: center;
     }
     .dish {
-        margin: 0% 3%;
+        margin: 0% 4%;
     }
     .food {
         position: absolute;
         background-color: black;
         overflow: hidden;
-        width: 375px;
-        height: 375px;
-        margin-top: 16.5%;
-        margin-left: 18.5%;
+        width: 370px;
+        height: 370px;
+        margin-top: 17%;
+        margin-left: 20.5%;
         z-index: 100;
         border-radius: 70%;
-        box-shadow: 10px 10px 13px black, -10px -10px 13px black;
+        // box-shadow: 10px 10px 13px black, -10px -10px 13px black;
     }
     .food-img {
         width: 100%;
@@ -191,14 +185,14 @@ const Finished = styled.div`
         position: relative;
     }
     .winner {
-        width: 327px;
-        height: 327px;
+        width: 320px;
+        height: 320px;
         position: absolute;
         margin-top: 9%;
-        margin-left: 33%;
+        margin-left: 33.5%;
         z-index: 100;
         border-radius: 70%;
-        box-shadow: 10px 10px 13px black, -10px -10px 13px black;
+        // box-shadow: 10px 10px 13px black, -10px -10px 13px black;
         overflow: hidden;
     }
     .winner-img {
