@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Jeonbuk({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Jeonbuk({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="전라북도"
@@ -18,7 +18,11 @@ function Jeonbuk({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        전라북도{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

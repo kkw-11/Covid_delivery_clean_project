@@ -16,9 +16,10 @@ const Map = ({ setArea }) => {
   const [isSeoul, setIsSeoul] = useState(false) 
   // 서울시 클릭했을 때 서울시 지도 나타내기
 
-  const [selectArea, setSelectArea] = useState({
-    area: "",
-  });
+  // const [selectArea, setSelectArea] = useState({
+  //   area: "",
+  //   num: ""
+  // });
   
   const [franchise, setFranchise] = useState(null);
   const [allstore, setAllstore] = useState(null);
@@ -33,18 +34,18 @@ const Map = ({ setArea }) => {
       fetchData()
   }, []);
 
-  const handlerAreaSelect = (area) => {
+  const handlerAreaSelect = (region) => {
     
-    if (area == "서울특별시") {setIsSeoul(true)} // 서울 지도 확대해서 보여주기
+    if (region == "서울특별시") {setIsSeoul(true)} // 서울 지도 확대해서 보여주기
 
     window.scrollTo(0,50)
 
-    setSelectArea({
-      area: area,
-      num: franchise.data['all'][area],
-    });
+    // setSelectArea({
+    //   area: region,
+    //   num: franchise.data['all'][region],
+    // });
 
-    setArea(area)
+    setArea(region)
   };
 
   //////////////////////////////////////////////

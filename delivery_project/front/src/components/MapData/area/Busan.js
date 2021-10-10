@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Busan({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Busan({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="부산광역시"
@@ -18,7 +18,11 @@ function Busan({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        부산광역시{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

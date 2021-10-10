@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Ulsan({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Ulsan({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="울산광역시"
@@ -18,7 +18,11 @@ function Ulsan({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        울산광역시{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

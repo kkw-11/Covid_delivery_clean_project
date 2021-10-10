@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Daejeon({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Daejeon({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="대전광역시"
@@ -18,7 +18,11 @@ function Daejeon({ fill, onClick, onMouseOver, onMouseLeave }) {
         strokeMiterlimit: "1",
       }}
       transform="translate(106.95522,19.462687)"
-    />
+    >
+      <title>
+        대전광역시{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

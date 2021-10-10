@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Chungbuk({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Chungbuk({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="충청북도"
@@ -18,7 +18,11 @@ function Chungbuk({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        충청북도{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

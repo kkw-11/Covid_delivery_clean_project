@@ -38,7 +38,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                                     width: '100%',
                                     type: 'donut',
                                 },
-                                labels: ["프랜차이즈", "프랜차이즈X"],
+                                labels: ["프랜차이즈", "일반음식점"],
                                 theme: {
                                     palette: 'palette5'
                                 },

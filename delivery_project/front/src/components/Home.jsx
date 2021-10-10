@@ -25,7 +25,7 @@ function Home() {
         const autoImage = () => { 
             let imgNum = Math.round(Math.random()*8);
             setFoods(imgArray[imgNum]);
-            setTimeout(autoImage, 2000);
+            setTimeout(autoImage, 1000);
         }
         autoImage();
     }, []);
@@ -34,7 +34,9 @@ function Home() {
         <main role="main">
             <Table>
                 <Dish>
-                    <Foods><img alt="음식" src={foods} style={{width:"100%", height:"100%", objectFit:"cover"}}/></Foods>
+                    <Foods>
+                        <FoodImgs alt="음식" src={foods} />
+                    </Foods>
                     <img alt="접시" src={dish}/>
                 </Dish>
                 <Menu src={menu} onClick={() => {history.push('/menu');}}/>
@@ -57,21 +59,27 @@ const Dish = styled.div`
 `
 
 const Foods = styled.div`
-    width: 327px;
-    height: 327px;
+    width: 320px;
+    height: 320px;
     position: absolute;
     margin-top: 9%;
-    margin-left: 33%;
+    margin-left: 33.5%;
     z-index: 100;
     border-radius: 70%;
-    box-shadow: 10px 10px 13px black, -10px -10px 13px black;
+    /* box-shadow: 10px 10px 13px black, -10px -10px 13px black; */
     overflow: hidden;
+`
+
+const FoodImgs = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 `
 
 const Menu = styled.img`
     position: absolute;
     margin-left: 10%;
-    margin-top: 2%;
+    margin-top: 1.2%;
     &:hover {
         transform: scale(1.2);
         transition-duration: 0.4s;

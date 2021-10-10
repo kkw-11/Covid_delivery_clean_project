@@ -14,7 +14,7 @@ const CleanStore = () => {
     const [franchise, setFranchise] = useState(null);
     const [allfranchise, setAllfranchise] = useState(null);
     const [storelist, setStorelist] = useState(null);
-
+    
     useEffect(() => {
         const fetchData = async () => {
             const response1 = await axios.post(`${BACKEND_URL}/gradecount`);
@@ -23,8 +23,8 @@ const CleanStore = () => {
             setFranchise(response2.data);
             const response3 = await axios.post(`${BACKEND_URL}/allfranchise`);
             setAllfranchise(response3.data);
-            const response4 = await axios.post(`${BACKEND_URL}/storelist`);
-            setStorelist(response4.data);
+            const response5 = await axios.post(`${BACKEND_URL}/storelist`);
+            setStorelist(response5.data);
         };
         fetchData()
     }, []);
@@ -39,7 +39,7 @@ const CleanStore = () => {
                 grade={grade}
             />
             <Map 
-                setArea={setArea} 
+                setArea={setArea}
             />
             <Graph 
                 area={area} 

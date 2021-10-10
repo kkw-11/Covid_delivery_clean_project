@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Jeonnam({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Jeonnam({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="전라남도"
@@ -18,7 +18,11 @@ function Jeonnam({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        전라남도{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

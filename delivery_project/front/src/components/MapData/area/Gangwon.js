@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Gangwon({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Gangwon({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
 
     <polyline
@@ -19,7 +19,11 @@ function Gangwon({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        강원도{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

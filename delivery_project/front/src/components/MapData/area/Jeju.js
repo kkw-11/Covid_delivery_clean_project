@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Jeju({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Jeju({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="제주특별자치도"
@@ -18,7 +18,11 @@ function Jeju({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        제주특별자치도{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 
