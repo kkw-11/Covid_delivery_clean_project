@@ -19,7 +19,6 @@ import MenuCup from "./components/MenuCup";
 
 import { Helmet } from 'react-helmet'
 
-
 const App = () => {
 
   return (
