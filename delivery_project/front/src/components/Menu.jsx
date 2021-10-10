@@ -1,57 +1,86 @@
 import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
+import menu from '../images/menu11.jpg';
 
+// 이미지 올리기
 const Menu = () => {
-    return (
-        <div >
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>   
-       
-        <p >
-        <StyleBox>
-        Q1. 코로나로 인해 온라인으로 음식 주문하는 늘어나고 있는데, 위생가게에 대해 관심 있으세요?
-        </StyleBox>
-         <br/>
-      <StyleBox2>
-
-        <Link to="/issue" > 이슈확인하기
-        </Link>      
+  return (
+    <div role="main">
+      <WrapOfMainWrap>
+        <MainWrap>
+          <MenuImage alt="메뉴 이미지" src={menu} />
           <br/>
-          <br/>
-        <Link to="/cleanStore" > 대시보드
-        </Link>
-        </StyleBox2>
-      </p>      
-      
-      <p><br/><br/><br/>
-      <StyleBox>
-      Q2. 평소 우리동네에서 어떤 메뉴를 드실 지 고민이 많으신가요?
-      </StyleBox>
-
-      <StyleBox2>
-      <Link to="/menuHunt" >메뉴 지뢰찾기</Link> <br/><br/>
-      <Link to="/menuCup" >메뉴 월드컵</Link>
-      </StyleBox2>   
-      </p>
-
-      </div>
-    )
+          <Wrap>
+            <div className="menu-title">위생등급 우수식당 보러가기
+              <hr className="hr"/>
+              <div className="menu-list">
+                <Link to="/issue" >이슈 확인하기</Link>
+                <br/>
+                <br/>
+                <Link to="/cleanStore" >대시보드</Link>
+              </div>
+            </div>
+            
+            <div className="menu-title">먹고싶은 메뉴 고르러가기
+              <hr className="hr"/>
+              <div className="menu-list">
+                <Link to="/menuHunt" >메뉴 지뢰찾기</Link>
+                <br/>
+                <br/>
+                <Link to="/menuCup" >메뉴 월드컵</Link>
+              </div>
+            </div>
+          </Wrap>
+        </MainWrap>
+      </WrapOfMainWrap>
+    </div>
+  )
 }
 
-const StyleBox = styled.div`
-  font-size: 40px;
-  border-radius: 1px;
-  box-shadow: 0px 0px 5px rgba(119, 58, 58, 0.3);
-  padding: 30px;
+const WrapOfMainWrap = styled.div`
+  border: 4px solid;
+  margin: 2% 2%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-53%, -50%);
+`
 
-  color:grey;
-`;
+const MainWrap = styled.div`
+  border: 6px solid;
+  margin: 0.5% 0.5%;
+  padding: 40px;
+}
+`
 
-const StyleBox2 = styled.div`
-  font-size: 30px;
-  padding: 30px;
-  margin-left: 4.3%;
-  color:black;
+const MenuImage = styled.img`
+  display: block;
+  margin: 1% auto 2% auto;
+`
+
+const Wrap = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  .menu-title {
+    width: 500px;
+    font-size: 37px;
+    font-weight: bold;
+    margin: 20px 20px;
+  }
+  .hr {
+    border: solid 1px #000000;
+    color: #000000;    
+    border-color: #000000;  
+    background-color: #000000;  
+  }
+  .menu-list {
+    font-size: 30px;
+    font-weight: normal;
+    margin-left: 4.3%;
+  }
 `;
 
 export default Menu;
