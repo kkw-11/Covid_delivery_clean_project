@@ -5,10 +5,8 @@ import styled from 'styled-components';
 import gradeStandard from '../../images/gradestandard.png';
 import loading from '../../images/25523-wok-pan-food-fry-on-fire.gif';
 
-import 'bootstrap/dist/css/bootstrap.css';
-import { Button } from 'react-bootstrap';
 import 'semantic-ui-css/semantic.min.css';
-import { Progress } from 'semantic-ui-react';
+import { Progress, Button } from 'semantic-ui-react';
 import { BACKEND_URL } from "../../env";
 
 const customStyles = {
@@ -27,32 +25,13 @@ const Grade = ({ area, grade }) => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
 
-    const CardContainer = styled.div`
-        display: block;
-    `
-    const CardBox = styled.div`
-        background-color: white;
-        box-shadow: 1px 1px 1px 1px #bdbebd;
-        border-radius: 3px;
-        width: 80%;
-        margin: 0% auto 15%;
-        padding: 10px;
-
-        > p {
-            font-size: 30px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 0px;
-        }
-    `
-
     return (
-        <div>
+        <StyleGrade>
             {grade === null ? (
-                <img src={loading} width={400} height={500}></img>
+                <img src={loading} width={400} height={600}></img>
             ) : (<>
                 <div style={{ width: '100%', textAlign: 'center', display: 'inline-block', padding: '3vh' }}>
-                    <Button variant="info" onClick={() => { setIsOpen(true) }}>식약처 위생인증 기준</Button>
+                    <Button basic color="black" size='mini' onClick={() => { setIsOpen(true) }}>식약처 위생인증 기준</Button>
                     <Modal
                         isOpen={modalIsOpen}
                         onRequestClose={() => { setIsOpen(false) }}
@@ -64,7 +43,7 @@ const Grade = ({ area, grade }) => {
                 </div>
                 <CardContainer>
                     <CardBox>
-                        <p style={{ color: "#db2828", lineHeight: '7vh' }}>매우 우수</p>
+                        <p style={{ color: "#db2828", lineHeight: '8vh' }}>매우 우수</p>
                         <p>{grade.data[area]['매우우수']}</p>
                         <Progress
                             active
@@ -75,7 +54,7 @@ const Grade = ({ area, grade }) => {
                         />
                     </CardBox>
                     <CardBox>
-                        <p style={{ color: "#21ba45", lineHeight: '7vh' }}>우수</p>
+                        <p style={{ color: "#21ba45", lineHeight: '8vh' }}>우수</p>
                         <p>{grade.data[area]['우수']}</p>
                         <Progress
                             active
@@ -86,7 +65,7 @@ const Grade = ({ area, grade }) => {
                         />
                     </CardBox>
                     <CardBox>
-                        <p style={{ color: "#f2c037", lineHeight: '7vh' }}>좋음</p>
+                        <p style={{ color: "#f2c037", lineHeight: '8vh' }}>좋음</p>
                         <p>{grade.data[area]['좋음']}</p>
                         <Progress
                             active
@@ -98,8 +77,31 @@ const Grade = ({ area, grade }) => {
                     </CardBox>
                 </CardContainer>
             </>)}
-        </div>
+        </StyleGrade>
     )
 }
 
 export default Grade;
+
+const StyleGrade = styled.div`
+    border: 5px solid green;
+`
+
+const CardContainer = styled.div`
+    display: block;
+`
+const CardBox = styled.div`
+    background-color: white;
+    box-shadow: 1px 1px 1px 1px #bdbebd;
+    border-radius: 3px;
+    width: 80%;
+    margin: 0% auto 15%;
+    padding: 10px;
+
+    > p {
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+`

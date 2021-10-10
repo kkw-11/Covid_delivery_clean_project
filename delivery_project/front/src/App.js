@@ -7,7 +7,7 @@ import {
   useHistory,
 } from "react-router-dom";
 import GlobalStyles from './GlobalStyles';
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Menu from "./components/Menu";
 import Issue from "./components/Issue";
@@ -30,7 +30,7 @@ const App = () => {
         <link href="//font.elice.io/EliceDigitalBaeum.css" rel="stylesheet"></link>
       </Helmet>
 
-      <Header />
+      <Navbar />
       {/* 
             Header 내에서도 Link 컴포넌트를 사용하기 위해 BrowsetRouter에 포함.
             Header 컴포넌트는 Route에 감싸주지 않았기 때문에 어떤 경로에도 고정으로 적용

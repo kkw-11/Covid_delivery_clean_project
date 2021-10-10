@@ -1,5 +1,8 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import "./SeoulExpansion.css";
+import 'semantic-ui-css/semantic.min.css';
+import { Button } from 'semantic-ui-react';
 import SeoulMapLegend from "./SeoulMapLegend"
 
 const fillColor = [
@@ -51,12 +54,13 @@ const SeoulExpansion = ({ franchise, allstore, onAreaClick }) => {
     return (
     <>
         <SeoulMapLegend isRelative={isRelative} />
-        <button 
-            style={{position: "relative", margin:"1% 0 0 1%"}}
-            onClick={() => {setIsRelative(!isRelative)}}
-        >
-            {isRelative ? "위생가게수치" : "위생가게비율"}
-        </button>   
+        <Button
+          color="teal"
+          compact
+          size='mini'
+          style={{position: "relative", margin:"1% 0 0 3%"}}
+          onClick={() => {setIsRelative(!isRelative)}}
+      >{isRelative ? "위생가게수치" : "위생가게비율"}</Button>  
 
         <svg height= { 650 } width= { 735 } margin= { 100 } viewBox="0 0 800 700" style={{position:'absolute', display:'flex'}}>
             <defs>

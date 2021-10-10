@@ -74,7 +74,7 @@ function MenuCup() {
         } else if (count >= 12 && count < 14) {
             setRound('4강');
         } else if (count >= 14 && count < 15) {
-            setRound('2강');
+            setRound('결승');
         } else {
             setRound('우승 메뉴')
         }
