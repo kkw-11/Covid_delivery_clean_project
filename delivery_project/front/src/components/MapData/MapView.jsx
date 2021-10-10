@@ -21,6 +21,8 @@ import {
   Jeju,
 } from "./area/all_area";
 import "./area/area.css";
+import 'semantic-ui-css/semantic.min.css';
+import { Button } from 'semantic-ui-react';
 import MapLegend from "./MapLegend"
 
 const fillColor = [
@@ -70,16 +72,16 @@ const MapView = ({ franchise, allstore, onAreaClick }) => {
   const [isRelative, setIsRelative] = useState(true)
  
   return (
-    <>
+    <StyleMapView>
       <MapLegend isRelative={isRelative}/>
-      <button 
-          style={{position: "relative", margin:"1% 0 0 1%"}}
-          onClick={() => {setIsRelative(!isRelative)}}
-      >
-          {isRelative ? "위생가게수치" : "위생가게비율"}
-      </button>   
+      <Button
+        color="teal"
+        size='mini'
+        style={{position: "relative", margin:"1% 0 0 3%"}}
+        onClick={() => {setIsRelative(!isRelative)}}
+      >{isRelative ? "위생가게수치" : "위생가게비율"}</Button>   
       
-      <svg width="100%" height="1000px" viewBox="0 0 800 1800">
+      <svg width="100%" height="970px" viewBox="0 0 800 1800">
         <Seoul
           fill={
             isRelative ? 
@@ -234,8 +236,13 @@ const MapView = ({ franchise, allstore, onAreaClick }) => {
           total={franchise["all"]["제주특별자치도"]}
         />
       </svg>
-    </>
+    </StyleMapView>
   ); 
 }
 
 export default MapView;
+
+const StyleMapView = styled.div`
+  border: 5px solid khaki;
+  height: 750px;
+`

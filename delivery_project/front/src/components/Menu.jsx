@@ -28,7 +28,7 @@ const Menu = () => {
                 <Link to="/menuHunt" >메뉴 지뢰찾기</Link>
                 <br/>
                 <br/>
-                <Link to="/menuCup" >메뉴 월드컵</Link>
+                <Link to="/menuCup" >메뉴 월드컵 16강</Link>
               </div>
             </div>
           </Wrap>
@@ -39,7 +39,7 @@ const Menu = () => {
 }
 
 const WrapOfMainWrap = styled.div`
-  border: 4px solid;
+  border: 3px solid;
   margin: 2% 2%;
   background-color: white;
   position: absolute;
@@ -49,10 +49,9 @@ const WrapOfMainWrap = styled.div`
 `
 
 const MainWrap = styled.div`
-  border: 6px solid;
+  border: 7px solid;
   margin: 0.5% 0.5%;
   padding: 40px;
-}
 `
 
 const MenuImage = styled.img`
