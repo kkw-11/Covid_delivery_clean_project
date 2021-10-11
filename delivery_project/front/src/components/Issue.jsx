@@ -16,7 +16,6 @@ const Issue = () => {
   return (
     <>
       <br />
-      <br />
       <p>
         <StyleBox>
           <h1>*클린한끼 궁금증*</h1>
@@ -110,7 +109,7 @@ const Issue = () => {
               setIsOpen4(true);
             }}
           >
-            4) 식품 위생법 적발건수는??
+            4) 식품 위생법 적발건수는?
           </div>
           <Modal
             isOpen={modalIsOpen4}

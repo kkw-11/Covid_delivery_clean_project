@@ -22,7 +22,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
     `
 
     return (
-        <div>
+        <>
             {franchise === null || storelist === null || allfranchise === null ? (
             
                 <img src={loading} style= {{display: "block", margin: "40% auto"}} width={350} height={350} ></img>
@@ -38,7 +38,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                                     width: '100%',
                                     type: 'donut',
                                 },
-                                labels: ["프랜차이즈", "프랜차이즈X"],
+                                labels: ["프랜차이즈", "일반음식점"],
                                 theme: {
                                     palette: 'palette5'
                                 },
@@ -97,7 +97,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                                 width="85%"
                             />
                         </div>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', marginBottom: '10%' }}>
+                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', margin: '10% auto' }}>
                         <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>{area} 위생가게 리스트</span></p>
                     </div>
                     <div style={{ width: '80%', textAlign: 'left', lineHeight: '5vh', marginLeft: '15%' }}>
@@ -110,22 +110,26 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
 
                 </>
             )}
-        </div>
+        </>
     )
 }
 
 const Graph = ({ area, franchise, allfranchise, storelist }) => {
 
     return (
-        <>
+        <StyleGraph>
             <Graphs1 
                 area={area} 
                 franchise={franchise}
                 allfranchise={allfranchise}
                 storelist={storelist}
             />
-        </>
+        </StyleGraph>
     )
 }
 
 export default Graph;
+
+const StyleGraph = styled.div`
+    border: 5px solid brown;
+`

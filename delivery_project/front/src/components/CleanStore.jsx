@@ -14,7 +14,7 @@ const CleanStore = () => {
     const [franchise, setFranchise] = useState(null);
     const [allfranchise, setAllfranchise] = useState(null);
     const [storelist, setStorelist] = useState(null);
-
+    
     useEffect(() => {
         const fetchData = async () => {
             const response1 = await axios.post(`${BACKEND_URL}/gradecount`);
@@ -23,8 +23,8 @@ const CleanStore = () => {
             setFranchise(response2.data);
             const response3 = await axios.post(`${BACKEND_URL}/allfranchise`);
             setAllfranchise(response3.data);
-            const response4 = await axios.post(`${BACKEND_URL}/storelist`);
-            setStorelist(response4.data);
+            const response5 = await axios.post(`${BACKEND_URL}/storelist`);
+            setStorelist(response5.data);
         };
         fetchData()
     }, []);
@@ -32,14 +32,13 @@ const CleanStore = () => {
     const [area, setArea] = useState('전국')
 
     return (
-        <>
         <GirdContainer>
             <Grade 
                 area={area} 
                 grade={grade}
             />
             <Map 
-                setArea={setArea} 
+                setArea={setArea}
             />
             <Graph 
                 area={area} 
@@ -48,14 +47,6 @@ const CleanStore = () => {
                 storelist={storelist}
             />
         </GirdContainer>
-        {/*
-            <Introduce><h4>한줄 소개</h4></Introduce>
-            <Container>
-                <Graphs area={area}/>
-                <Map setArea={setArea} />
-            </Container>
-         */}
-        </>
     )
 }
 
@@ -64,6 +55,7 @@ export default CleanStore;
 const GirdContainer = styled.div`
     display: grid;
     width:100%;
-    grid-template-columns: 25% 50% 25%;
     height: 100vh;
+    grid-template-columns: 25% 50% 25%;
+    background-color: rgb(255, 255, 255);
 `

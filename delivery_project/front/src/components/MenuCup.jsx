@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import dish from '../images/dish3.jpg';
-import dishleft from '../images/dish-left.jpg';
-import dishright from '../images/dish-right.jpg';
-import dishonly from '../images/dish-only.jpg'
+import styled,{keyframes} from 'styled-components';
+import dish from '../images/dish3-1.jpg';
+import dishonly from '../images/dish-only-1.jpg'
 import food1 from '../images/1.PNG';
 import food2 from '../images/2.PNG';
 import food3 from '../images/3.PNG';
@@ -74,7 +72,7 @@ function MenuCup() {
         } else if (count >= 12 && count < 14) {
             setRound('4강');
         } else if (count >= 14 && count < 15) {
-            setRound('2강');
+            setRound('결승전');
         } else {
             setRound('우승 메뉴')
         }
@@ -95,10 +93,11 @@ function MenuCup() {
                     return (
                         <Processing>
                             <div className='round'>{round}</div>
-                            <div className='food-wrap' key={food.name} onClick={worldcupHandler(food)}>
+                            <div className='vs'>VS</div>
+                            <div className='food-wrap' key={food.name} >
                                 <div style={{position : "fixed"}}>
                                     <div style={{position : "fixed"}}>
-                                        <div className='food'><img className='food-img' src={food.src} /></div>
+                                        <div className='food'><img className='food-img' src={food.src} onClick={worldcupHandler(food)}/></div>
                                         <img className='dish' src={dishonly} />
                                     </div>
                                     <div className='food-name'>{food.name}</div>
@@ -113,19 +112,13 @@ function MenuCup() {
 }
 
 const Processing = styled.div`
-    // display: flex;
-    // flex-wrap: wrap;
     width: 40%;
-    height: 100vh;
+    height: 90vh;
     float: left;
     justify-content: center;
     align-items: center;
-    margin-left: 6.5%;
-    // position: fixed;
+    margin-left: 6.8%;
 
-    // & ~ & {
-    //     margin: 0 0 0 700px;
-    // }
     .round {
         position: absolute;
         z-index: 2;
@@ -135,25 +128,30 @@ const Processing = styled.div`
         padding: 5px 30px;
         font-size: 50px;
     }
+    .vs {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 50px;
+    }
     .food-wrap {
-        flex: 1;
         position: relative;
         text-align: center;
     }
     .dish {
-        margin: 0% 3%;
+        margin: 3% 4%;
     }
     .food {
         position: absolute;
         background-color: black;
         overflow: hidden;
-        width: 375px;
-        height: 375px;
-        margin-top: 16.5%;
-        margin-left: 18.5%;
+        width: 370px;
+        height: 370px;
+        margin-top: 20%;
+        margin-left: 20.5%;
         z-index: 100;
         border-radius: 70%;
-        box-shadow: 10px 10px 13px black, -10px -10px 13px black;
     }
     .food-img {
         width: 100%;
@@ -178,6 +176,33 @@ const Processing = styled.div`
         text-align: center;
     }
 `
+const blink = keyframes`
+    0% {
+        transform: scale(1)
+    }
+    70% {
+        transform: scale(0.8)
+    }
+    100% {
+        transform: scale(1.1)
+    }
+`
+const flicker = keyframes`    
+    0%, 10%, 35%, 57%, 80%, 90%, 100% {
+        text-shadow:
+        0 0 4px #000,
+        0 0 11px #000,
+        0 0 19px #000,
+        0 0 40px #000,
+        0 0 80px #000,
+        0 0 90px #000,
+        0 0 100px #000,
+    }
+    25%, 50%, 75% {        
+        text-shadow: none;
+    }    
+`
+
 const Finished = styled.div`
     position: fixed;
     left: 50%; 
@@ -189,16 +214,16 @@ const Finished = styled.div`
 
     .winner-wrap {
         position: relative;
+        animation: ${blink} 1s 0.2s 3;
     }
     .winner {
-        width: 327px;
-        height: 327px;
+        width: 320px;
+        height: 320px;
         position: absolute;
         margin-top: 9%;
-        margin-left: 33%;
+        margin-left: 33.5%;
         z-index: 100;
         border-radius: 70%;
-        box-shadow: 10px 10px 13px black, -10px -10px 13px black;
         overflow: hidden;
     }
     .winner-img {
@@ -212,6 +237,9 @@ const Finished = styled.div`
         font-size: 80px;
         left: 50%;
         transform: translate(-50%);
+        // color: #fff; 
+        text-shadow: 0 0 7px #000, 0 0 42px #fff;
+        animation: ${flicker} 1.2s 3.5s infinite;
     }
 `
 export default MenuCup;

@@ -1,7 +1,9 @@
 import React from "react";
 import "./area.css";
+import styled from 'styled-components';
 
-function Seoul({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Seoul({ total, fill, onClick, onMouseOver, onMouseLeave }) {
+
   return (
     <polyline
       id="서울특별시"
@@ -17,8 +19,13 @@ function Seoul({ fill, onClick, onMouseOver, onMouseLeave }) {
         fillOpacity: 1,
         stroke: "white",
         strokeMiterlimit: "1",
+
       }}
-    />
+    >
+      <title>
+        서울특별시{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

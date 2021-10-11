@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Sejong({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Sejong({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <path
       id="세종특별자치시"
@@ -16,7 +16,11 @@ function Sejong({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        세종특별자치시{"\n"}위생가게수 : {total}
+      </title>
+    </path>
   );
 }
 

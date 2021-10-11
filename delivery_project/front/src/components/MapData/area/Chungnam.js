@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Chungnam({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Chungnam({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="충청남도"
@@ -18,7 +18,11 @@ function Chungnam({ fill, onClick, onMouseOver, onMouseLeave }) {
         strokeMiterlimit: "1",
       }}
       transform="translate(106.95522,19.462687)"
-    />
+    >
+      <title>
+        충청남도{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

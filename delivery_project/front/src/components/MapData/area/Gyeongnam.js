@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Gyeongnam({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Gyeongnam({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="경상남도"
@@ -18,7 +18,11 @@ function Gyeongnam({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        경상남도{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 

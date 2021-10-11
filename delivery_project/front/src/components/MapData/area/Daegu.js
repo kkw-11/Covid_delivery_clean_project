@@ -1,7 +1,7 @@
 import React from "react";
 import "./area.css";
 
-function Daegu({ fill, onClick, onMouseOver, onMouseLeave }) {
+function Daegu({ total, fill, onClick, onMouseOver, onMouseLeave }) {
   return (
     <polyline
       id="대구광역시"
@@ -18,7 +18,11 @@ function Daegu({ fill, onClick, onMouseOver, onMouseLeave }) {
         stroke: "white",
         strokeMiterlimit: "1",
       }}
-    />
+    >
+      <title>
+        대구광역시{"\n"}위생가게수 : {total}
+      </title>
+    </polyline>
   );
 }
 
