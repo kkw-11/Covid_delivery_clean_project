@@ -76,11 +76,11 @@ const Map = ({ setArea }) => {
   // }
 
   return (
-    <StyleMap>
+    <>
         {franchise === null || allstore === null ? (
           <img src={loading} style= {{display: "block", margin: "5% auto"}} width={500} height={500}></img>
       ) : (
-        <>
+        <StyleMap>
           {isSeoul ? (
             <SeoulMap visible={isSeoul}>
               <SeoulExpansion 
@@ -108,9 +108,9 @@ const Map = ({ setArea }) => {
               />
             </>
           )}
-        </>
+        </StyleMap>
       )}
-    </StyleMap>
+    </>
   );
 }
 
@@ -120,6 +120,7 @@ export default Map;
 
 const StyleMap = styled.div`
   border: 5px solid blue;
+  height: 100vh;
   /* display: flex;
   flex-direction: column;
   justify-content: center;

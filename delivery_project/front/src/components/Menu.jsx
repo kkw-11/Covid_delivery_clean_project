@@ -39,7 +39,7 @@ const Menu = () => {
 }
 
 const WrapOfMainWrap = styled.div`
-  border: 3px solid;
+  border: 2px solid #8B4513;
   margin: 2% 2%;
   background-color: white;
   position: absolute;
@@ -49,10 +49,9 @@ const WrapOfMainWrap = styled.div`
 `
 
 const MainWrap = styled.div`
-  border: 4px solid;
+  border: 5px solid #8B4513;
   margin: 0.5% 0.5%;
   padding: 40px;
-}
 `
 
 const MenuImage = styled.img`

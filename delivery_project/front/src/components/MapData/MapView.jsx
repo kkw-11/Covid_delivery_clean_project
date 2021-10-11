@@ -81,7 +81,7 @@ const MapView = ({ franchise, allstore, onAreaClick }) => {
         onClick={() => {setIsRelative(!isRelative)}}
       >{isRelative ? "위생가게수치" : "위생가게비율"}</Button>   
       
-      <svg width="100%" height="970px" viewBox="0 0 800 1800">
+      <svg width="100%" height= "100%" viewBox="0 0 800 1300">
         <Seoul
           fill={
             isRelative ? 
@@ -244,5 +244,5 @@ export default MapView;
 
 const StyleMapView = styled.div`
   border: 5px solid khaki;
-  height: 750px;
+  height: 100vh;
 `
