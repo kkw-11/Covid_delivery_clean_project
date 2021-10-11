@@ -67,21 +67,30 @@ const relativeColorSpectrum  = (num) => {
   else return 10
 }
 
-const MapView = ({ franchise, allstore, onAreaClick }) => {
+const MapView = ({ setIsSeoul, franchise, allstore, onAreaClick }) => {
 
   const [isRelative, setIsRelative] = useState(true)
  
   return (
-    <StyleMapView>
+    <>
       <MapLegend isRelative={isRelative}/>
       <Button
-        color="teal"
-        size='mini'
-        style={{position: "relative", margin:"1% 0 0 3%"}}
-        onClick={() => {setIsRelative(!isRelative)}}
-      >{isRelative ? "위생가게수치" : "위생가게비율"}</Button>   
+          inverted
+          color="brown"
+          size='mini'
+          style={{position: "relative", margin:"1% 0 0 3%"}}
+          onClick={() => {setIsRelative(!isRelative)}}
+      >{isRelative ? "위생가게수치" : "위생가게비율"}</Button>  
+        <Button 
+            inverted
+            color="brown"
+            size='mini'
+            floated="right"
+            style={{ margin:"1% 3% 0 0" }} 
+            onClick={() => {setIsSeoul(true)}} 
+        >서울</Button>
       
-      <svg width="100%" height= "100%" viewBox="0 0 800 1300">
+      <svg margin="0" width="45%" height= "90%" viewBox="0 0 800 1200" style={{position:'absolute', display:'flex'}}>
         <Seoul
           fill={
             isRelative ? 
@@ -236,13 +245,8 @@ const MapView = ({ franchise, allstore, onAreaClick }) => {
           total={franchise["all"]["제주특별자치도"]}
         />
       </svg>
-    </StyleMapView>
+    </>
   ); 
 }
 
 export default MapView;
-
-const StyleMapView = styled.div`
-  border: 5px solid khaki;
-  height: 100vh;
-`

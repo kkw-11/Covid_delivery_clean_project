@@ -47,7 +47,7 @@ const relativeColorSpectrum  = (num) => {
     else return 10
   }
 
-const SeoulExpansion = ({ franchise, allstore, onAreaClick }) => {
+const SeoulExpansion = ({ setIsSeoul, franchise, allstore, onAreaClick }) => {
 
     const [isRelative, setIsRelative] = useState(true)
 
@@ -55,14 +55,22 @@ const SeoulExpansion = ({ franchise, allstore, onAreaClick }) => {
     <>
         <SeoulMapLegend isRelative={isRelative} />
         <Button
-          color="teal"
-          compact
+          inverted
+          color="brown"
           size='mini'
           style={{position: "relative", margin:"1% 0 0 3%"}}
           onClick={() => {setIsRelative(!isRelative)}}
       >{isRelative ? "위생가게수치" : "위생가게비율"}</Button>  
+        <Button 
+            inverted
+            color="brown"
+            size='mini'
+            floated="right"
+            style={{ margin:"1% 3% 0 0" }} 
+            onClick={() => {setIsSeoul(false)}} 
+        >전국</Button>
 
-        <svg height= { 650 } width= { 735 } margin= { 100 } viewBox="0 0 800 700" style={{position:'absolute', display:'flex'}}>
+        <svg height= { 650 } width= { 750 } margin= { 100 } viewBox="0 0 900 700" style={{position:'absolute', display:'flex'}}>
             <defs>
                 <filter id="dropshadow">
                     <feGaussianBlur in="SourceAlpha" stdDeviation="0" />

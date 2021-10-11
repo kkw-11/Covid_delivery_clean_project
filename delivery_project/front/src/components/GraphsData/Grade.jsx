@@ -3,7 +3,7 @@ import axios from "axios";
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import gradeStandard from '../../images/gradestandard.png';
-import loading from '../../images/25523-wok-pan-food-fry-on-fire.gif';
+import loading from '../../images/loading1.gif';
 
 import 'semantic-ui-css/semantic.min.css';
 import { Progress, Button } from 'semantic-ui-react';
@@ -28,10 +28,10 @@ const Grade = ({ area, grade }) => {
     return (
         <StyleGrade>
             {grade === null ? (
-                <img src={loading} width={400} height={600}></img>
+                <img src={loading} width={350} height={600}></img>
             ) : (<>
-                <div style={{ width: '100%', textAlign: 'center', display: 'inline-block', padding: '3vh' }}>
-                    <Button basic color="black" size='mini' onClick={() => { setIsOpen(true) }}>식약처 위생인증 기준</Button>
+                <div style={{ width: '100%', textAlign: 'center', display: 'inline-block', padding: '5vh' }}>
+                    <Button basic color="brown" size='mini' onClick={() => { setIsOpen(true) }}>식약처 위생인증 기준</Button>
                     <Modal
                         isOpen={modalIsOpen}
                         onRequestClose={() => { setIsOpen(false) }}
@@ -48,7 +48,7 @@ const Grade = ({ area, grade }) => {
                         <Progress
                             active
                             color={"red"}
-                            style={{ margin: "8% auto", width: "80%" }}
+                            style={{ margin: "4% auto", width: "80%" }}
                             value={grade.data[area]['매우우수']}
                             total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']}
                         />
@@ -59,7 +59,7 @@ const Grade = ({ area, grade }) => {
                         <Progress
                             active
                             color={"green"}
-                            style={{ margin: "8% auto", width: "80%" }}
+                            style={{ margin: "4% auto", width: "80%" }}
                             value={grade.data[area]['우수']}
                             total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']}
                         />
@@ -70,7 +70,7 @@ const Grade = ({ area, grade }) => {
                         <Progress
                             active
                             color={"yellow"}
-                            style={{ margin: "8% auto", width: "80%" }}
+                            style={{ margin: "4% auto", width: "80%" }}
                             value={grade.data[area]['좋음']}
                             total={grade.data[area]['매우우수'] + grade.data[area]['우수'] + grade.data[area]['좋음']}
                         />
@@ -84,15 +84,18 @@ const Grade = ({ area, grade }) => {
 export default Grade;
 
 const StyleGrade = styled.div`
-    border: 5px solid green;
+    margin: 2% 2% 10% 2%;
+    height: 98vh;
+    background-color: transparent;
+    box-shadow: 2px 2px 2px 1px #bdbebd;
 `
 
 const CardContainer = styled.div`
     display: block;
 `
 const CardBox = styled.div`
-    background-color: white;
-    box-shadow: 1px 1px 1px 1px #bdbebd;
+    background-color: transparent;
+    box-shadow: 2px 2px 2px 1px #bdbebd;
     border-radius: 3px;
     width: 80%;
     margin: 0% auto 15%;
