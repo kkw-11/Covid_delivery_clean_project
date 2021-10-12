@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from "axios";
+import {Link} from 'react-router-dom';
 import '../../fonts/font.css';
 
 import loading from '../../images/4762-food-carousel.gif';
@@ -11,7 +12,6 @@ import { BACKEND_URL } from "../../env";
 import { ProgressBar } from 'react-bootstrap';
 
 const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
-
     
     const StoreName = styled.p`
         font-family: Blackhan;
@@ -106,6 +106,10 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                             <StoreName>{storelist.data[area][2]}</StoreName>
                             <StoreName>{storelist.data[area][3]}</StoreName>
                             <StoreName>{storelist.data[area][4]}</StoreName>
+                            <Link to={{
+                                pathname: `/Storedetail`,
+                                state: area
+                        }}> 더보기 </Link>
                         </div>
 
                 </>

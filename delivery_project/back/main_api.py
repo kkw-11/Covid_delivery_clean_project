@@ -190,3 +190,16 @@ def allstorecount():
         }
     }
     return jsonify(result)
+
+@bp.route('allstorelist', methods=['POST'])
+def allstorelist():
+    result = {'data': defaultdict(list)}
+    store_list = cleanTable.query.all()
+    for store in store_list:
+        if store.addr1 == "서울특별시":
+            result['data'][store.addr1].append((store.bssh_nm, store.hg_asgn_lv, store.addr))
+            result['data'][store.addr2].append((store.bssh_nm, store.hg_asgn_lv, store.addr))
+        else:
+            result['data'][store.addr1].append((store.bssh_nm, store.hg_asgn_lv, store.addr))
+        result['data']['전국'].append((store.bssh_nm, store.hg_asgn_lv, store.addr))
+    return jsonify(result)
