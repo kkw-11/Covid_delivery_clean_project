@@ -28,7 +28,7 @@ const Grade = ({ area, grade }) => {
     return (
         <StyleGrade>
             {grade === null ? (
-                <img src={loading} width={350} height={600}></img>
+                <img src={loading} width={350} height={570}></img>
             ) : (<>
                 <div style={{ width: '100%', textAlign: 'center', display: 'inline-block', padding: '5vh' }}>
                     <Button basic color="brown" size='mini' onClick={() => { setIsOpen(true) }}>식약처 위생인증 기준</Button>
