@@ -24,7 +24,13 @@ const Navbar = () => {
                 <Font2>Menu</Font2>
             </Menu.Item>
             <Menu.Item onClick={() => {history.push('/Cleanstore')}} >
-                <Font2>Clean Restaurant</Font2>
+                <Font2>Clean Map</Font2>
+            </Menu.Item>
+            <Menu.Item onClick={() => {history.push('#')}} >
+                <Font2>Clean Store</Font2>
+            </Menu.Item>
+            <Menu.Item onClick={() => {history.push('#')}} >
+                <Font2>About</Font2>
             </Menu.Item>
           </Menu>
         </div>
@@ -37,9 +43,11 @@ const Font1 = styled.p`
     font-family: "Elice Digital Baeum",sans-serif;
     font-size: 25px;
     font-weight: bold;
+    color: #8B4513;
 `
 
 const Font2 = styled.p`
     font-family: "Elice Digital Baeum",sans-serif;
     font-size: 16px;
+    color: #8B4513;
 `

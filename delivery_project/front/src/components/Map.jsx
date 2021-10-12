@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 
-import loading from '../images/67225-delivery-food-interaction.gif';
+import loading from '../images/loading2.gif';
 import SeoulExpansion from "./MapData/seoul/SeoulExpansion"
 import MapView from "./MapData/MapView"
 import "./MapData/area/area.css";
@@ -34,7 +34,7 @@ const Map = ({ setArea }) => {
     
     if (region == "서울특별시") {setIsSeoul(true)} // 서울 지도 확대해서 보여주기
 
-    window.scrollTo(0,50)
+    window.scrollTo(0,55)
 
     // setSelectArea({
     //   area: region,
@@ -84,24 +84,16 @@ const Map = ({ setArea }) => {
           {isSeoul ? (
             <SeoulMap visible={isSeoul}>
               <SeoulExpansion 
+                setIsSeoul={setIsSeoul}
                 franchise={franchise.data}
                 allstore={allstore.data}
                 onAreaClick={handlerAreaSelect}
               />
-              <Button 
-                style={{ margin:"1%" }} 
-                floated="right"
-                onClick={() => {setIsSeoul(false)}} 
-              >전국</Button>
             </SeoulMap>
           ) : (
             <>
-              <Button 
-                style={{ margin:"2%" }} 
-                floated="right"
-                onClick={() => {setIsSeoul(true)}} 
-              >서울</Button>
               <MapView
+                setIsSeoul={setIsSeoul}
                 franchise={franchise.data}
                 allstore={allstore.data}
                 onAreaClick={handlerAreaSelect}
@@ -119,19 +111,14 @@ export default Map;
 
 
 const StyleMap = styled.div`
-  border: 5px solid blue;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
-
+  margin: 1.2%;
+  height: 98vh;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 1px #bdbebd; 
 `;
 
 const SeoulMap = styled.div`
-    border: 5px solid orange;
-    height: 700px;
     display: ${props => (props.visible ? "block" : "none")};
 `;
-
 
 
