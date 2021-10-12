@@ -18,7 +18,7 @@ const Menu = () => {
                 <Link to="/issue" >위생 이슈</Link>
                 <br/> 
                 <br/>
-                <Link to="/cleanStore" >위생 가게 현황</Link>
+                <Link to="/cleanStore" >위생 음식점 현황</Link>
               </div>
             </div>
             
