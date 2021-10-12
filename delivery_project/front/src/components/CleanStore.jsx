@@ -54,8 +54,8 @@ export default CleanStore;
 
 const GirdContainer = styled.div`
     display: grid;
-    width:100%;
-    height: 100vh;
-    grid-template-columns: 25% 50% 25%;
-    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 25% 45% 30%;
+    
 `

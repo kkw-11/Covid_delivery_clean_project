@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from "axios";
 import '../../fonts/font.css';
 
-import loading from '../../images/4762-food-carousel.gif';
+import loading from '../../images/loading3.gif';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReactApexChart from 'react-apexcharts';
 
@@ -28,10 +28,10 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                 <img src={loading} style= {{display: "block", margin: "40% auto"}} width={350} height={350} ></img>
             ) : (
                 <>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', margin:'1%' }}>
-                        <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>{area} 프랜차이즈 비율</span></p>
+                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '6vh', margin:'1%' }}>
+                        <p><span style={{ padding: '0.5em 0.6em', color: '#8B4513', fontSize: "1.6em", fontWeight: "bold"}}>- {area} 프랜차이즈 비율 -</span></p>
                     </div>
-                    <div style={{ width: '100%', textAlign: '-webkit-center'}}>
+                    <div style={{ width: '85%', textAlign: '-webkit-center', margin:'0 auto'}}>
                         <ReactApexChart
                             options={{
                                 chart: {
@@ -40,7 +40,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                                 },
                                 labels: ["프랜차이즈", "일반음식점"],
                                 theme: {
-                                    palette: 'palette5'
+                                    palette: 'palette2'
                                 },
                                 plotOptions: {
                                     pie: {
@@ -64,7 +64,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                             width="85%"
                         />
                     </div>
-                    <div style={{ width: '100%', height: '15%', textAlign: '-webkit-center', lineHeight: '5vh', margin:'0'}}>
+                    <div style={{ width: '85%', height: '15%', textAlign: '-webkit-center', lineHeight: '5vh', margin:'0 auto'}}>
                             <ReactApexChart
                                 options={{
                                     chart: {
@@ -73,7 +73,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                                     },
                                     labels: ["위생 프렌차이점", "전체 프렌차이점"],
                                     theme: {
-                                        palette: 'palette3'
+                                        palette: 'palette2'
                                     },
                                     plotOptions: {
                                         pie: {
@@ -97,8 +97,8 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                                 width="85%"
                             />
                         </div>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', margin: '10% auto' }}>
-                        <p><span style={{ borderRadius: '15px 15px 15px 0', border: '3px solid #FFAD5B', padding: '0.5em 0.6em', color: '#FF8000' }}>{area} 위생가게 리스트</span></p>
+                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', margin: '10% 10% 5% 0%' }}>
+                        <p><span style={{ padding: '0.5em 0.6em', color: '#8B4513', fontSize: "1.8em", fontWeight: "bold" }}>- {area} 위생가게 리스트 -</span></p>
                     </div>
                     <div style={{ width: '80%', textAlign: 'left', lineHeight: '5vh', marginLeft: '15%' }}>
                             <StoreName>{storelist.data[area][0]}</StoreName>
@@ -131,5 +131,9 @@ const Graph = ({ area, franchise, allfranchise, storelist }) => {
 export default Graph;
 
 const StyleGraph = styled.div`
-    border: 5px solid brown;
+    margin: 2% 2% 10% 2%;
+    height: 98vh;
+    background-color: transparent;
+    box-shadow: 2px 2px 2px 1px #bdbebd;
+    
 `
