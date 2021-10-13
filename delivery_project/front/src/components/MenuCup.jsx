@@ -20,16 +20,41 @@ import food15 from '../images/15.PNG';
 import food16 from '../images/16.PNG';
 import food17 from '../images/19.PNG';
 import food18 from '../images/20.PNG';
-
-
+import food19 from '../images/21.PNG';
+import food20 from '../images/22.PNG';
+import food21 from '../images/23.PNG';
+import food22 from '../images/24.PNG';
+import food23 from '../images/25.PNG';
+import food24 from '../images/26.PNG';
+import food25 from '../images/27.PNG';
+import food26 from '../images/28.PNG';
+import food27 from '../images/29.PNG';
+import food28 from '../images/30.PNG';
+import food29 from '../images/31.PNG';
+import food30 from '../images/32.PNG';
+import food31 from '../images/33.PNG';
+import food32 from '../images/34.PNG';
+import food33 from '../images/35.PNG';
+import food34 from '../images/36.PNG';
+import food35 from '../images/37.PNG';
+import food36 from '../images/38.PNG';
+import food37 from '../images/39.PNG';
+import food38 from '../images/40.PNG';
+import food39 from '../images/41.PNG';
+import food40 from '../images/42.PNG';
 
 function MenuCup() {
     const allfoods = [
-        { name: "치킨", src: food1 }, { name: "돈까스", src: food2 }, { name: "피자", src: food3 }, { name: "족발", src: food4 },
-        { name: "스테이크", src: food5 }, { name: "파스타", src: food6 }, { name: "초밥", src: food7 }, { name: "짜장면", src: food8 },
-        { name: "닭갈비", src: food9 }, { name: "떡볶이", src: food10 }, { name: "보쌈", src: food11 }, { name: "쌀국수", src: food12 },
-        { name: "삼겹살구이", src: food13 }, { name: "갈비찜", src: food14 }, { name: "순대국밥", src: food15 }, { name: "부대찌개", src: food16 },
-        { name: "햄버거", src: food17 }, { name: "곱창", src: food18 },
+        { name: "치킨", src: food1}, { name: "돈까스", src: food2}, { name: "피자", src: food3}, { name: "족발", src: food4},
+        { name: "스테이크", src: food5}, { name: "파스타", src: food6}, { name: "초밥", src: food7}, { name: "짜장면", src: food8},
+        { name: "닭갈비", src: food9}, { name: "떡볶이", src: food10}, { name: "보쌈", src: food11}, { name: "쌀국수", src: food12},
+        { name: "삼겹살구이", src: food13}, { name: "갈비찜", src: food14}, { name: "순대국밥", src: food15}, { name: "부대찌개", src: food16},
+        { name: "햄버거", src: food17}, { name: "곱창", src: food18}, { name: "오므라이스", src: food19}, { name: "토스트", src: food20}, 
+        { name: "카레라이스", src: food21}, { name: "닭발", src: food22}, { name: "김치볶음밥", src: food23}, { name: "훠궈", src: food24}, 
+        { name: "함박스테이크", src: food25}, { name: "해물찜", src: food26}, { name: "회덮밥", src: food27}, { name: "야끼소바", src: food28}, 
+        { name: "만두", src: food29}, { name: "우동", src: food30}, { name: "냉면", src: food31}, { name: "샤브샤브", src: food32},
+        { name: "해물탕", src: food33}, { name: "김치찌개", src: food34}, { name: "김치찜", src: food35}, { name: "조개구이", src: food36}, 
+        { name: "양꼬치", src: food37}, { name: "칼국수", src: food38}, { name: "훈제오리", src: food39}, { name: "짬뽕", src: food40},
     ]
 
     const [foods, setFoods] = useState([]);
@@ -42,7 +67,7 @@ function MenuCup() {
 
     useEffect(() => {
         allfoods.sort(() => Math.random() - 0.5);
-        setFoods(allfoods.slice(2));
+        setFoods(allfoods.slice(0, 16));
         setMatch([allfoods[0], allfoods[1]]);
         setRound('16강');
         setCount(1);
