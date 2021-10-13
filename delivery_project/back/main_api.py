@@ -191,15 +191,15 @@ def allstorecount():
     }
     return jsonify(result)
 
-@bp.route('allstorelist', methods=['POST'])
-def allstorelist():
-    result = {'data': defaultdict(list)}
+@bp.route('/allstorelist', methods=['POST'])
+def allstorelist2():
+    result = {'data': []}
     store_list = cleanTable.query.all()
     for store in store_list:
-        if store.addr1 == "서울특별시":
-            result['data'][store.addr1].append((store.bssh_nm, store.hg_asgn_lv, store.addr))
-            result['data'][store.addr2].append((store.bssh_nm, store.hg_asgn_lv, store.addr))
-        else:
-            result['data'][store.addr1].append((store.bssh_nm, store.hg_asgn_lv, store.addr))
-        result['data']['전국'].append((store.bssh_nm, store.hg_asgn_lv, store.addr))
+        result['data'].append({"bssh_nm" : store.bssh_nm,
+                                "hg_asgn_lv" : store.hg_asgn_lv,
+                                "addr" : store.addr,
+                                "franchise" : store.franchise,
+                                "addr1" : store.addr1,
+                                "addr2" : store.addr2 })
     return jsonify(result)
