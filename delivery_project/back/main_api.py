@@ -190,3 +190,16 @@ def allstorecount():
         }
     }
     return jsonify(result)
+
+@bp.route('/allstorelist', methods=['POST'])
+def allstorelist2():
+    result = {'data': []}
+    store_list = cleanTable.query.all()
+    for store in store_list:
+        result['data'].append({"bssh_nm" : store.bssh_nm,
+                                "hg_asgn_lv" : store.hg_asgn_lv,
+                                "addr" : store.addr,
+                                "franchise" : store.franchise,
+                                "addr1" : store.addr1,
+                                "addr2" : store.addr2 })
+    return jsonify(result)

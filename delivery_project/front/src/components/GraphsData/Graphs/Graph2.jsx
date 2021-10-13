@@ -4,10 +4,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import ReactApexChart from "react-apexcharts";
 
 // 배달 음식 민원 그래프
+//출처: 국민신문고
 const Graph2 = () => {
     return (
         <div>
-            <div style={{ height: "5vh" }}>
+            <div style={{ height: "15vh" }}>
                 <div
                     style={{
                         width: "100%",
@@ -20,11 +21,12 @@ const Graph2 = () => {
                     <p>
                         <span
                             style={{
-                                borderRadius: "15px 15px 15px 0",
-                                border: "3px solid #FFAD5B",
+                                // borderRadius: "15px 15px 15px 0",
+                                // border: "3px solid #FFAD5B",
                                 textAlign: "center",
                                 padding: "0.5em 0.6em",
                                 color: "#FF8000",
+                                fontWeight: "bold",
                             }}
                         >
                             배달 음식 민원
@@ -32,6 +34,7 @@ const Graph2 = () => {
                     </p>
                 </div>
             </div>
+            
             <div style={{ height: "35vh" }}>
                 <div
                     style={{
@@ -39,6 +42,9 @@ const Graph2 = () => {
                         float: "left",
                         height: "70%",
                         textAlign: "-webkit-center",
+                        left: "50%",
+                        transform: "translate(-50%)",
+                        top: "-20%",
                     }}
                 >
                     <ReactApexChart
@@ -79,6 +85,9 @@ const Graph2 = () => {
                         width="85%"
                     />
                 </div>
+            </div>
+            <div style={{color: "#FF8000",}}>
+                출처: 국민신문고
             </div>
         </div>
     );

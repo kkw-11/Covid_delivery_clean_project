@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import axios from "axios";
+import {Link} from 'react-router-dom';
 import '../../fonts/font.css';
 
 import loading from '../../images/loading3.gif';
@@ -11,7 +12,6 @@ import { BACKEND_URL } from "../../env";
 import { ProgressBar } from 'react-bootstrap';
 
 const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
-
     
     const StoreName = styled.p`
         font-family: Blackhan;
@@ -29,7 +29,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
             ) : (
                 <>
                     <div style={{ width: '100%', textAlign: 'center', lineHeight: '6vh', margin:'1%' }}>
-                        <p><span style={{ padding: '0.5em 0.6em', color: '#8B4513', fontSize: "1.6em", fontWeight: "bold"}}>- {area} 프랜차이즈 비율 -</span></p>
+                        <p><span style={{ border: "3px solid #8B4513", borderRadius: "5px", padding: '0.1em 0.5em', color: '#8B4513', fontSize: "1.6em", fontWeight: "bold"}}>{area} 프랜차이즈 비율</span></p>
                     </div>
                     <div style={{ width: '85%', textAlign: '-webkit-center', margin:'0 auto'}}>
                         <ReactApexChart
@@ -97,8 +97,8 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                                 width="85%"
                             />
                         </div>
-                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '5vh', margin: '10% 10% 5% 0%' }}>
-                        <p><span style={{ padding: '0.5em 0.6em', color: '#8B4513', fontSize: "1.8em", fontWeight: "bold" }}>- {area} 위생가게 리스트 -</span></p>
+                    <div style={{ width: '100%', textAlign: 'center', lineHeight: '6vh', margin: '10% 10% 5% 0%' }}>
+                        <p><span style={{ border: "3px solid #8B4513", borderRadius: "5px", padding: '0.1em 0.5em', color: '#8B4513', fontSize: "1.7em", fontWeight: "bold" }}>{area} 위생가게 리스트</span></p>
                     </div>
                     <div style={{ width: '80%', textAlign: 'left', lineHeight: '5vh', marginLeft: '15%' }}>
                             <StoreName>{storelist.data[area][0]}</StoreName>
@@ -106,6 +106,10 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                             <StoreName>{storelist.data[area][2]}</StoreName>
                             <StoreName>{storelist.data[area][3]}</StoreName>
                             <StoreName>{storelist.data[area][4]}</StoreName>
+                            <Link to={{
+                                pathname: `/Storedetail`,
+                                state: area
+                        }}> 더보기 </Link>
                         </div>
 
                 </>

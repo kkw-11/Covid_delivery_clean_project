@@ -30,77 +30,73 @@ const data = [
 const data2 = [
     {
         name: "1월",
-        "2020년 대행건수": 630,
+        "2020년 배달 대행건수": 630,
     },
     {
         name: "2월",
-        "2020년 대행건수": 690,
+        "2020년 배달 대행건수": 690,
     },
     {
         name: "3월",
-        "2020년 대행건수": 980,
+        "2020년 배달 대행건수": 980,
     },
     {
         name: "4월",
-        "2020년 대행건수": 980,
+        "2020년 배달 대행건수": 980,
     },
     {
         name: "5월",
-        "2020년 대행건수": 1050,
+        "2020년 배달 대행건수": 1050,
     },
     {
         name: "6월",
-        "2020년 대행건수": 1060,
+        "2020년 배달 대행건수": 1060,
     },
     {
         name: "7월",
-        "2020년 대행건수": 1130,
+        "2020년 배달 대행건수": 1130,
     },
     {
         name: "8월",
-        "2020년 대행건수": 1350,
+        "2020년 배달 대행건수": 1350,
     },
     {
         name: "9월",
-        "2020년 대행건수": 1260,
+        "2020년 배달 대행건수": 1260,
     },
     {
         name: "10월",
-        "2020년 대행건수": 1200,
+        "2020년 배달 대행건수": 1200,
     },
     {
         name: "11월",
-        "2020년 대행건수": 1310,
+        "2020년 배달 대행건수": 1310,
     },
     {
         name: "12월",
-        "2020년 대행건수": 1670,
+        "2020년 배달 대행건수": 1670,
     },
 ];
 
 const Graph1 = () => {
-    {
-    }
     return (
         <div>
-            <div style={{ height: "5vh" }}>
+            <div style={{ height: "10vh" }}>
                 <div
                     style={{
-                        width: "49%",
+                        width: "55%",
                         float: "left",
                         height: "100%",
                         textAlign: "center",
-                        lineHeight: "5vh",
+                        lineHeight: "9vh",
                     }}
                 >
                     <p>
                         <span
                             style={{
-                                borderRadius: "15px 15px 15px 0",
-                                border: "3px solid #FFAD5B",
-                                padding: "0.5em 0.6em",
                                 textAlign: "center",
                                 color: "#FF8000",
+                                fontWeight: "bold",
                             }}
                         >
                             배달 대행 건수
@@ -109,23 +105,21 @@ const Graph1 = () => {
                 </div>
                 <div
                     style={{
-                        width: "49%",
+                        width: "45%",
                         float: "right",
                         height: "100%",
                         textAlign: "center",
-                        lineHeight: "5vh",
+                        lineHeight: "9vh",
                     }}
                 >
                     <p>
                         <span
                             style={{
-                                borderRadius: "15px 15px 15px 0",
-                                border: "3px solid #FFAD5B",
-                                padding: "0.5em 0.6em",
                                 color: "#FF8000",
+                                fontWeight: "bold",
                             }}
                         >
-                            온라인 음식서비스 거래액
+                            2020년 배달 대행건수
                         </span>
                     </p>
                 </div>
@@ -146,7 +140,6 @@ const Graph1 = () => {
                             <XAxis dataKey="name" />
                             <YAxis />
                             <Tooltip />
-                            <Legend />
                             <Line
                                 type="monotone"
                                 dataKey="배달 대행건수"
@@ -171,10 +164,9 @@ const Graph1 = () => {
                             <XAxis dataKey="name" />
                             <YAxis />
                             <Tooltip />
-                            <Legend />
                             <Line
                                 type="monotone"
-                                dataKey="2020년 대행건수"
+                                dataKey="2020년 배달 대행건수"
                                 stroke="#82ca9d"
                                 activeDot={{ r: 8 }}
                             />
@@ -182,8 +174,10 @@ const Graph1 = () => {
                     </ResponsiveContainer>
                 </div>
             </div>
+            <div style={{color: "#FF8000",}}>
+                출처: ㅇㅇㅇ
+            </div>
         </div>
     );
 };
-
 export default Graph1;
