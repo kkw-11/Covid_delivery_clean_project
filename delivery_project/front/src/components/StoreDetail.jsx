@@ -230,35 +230,35 @@ const Search = styled.input`
 `
 
 const FormCheckText = styled.span`
-  font-size: 18px;
-  width: 110px;
-  height: 35px;
-  background: #e6e6e6;
-  border-radius: 50px;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: #777;
+    font-size: 18px;
+    width: 110px;
+    height: 35px;
+    background: #e6e6e6;
+    border-radius: 50px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #777;
 `;
 
 const FormCheckLeft = styled.input.attrs({ type: 'radio' })`
-  &:checked {
-    display: inline-block;
-    background: none;
-    padding: 0px 10px;
-    text-align: center;
-    height: 35px;
-    line-height: 33px;
-    font-weight: 500;
+    &:checked {
+        display: inline-block;
+        background: none;
+        padding: 0px 10px;
+        text-align: center;
+        height: 35px;
+        line-height: 33px;
+        font-weight: 500;
+        display: none;
+    }
+    &:checked + ${FormCheckText} {
+        background: #bb7d43;
+        color: #fff;
+    }
     display: none;
-  }
-  &:checked + ${FormCheckText} {
-    background: #bb7d43;
-    color: #fff;
-  }
-  display: none;
 `;
 
 const Searchtitle = styled.div`
@@ -266,9 +266,9 @@ const Searchtitle = styled.div`
 `
 
 const Searchtable = styled.tr`
-    &: hover {
+    &:hover {
         background: #66c0e4;
-        cursor: pointer;
+        cursor : pointer;
     }
 `
 
