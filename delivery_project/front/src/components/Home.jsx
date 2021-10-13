@@ -56,7 +56,7 @@ const Table = styled.div`
 
 const Dish = styled.div`
     position: relative;
-    margin-top: 1%;
+    margin: 1% auto auto auto;
 `
 
 const Foods = styled.div`
