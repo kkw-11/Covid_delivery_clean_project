@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.css";
 import Graph1 from "./GraphsData/Graphs/Graph1";
 import Graph2 from "./GraphsData/Graphs/Graph2";
 import Graph3 from "./GraphsData/Graphs/Graph3";
-import issue from '../images/issue.PNG';
 
 const Issue = () => {
   const [modalIsOpen1, setIsOpen1] = useState(false);
@@ -15,8 +14,7 @@ const Issue = () => {
 
   return (
     <>
-      {/* <TitleStyle><h1>위생 이슈</h1></TitleStyle> */}
-      <IssueImg src={issue}/>
+      <TitleStyle><h1>[속보] 코로나 이후 배달 위생상태 민원 31.6% 最大... 충격!</h1></TitleStyle>
 
       <TextStyle>
         최근, 외식 대신 배달음식 서비스 이용자가 늘어나면서&nbsp;   
@@ -55,15 +53,16 @@ const Issue = () => {
         </Modal>
       </TextStyle>
     
-      {/* <TextStyle style={{fontWeight:'bold'}}> */}
+      {/* <TextStyle style={{textDecoration:"underline"}}> */}
       <TextStyle>
-          '클린한끼'에서 많은 소비자들이 위생에 대한 정보를 정확하게 알 수 있도록, 
+          <span style={{fontWeight:"bold"}}>클린한끼</span>에서 많은 소비자들이 위생에 대한 정보를 정확하게 알 수 있도록, 
       </TextStyle>
 
       {/* <TextStyle style={{fontWeight:'bold'}}> */}
+      {/* <TextStyle style={{textDecoration:"underline"}}> */}
       <TextStyle>
-          <Link to="/cleanStore"> 우리나라 위생 음식점 현황</Link>과  
-          <Link to="/storeDetail"> 식약처에서 위생 인증을 받은 음식점</Link>에 대한 정보를 제공하고 있습니다.
+          <Link to="/cleanStore" > 우리나라 위생 음식점 현황</Link>과  
+          <Link to="/storeDetail" > 식약처에서 위생 인증을 받은 음식점</Link>에 대한 정보를 제공하고 있습니다.
       </TextStyle>
     </>
   );
@@ -88,13 +87,8 @@ const TitleStyle = styled.div`
   border-radius: 1px;
   padding: 30px;
   text-align: center;
-  color: gray;
+  color: #8B4513;
   font-weight: bolder;
-`
-const IssueImg = styled.img`
-  margin-top: 1%;
-  margin-left: 3%;
-  border-radius: 2%;
 `
 
 const ClickGraph = styled.div`
@@ -106,8 +100,8 @@ const ClickGraph = styled.div`
 const TextStyle = styled.div`
   font-size: 29px;
   padding: 30px;
-  margin-left: 4.3%;
   color: black;
+  text-align: center;
 `
 
 export default Issue;
