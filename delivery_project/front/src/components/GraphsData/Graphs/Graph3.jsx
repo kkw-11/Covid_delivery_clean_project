@@ -83,7 +83,7 @@ const Graph3 = () => {
                     </ResponsiveContainer>
                 </div>
             </div>
-            <div style={{color: "#FF8000",}}>
+            <div style={{color: "#FF8000",margin:"5% 0 0 2%"}}>
                 출처: 식품의약품 안전처
             </div>
         </div>

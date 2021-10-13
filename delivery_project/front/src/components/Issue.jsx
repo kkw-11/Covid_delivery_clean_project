@@ -61,8 +61,8 @@ const Issue = () => {
       {/* <TextStyle style={{fontWeight:'bold'}}> */}
       {/* <TextStyle style={{textDecoration:"underline"}}> */}
       <TextStyle>
-          <Link to="/cleanStore" > 우리나라 위생 음식점 현황</Link>과  
-          <Link to="/storeDetail" > 식약처에서 위생 인증을 받은 음식점</Link>에 대한 정보를 제공하고 있습니다.
+          <Link to="/cleanStore" y> 우리나라 위생 음식점 현황</Link>과  
+          <Link to="/storeDetail" y> 식약처에서 위생 인증을 받은 음식점</Link>에 대한 정보를 제공하고 있습니다.
       </TextStyle>
     </>
   );
