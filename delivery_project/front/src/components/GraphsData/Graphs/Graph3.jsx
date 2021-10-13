@@ -12,6 +12,7 @@ import {
     ResponsiveContainer,
 } from "recharts";
 
+// 출처: 식품의약품 안전처
 const data = [
     {
         name: "2017년",
@@ -27,7 +28,7 @@ const data = [
     },
     {
         name: "2020년",
-        "식품위생법 위반건수": 2388,
+        "식품위생법 위반건수": 3949,
     },
 ];
 
@@ -35,7 +36,7 @@ const data = [
 const Graph3 = () => {
     return (
         <div>
-            <div style={{ height: "5vh" }}>
+            <div style={{ height: "7vh" }}>
                 <div
                     style={{
                         width: "100%",
@@ -48,8 +49,9 @@ const Graph3 = () => {
                     <p>
                         <span
                             style={{
-                                borderRadius: "15px 15px 15px 0",
-                                border: "3px solid #FFAD5B",
+                                // borderRadius: "15px 15px 15px 0",
+                                // border: "3px solid #FFAD5B",
+                                fontWeight: "bold",
                                 padding: "0.5em 0.6em",
                                 textAlign: "center",
                                 color: "#FF8000",
@@ -76,11 +78,13 @@ const Graph3 = () => {
                             <XAxis dataKey="name" />
                             <YAxis />
                             <Tooltip />
-                            <Legend />
                             <Bar dataKey="식품위생법 위반건수" fill="#82ca9d" />
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
+            </div>
+            <div style={{color: "#FF8000",}}>
+                출처: 식품의약품 안전처
             </div>
         </div>
     );
