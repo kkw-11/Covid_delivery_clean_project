@@ -79,8 +79,6 @@ const data2 = [
 ];
 
 const Graph1 = () => {
-    {
-    }
     return (
         <div>
             <div style={{ height: "5vh" }}>
