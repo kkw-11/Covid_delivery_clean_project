@@ -4,7 +4,7 @@ from collections import defaultdict
 import json
 import random
 
-bp = Blueprint('main', __name__, url_prefix='/')
+bp = Blueprint('main', __name__, url_prefix='/api')
 
 # 지역별로 위생등급을 받은 전체가게 수와 프랜차이점의 수를 반환하는 API
 @bp.route('/regioncount', methods=['POST'])
