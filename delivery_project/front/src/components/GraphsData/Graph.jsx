@@ -107,7 +107,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                             <StoreName>{storelist.data[area][3]}</StoreName>
                             <StoreName>{storelist.data[area][4]}</StoreName>
                             <Link to={{
-                                pathname: `/Storedetail`,
+                                pathname: `/storeDetail`,
                                 state: area
                         }}> 더보기 </Link>
                         </div>
