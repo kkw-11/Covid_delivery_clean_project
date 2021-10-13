@@ -18,6 +18,9 @@ import food13 from '../images/13.PNG';
 import food14 from '../images/14.PNG';
 import food15 from '../images/15.PNG';
 import food16 from '../images/16.PNG';
+import food17 from '../images/19.PNG';
+import food18 from '../images/20.PNG';
+
 
 
 function MenuCup() {
@@ -26,6 +29,7 @@ function MenuCup() {
         { name: "스테이크", src: food5 }, { name: "파스타", src: food6 }, { name: "초밥", src: food7 }, { name: "짜장면", src: food8 },
         { name: "닭갈비", src: food9 }, { name: "떡볶이", src: food10 }, { name: "보쌈", src: food11 }, { name: "쌀국수", src: food12 },
         { name: "삼겹살구이", src: food13 }, { name: "갈비찜", src: food14 }, { name: "순대국밥", src: food15 }, { name: "부대찌개", src: food16 },
+        { name: "햄버거", src: food17 }, { name: "곱창", src: food18 },
     ]
 
     const [foods, setFoods] = useState([]);
@@ -38,7 +42,7 @@ function MenuCup() {
 
     useEffect(() => {
         allfoods.sort(() => Math.random() - 0.5);
-        setFoods(allfoods);
+        setFoods(allfoods.slice(2));
         setMatch([allfoods[0], allfoods[1]]);
         setRound('16강');
         setCount(1);
