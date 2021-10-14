@@ -49,7 +49,7 @@ const WrapOfMainWrap = styled.div`
 `
 
 const MainWrap = styled.div`
-  border: 5px solid #8B4513;
+  border: 4px solid #8B4513;
   margin: 0.5% 0.5%;
   padding: 40px;
 `

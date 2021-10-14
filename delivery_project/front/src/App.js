@@ -16,9 +16,9 @@ import StoreDetail from "./components/StoreDetail";
 import MenuHunt from "./components/MenuHunt";
 import MenuCup from "./components/MenuCup";
 // import Map from "./components/Map";
+import About from "./components/About";
 
 import { Helmet } from 'react-helmet'
-
 
 const App = () => {
 
@@ -42,6 +42,7 @@ const App = () => {
       <Route path="/storeDetail"><StoreDetail /></Route>
       <Route path="/menuHunt"><MenuHunt /></Route>
       <Route path="/menuCup"><MenuCup /></Route>
+      <Route path="/about"><About /></Route>
     </BrowserRouter>
   );
 }

@@ -26,10 +26,10 @@ const Navbar = () => {
             <Menu.Item onClick={() => {history.push('/cleanStore')}} >
                 <Font2>Clean Map</Font2>
             </Menu.Item>
-            <Menu.Item onClick={() => {history.push('#')}} >
+            <Menu.Item onClick={() => {history.push('/storeDetail')}} >
                 <Font2>Clean Store</Font2>
             </Menu.Item>
-            <Menu.Item onClick={() => {history.push('#')}} >
+            <Menu.Item onClick={() => {history.push('/about')}} >
                 <Font2>About</Font2>
             </Menu.Item>
           </Menu>
