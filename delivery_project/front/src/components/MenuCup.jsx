@@ -61,16 +61,23 @@ function MenuCup() {
     const [match, setMatch] = useState([]);
     const [winners, setWinners] = useState([]);
     const [round, setRound] = useState();
-    const [count, setCount] = useState();
+    const [roundCnt, setRoundCnt] = useState();
+    const [bracket, setBracket] = useState();
+    const [th, setTh] = useState();
+    const [thCnt, setThCnt] = useState();
     const [winner, setWinner] = useState();
     const [finished, setFinished] = useState();
+
 
     useEffect(() => {
         allfoods.sort(() => Math.random() - 0.5);
         setFoods(allfoods.slice(0, 16));
         setMatch([allfoods[0], allfoods[1]]);
         setRound('16강');
-        setCount(1);
+        setBracket(' (')
+        setRoundCnt(1);
+        setTh('/8)')
+        setThCnt(1);
         setFinished(false);
     }, []);
 
@@ -78,30 +85,40 @@ function MenuCup() {
         if (foods.length <= 2) {
             if (winners.length === 0) {
                 setFinished(true);
-                setCount(count + 1);
+                setRoundCnt(roundCnt + 1);
                 setWinner(food);
             } else {
                 let updatedFood = [...winners, food];
                 setFoods(updatedFood);
                 setMatch([updatedFood[0], updatedFood[1]]);
                 setWinners([]);
-                setCount(count + 1);
+                setRoundCnt(roundCnt + 1);
             }
         } else if (foods.length > 2) {
             setWinners([...winners, food]);
             setMatch([foods[2], foods[3]]);
             setFoods(foods.slice(2));
-            setCount(count + 1);
+            setRoundCnt(roundCnt + 1);
         }
 
-        if (count < 8) {
+        if (roundCnt < 8) {
             setRound('16강');
-        } else if (count >= 8 && count < 12) {
+            setThCnt(thCnt + 1);
+        } else if (roundCnt >= 8 && roundCnt < 12) {
             setRound('8강');
-        } else if (count >= 12 && count < 14) {
+            setTh('/4)');
+            // setThCnt(1);
+            setThCnt(thCnt + 1);
+        } else if (roundCnt >= 12 && roundCnt < 14) {
             setRound('4강');
-        } else if (count >= 14 && count < 15) {
+            setTh('/2)');
+            // setThCnt(1);
+            setThCnt(thCnt + 1);
+        } else if (roundCnt >= 14 && roundCnt < 15) {
             setRound('결승전');
+            setBracket();
+            setTh();
+            setThCnt();
         } else {
             setRound('우승 메뉴')
         }
@@ -121,12 +138,13 @@ function MenuCup() {
                 match.map(food => {
                     return (
                         <Processing>
-                            <div className='round'>{round}</div>
+                            <div className='round'><span style={{fontWeight:"bold"}}>{round}</span>{bracket}{thCnt}{th}</div>
+                            {/* <div className='round-th'>{thCnt}{th}</div> */}
                             <div className='vs'>VS</div>
                             <div className='food-wrap' key={food.name} >
                                 <div style={{position : "fixed"}}>
-                                    <div style={{position : "fixed"}}>
-                                        <div className='food'><img className='food-img' src={food.src} onClick={worldcupHandler(food)}/></div>
+                                    <div style={{position : "fixed", cursor:"pointer"}} onClick={worldcupHandler(food)}>
+                                        <div className='food'><img className='food-img' src={food.src} /></div>
                                         <img className='dish' src={dishonly} />
                                     </div>
                                     <div className='food-name'>{food.name}</div>
@@ -156,6 +174,14 @@ const Processing = styled.div`
         transform: translate(-50%);
         padding: 5px 30px;
         font-size: 50px;
+    }
+    .round-th {
+        position: absolute;
+        z-index: 2;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 40px;
     }
     .vs {
         position: absolute;
