@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 import menu from '../images/menu11.jpg';
 
-// 이미지 올리기
+
 const Menu = () => {
   return (
     <div role="main">

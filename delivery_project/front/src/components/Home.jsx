@@ -13,8 +13,6 @@ import food8 from '../images/8.PNG';
 import food9 from '../images/9.PNG';
 import menu from '../images/menu.jpg';
 
-// 질문1: 스무스하게 넘어가기 (fade in, out) => useEffect return에서는 실행불가. 
-
 function Home() {
 
     let imgArray = [food1, food2, food3, food4, food5, food6, food7, food8, food9];
@@ -47,16 +45,13 @@ function Home() {
 
 const Table = styled.div`
     position: fixed;
-    left:50%; 
-    transform: translate(-50%);
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
+    left: 50%;
+    top: 10%; 
+    transform: translateX(-50%);
 `
 
 const Dish = styled.div`
     position: relative;
-    margin: 1% auto auto auto;
 `
 
 const Foods = styled.div`
