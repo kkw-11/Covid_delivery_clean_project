@@ -81,6 +81,10 @@ function MenuCup() {
         setFinished(false);
     }, []);
 
+    useEffect(() => {
+        setThCnt(1);
+    }, [round]);
+
     const worldcupHandler = food => () => {
         if (foods.length <= 2) {
             if (winners.length === 0) {
