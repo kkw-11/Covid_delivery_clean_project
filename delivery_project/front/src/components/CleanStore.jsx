@@ -6,8 +6,6 @@ import Map from "./Map"
 import Grade from "./GraphsData/Grade"
 import Graph from "./GraphsData/Graph"
 
-
-
 const CleanStore = () => {
     
     const [grade, setGrade] = useState(null);

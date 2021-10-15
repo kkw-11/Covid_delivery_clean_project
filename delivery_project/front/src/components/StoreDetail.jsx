@@ -12,20 +12,31 @@ const StoreDetail = () => {
     const initsearch = area.state === '전국' ? '' : area.state;
 
     const [page, setPage] = useState(1);
-    const [allstorelist, setAllstorelist] = useState(null);
+    const [allstorelist, setAllstorelist] = useState(null); //전체 DB 받아옴
+
     const [selectstorelist, setSelectstorelist] = useState(null);
     const [showstorelist, setShowstorelist] = useState(null);
+    const [notfranchiselist,setNotFranchiseList] = useState(null);
 
     const [search, setSearch] = useState(initsearch);
     const [check, setCheck] = useState('region');
 
     const handlePageChange = (page) => {
-        setShowstorelist(selectstorelist.slice((page - 1) * 20, page * 20));
-        setPage(page);
+        if (notFran ===true){
+            setShowstorelist(notfranchiselist.slice((page-1)*20, page*20));
+            setPage(page);
+        }
+        else{
+            setShowstorelist(selectstorelist.slice((page - 1) * 20, page * 20));
+            setPage(page);
+        }
+        
     };
 
     const [storename, setStorename] = useState('');
     const [storeaddr, setStoreaddr] = useState('');
+
+    const [notFran,setNotFran] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -35,22 +46,36 @@ const StoreDetail = () => {
         fetchData();
     }, []);
 
+    //처음 페이지 열릴때
     useEffect(() => {
         if (allstorelist !== null) {
             const tmp = [];
+            const tmp2 = []; //franchise 아닌 가게 데이터 불러오기
             allstorelist.map((row) => {
                 if (row.addr.includes(initsearch)) {
                     tmp.push(row);
+                    if(row.franchise == 0){//일반가게 정보(0) tmp2에 넣기
+                        tmp2.push(row);
+                    }
                 }
             })
             setSelectstorelist(tmp);
+            setNotFranchiseList(tmp2);
         }
     }, [allstorelist])
 
+    //한 페이지마다 가게 20개씩 보여지는 코드
     useEffect(() => {
-        if (selectstorelist !== null) {
-            setShowstorelist(selectstorelist.slice(0, 20));
+        if (notFran== true){
+            if(notfranchiselist !== null){
+                setShowstorelist(notfranchiselist.slice(0, 20));
+            }
         }
+        else{
+            if (selectstorelist !== null) {
+                setShowstorelist(selectstorelist.slice(0, 20));
+            }
+    }
     }, [selectstorelist])
 
     useEffect(() => {
@@ -87,26 +112,38 @@ const StoreDetail = () => {
 
     }, [storeaddr]);
 
+    //검색으로 가게정보 필터
     useEffect(() => {
+        //
         if (allstorelist !== null) {
             const tmp = [];
+            const tmp2 = [];
             if (check === 'region') {
                 allstorelist.map((row) => {
                     if (row.addr1.includes(search) || row.addr2.includes(search)) {
                         tmp.push(row);
+                        if(row.franchise === 0){//일반가게 정보(0) tmp2에 넣기
+                            tmp2.push(row);
+                        }
                     }
                     setSelectstorelist(tmp);
+                    setNotFranchiseList(tmp2);
                 });
             } else if (check === 'storename') {
                 allstorelist.map((row) => {
                     if (row.bssh_nm.includes(search)) {
                         tmp.push(row);
+                        if(row.franchise === 0){//일반가게 정보(0) tmp2에 넣기
+                            tmp2.push(row);
+                        }
                     }
                     setSelectstorelist(tmp);
+                    setNotFranchiseList(tmp2);
                 });
             }
         }
-    }, [search, check]);
+
+    }, [search, check, notFran]);
 
     const handleCheck = (e) => {
         setCheck(e.target.value);
@@ -144,7 +181,14 @@ const StoreDetail = () => {
 
     const Radio = () => {
         return (
+            
             <div style={{marginBottom:'3%'}}>
+                <label>
+                <FranCheck>
+                  <input type="checkbox" name="notfranchisecheck" checked={notFran} onChange={()=>checkHandler()}/>프랜차이즈 제외한 일반가게만 보기
+                </FranCheck>
+                </label><br/><br/>
+
                 <label>
                     <FormCheckLeft type="radio" name='radiocheck' value="storename" checked={check === 'storename' ? true : false} onChange={handleCheck} />
                     <FormCheckText>가게이름</FormCheckText>
@@ -154,7 +198,11 @@ const StoreDetail = () => {
                     <FormCheckText>지역</FormCheckText>
                 </label>
             </div>
+
         );
+    }
+    const checkHandler = () => {
+        setNotFran(!notFran);
     }
 
     return (
@@ -170,16 +218,22 @@ const StoreDetail = () => {
                             />) : 
                             (
                                 <>
-                                    <Radio />
+                                    <Radio />            
+                                    
                                     <Search placeholder="검색" onChange={handleSearch} onFocus="this.placeholder=''" onBlur="this.placeholder='검색'" />
+                                    <br/>
+                            
                                     <Searchtitle>
                                     {check === 'region' ? '지역' : '가게이름'}기준 : {search !== '' ? search : '전체'}의 위생가게 리스트입니다.
                                     </Searchtitle>
+
                                     <StoreTable />
+                                    
                                     <Pagination
-                                        activePage={page} itemsCountPerPage={20} totalItemsCount={selectstorelist.length} pageRangeDisplayed={5} prevPageText={"이전"} nextPageText={"다음"} firstPageText={"처음"} lastPageText={"끝"} onChange={handlePageChange} />
+                                        activePage={page} itemsCountPerPage={20} totalItemsCount={notFran ? notfranchiselist.length : selectstorelist.length} pageRangeDisplayed={5} prevPageText={"이전"} nextPageText={"다음"} firstPageText={"처음"} lastPageText={"끝"} onChange={handlePageChange} />
                                 </>
                         )}
+
                     </div>
                     <div style={{ borderLeft: '1px solid black' }}>
                         <div style={{width:"93%", height:"40%", marginLeft:"5%"}}>
@@ -250,6 +304,12 @@ const FormCheckText = styled.span`
     color: #777;
 `;
 
+const FranCheck = styled.span`
+    width: 20px;
+    height: 20px;
+    border: 2px #bcbcbc;
+    cursor: pointer;
+`
 const FormCheckLeft = styled.input.attrs({ type: 'radio' })`
     &:checked {
         display: inline-block;

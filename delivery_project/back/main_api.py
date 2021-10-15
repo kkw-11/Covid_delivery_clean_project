@@ -1,3 +1,4 @@
+import re
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify
 from models import *
 from collections import defaultdict
@@ -203,3 +204,20 @@ def allstorelist2():
                                 "addr1" : store.addr1,
                                 "addr2" : store.addr2 })
     return jsonify(result)
+
+
+@bp.route("/notincludeFranchise", methods=['POST'])
+def franchiseList():
+
+        
+    test_list = cleanTable.query.filter(cleanTable.franchise == 0)
+    print("franchiseList")
+    return render_template('test.html', test_list = test_list)
+
+@bp.route("/includeFranchise", methods=['POST'])
+def allList():
+    # return menu_main_category
+    test_list = cleanTable.query.all()
+    print("allList")
+
+    return render_template('test.html', test_list = test_list)
