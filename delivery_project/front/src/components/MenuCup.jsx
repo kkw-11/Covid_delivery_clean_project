@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {useHistory} from 'react-router-dom'
 import styled,{keyframes} from 'styled-components';
 import dish from '../images/dish3-1.jpg';
 import dishonly from '../images/dish-only-1.jpg'
@@ -68,6 +69,7 @@ function MenuCup() {
     const [winner, setWinner] = useState();
     const [finished, setFinished] = useState();
 
+    const history = useHistory();
 
     useEffect(() => {
         allfoods.sort(() => Math.random() - 0.5);
@@ -83,6 +85,9 @@ function MenuCup() {
 
     useEffect(() => {
         setThCnt(1);
+        if (round === '결승전'){
+            setThCnt();
+        }
     }, [round]);
 
     const worldcupHandler = food => () => {
@@ -111,12 +116,10 @@ function MenuCup() {
         } else if (roundCnt >= 8 && roundCnt < 12) {
             setRound('8강');
             setTh('/4)');
-            // setThCnt(1);
             setThCnt(thCnt + 1);
         } else if (roundCnt >= 12 && roundCnt < 14) {
             setRound('4강');
             setTh('/2)');
-            // setThCnt(1);
             setThCnt(thCnt + 1);
         } else if (roundCnt >= 14 && roundCnt < 15) {
             setRound('결승전');
@@ -137,13 +140,13 @@ function MenuCup() {
                         <img src={dish} />
                         <div className='winner-name'>{winner.name}</div>
                     </div>
+                    <buton className='retry-button' onClick={()=>history.go()}>다시하기</buton>
                 </Finished>
                 :
                 match.map(food => {
                     return (
                         <Processing>
                             <div className='round'><span style={{fontWeight:"bold"}}>{round}</span>{bracket}{thCnt}{th}</div>
-                            {/* <div className='round-th'>{thCnt}{th}</div> */}
                             <div className='vs'>VS</div>
                             <div className='food-wrap' key={food.name} >
                                 <div style={{position : "fixed"}}>
@@ -261,6 +264,17 @@ const flicker = keyframes`
         text-shadow: none;
     }    
 `
+const fadein = keyframes`
+    from {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
 
 const Finished = styled.div`
     position: fixed;
@@ -299,6 +313,19 @@ const Finished = styled.div`
         // color: #fff; 
         text-shadow: 0 0 7px #000, 0 0 42px #fff;
         animation: ${flicker} 1.2s 3.5s infinite;
+    }
+    .retry-button {
+        position: relative;
+        top: 5%;
+        left: 105%;
+        width: 150px;
+        font-size: 35px;
+        color: brown;
+        border: solid 3px brown;
+        border-radius: 10px;
+        padding: 5px 15px;
+        background-color: white;
+        animation: ${fadein} 5s;
     }
 `
 export default MenuCup;
