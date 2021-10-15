@@ -236,10 +236,10 @@ const StoreDetail = () => {
 
                     </div>
                     <div style={{ borderLeft: '1px solid black' }}>
-                        <div style={{width:"93%", height:"40%", marginLeft:"5%"}}>
+                        <div style={{width:"93%", height:"20%", marginLeft:"5%"}}>
                             <p>주소 : {storeaddr}</p>
                         </div>
-                        <div id="map" style={{ width: "93%", height: "60%", marginLeft:"5%" }}></div>
+                        <div id="map" style={{ width: "95%", height: "70%", marginLeft:"5%", marginTop: "5%" }}></div>
                     </div>
                 </GirdContainer>
             </MainWrap>
@@ -260,7 +260,7 @@ const WrapOfMainWrap = styled.div`
 const MainWrap = styled.div`
   border: 4px solid #8B4513;
   margin: 0.5% 0.5%;
-  padding: 40px;
+  padding: 25px 50px 40px 50px;
 `
 
 const GirdContainer = styled.div`
@@ -269,6 +269,7 @@ const GirdContainer = styled.div`
     height: 70vh;
     grid-template-columns: 50% 50%;
     background-color: rgb(255, 255, 255);
+    margin-bottom: 5%;
 `
 
 const Search = styled.input`
