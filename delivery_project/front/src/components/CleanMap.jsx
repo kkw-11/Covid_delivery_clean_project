@@ -8,7 +8,7 @@ import Graph from "./GraphsData/Graph"
 
 
 
-const CleanStore = () => {
+const CleanMap = () => {
     
     const [grade, setGrade] = useState(null);
     const [franchise, setFranchise] = useState(null);
@@ -50,7 +50,7 @@ const CleanStore = () => {
     )
 }
 
-export default CleanStore;
+export default CleanMap;
 
 const GirdContainer = styled.div`
     display: grid;

@@ -30,7 +30,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
             ) : (
                 <>
                     <div style={{ width: '100%', textAlign: 'center', lineHeight: '6vh', margin:'1%' }}>
-                        <p><span style={{ border: "3px solid #8B4513", borderRadius: "5px", padding: '0.1em 0.5em', color: '#8B4513', fontSize: "1.6em", fontWeight: "bold"}}>{area} 프랜차이즈 비율</span></p>
+                        <p><span style={{ border: "3px solid #8B4513", borderRadius: "5px", padding: '0.1em 0.5em', color: '#8B4513', fontSize: "1.6em", fontWeight: "bold"}}>{area} 위생가게 비율</span></p>
                     </div>
                     <div style={{ width: '85%', textAlign: '-webkit-center', margin:'0 auto'}}>
                         <ReactApexChart
@@ -39,7 +39,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                                     width: '100%',
                                     type: 'donut',
                                 },
-                                labels: ["프랜차이즈", "일반음식점"],
+                                labels: ["위생가게 중 프랜차이즈", "위생가게 중 일반음식점"],
                                 theme: {
                                     palette: 'palette2'
                                 },

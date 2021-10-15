@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import {useHistory} from 'react-router-dom'
 import styled,{keyframes} from 'styled-components';
 import dish from '../images/dish3-1.jpg';
 import dishonly from '../images/dish-only-1.jpg'
@@ -43,6 +44,9 @@ import food38 from '../images/40.PNG';
 import food39 from '../images/41.PNG';
 import food40 from '../images/42.PNG';
 
+
+// 1. webkit
+// 2. @media
 function MenuCup() {
     const allfoods = [
         { name: "치킨", src: food1}, { name: "돈까스", src: food2}, { name: "피자", src: food3}, { name: "족발", src: food4},
@@ -61,47 +65,70 @@ function MenuCup() {
     const [match, setMatch] = useState([]);
     const [winners, setWinners] = useState([]);
     const [round, setRound] = useState();
-    const [count, setCount] = useState();
+    const [roundCnt, setRoundCnt] = useState();
+    const [bracket, setBracket] = useState();
+    const [th, setTh] = useState();
+    const [thCnt, setThCnt] = useState();
     const [winner, setWinner] = useState();
     const [finished, setFinished] = useState();
+
+    const history = useHistory();
 
     useEffect(() => {
         allfoods.sort(() => Math.random() - 0.5);
         setFoods(allfoods.slice(0, 16));
         setMatch([allfoods[0], allfoods[1]]);
         setRound('16강');
-        setCount(1);
+        setBracket(' (')
+        setRoundCnt(1);
+        setTh('/8)')
+        setThCnt(1);
         setFinished(false);
     }, []);
 
-    const worldcupHandler = food => () => {
+    useEffect(() => {
+        setThCnt(1);
+        if (round === '결승전'){
+            setThCnt();
+        }
+    }, [round]);
+
+    const MenuCupHandler = food => () => {
         if (foods.length <= 2) {
             if (winners.length === 0) {
                 setFinished(true);
-                setCount(count + 1);
+                setRoundCnt(roundCnt + 1);
                 setWinner(food);
             } else {
                 let updatedFood = [...winners, food];
                 setFoods(updatedFood);
                 setMatch([updatedFood[0], updatedFood[1]]);
                 setWinners([]);
-                setCount(count + 1);
+                setRoundCnt(roundCnt + 1);
             }
         } else if (foods.length > 2) {
             setWinners([...winners, food]);
             setMatch([foods[2], foods[3]]);
             setFoods(foods.slice(2));
-            setCount(count + 1);
+            setRoundCnt(roundCnt + 1);
         }
 
-        if (count < 8) {
+        if (roundCnt < 8) {
             setRound('16강');
-        } else if (count >= 8 && count < 12) {
+            setThCnt(thCnt + 1);
+        } else if (roundCnt >= 8 && roundCnt < 12) {
             setRound('8강');
-        } else if (count >= 12 && count < 14) {
+            setTh('/4)');
+            setThCnt(thCnt + 1);
+        } else if (roundCnt >= 12 && roundCnt < 14) {
             setRound('4강');
-        } else if (count >= 14 && count < 15) {
+            setTh('/2)');
+            setThCnt(thCnt + 1);
+        } else if (roundCnt >= 14 && roundCnt < 15) {
             setRound('결승전');
+            setBracket();
+            setTh();
+            setThCnt();
         } else {
             setRound('우승 메뉴')
         }
@@ -112,21 +139,28 @@ function MenuCup() {
             {finished ? 
                 <Finished>
                     <div className='winner-wrap'>
-                        <div className='winner'><img className='winner-img' src={winner.src} /></div>
+                        <div className='img-wrap'>
+                            <img className='winner-img' src={winner.src}/>
+                        </div>
                         <img src={dish} />
                         <div className='winner-name'>{winner.name}</div>
                     </div>
+                    <buton className='retry-button' onClick={()=>history.go()}>다시하기</buton>
                 </Finished>
                 :
                 match.map(food => {
                     return (
                         <Processing>
-                            <div className='round'>{round}</div>
+                            <div className='round'>
+                                <span style={{fontWeight:"bold"}}>{round}</span>{bracket}{thCnt}{th}
+                            </div>
                             <div className='vs'>VS</div>
                             <div className='food-wrap' key={food.name} >
                                 <div style={{position : "fixed"}}>
-                                    <div style={{position : "fixed"}}>
-                                        <div className='food'><img className='food-img' src={food.src} onClick={worldcupHandler(food)}/></div>
+                                    <div style={{position : "fixed", cursor:"pointer"}} onClick={MenuCupHandler(food)}>
+                                        <div className='img-wrap'>
+                                            <img className='food-img' src={food.src} />
+                                        </div>
                                         <img className='dish' src={dishonly} />
                                     </div>
                                     <div className='food-name'>{food.name}</div>
@@ -154,8 +188,15 @@ const Processing = styled.div`
         top: 10%;
         left: 50%;
         transform: translate(-50%);
-        padding: 5px 30px;
         font-size: 50px;
+    }
+    .round-th {
+        position: absolute;
+        z-index: 2;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%);
+        font-size: 40px;
     }
     .vs {
         position: absolute;
@@ -166,12 +207,11 @@ const Processing = styled.div`
     }
     .food-wrap {
         position: relative;
-        text-align: center;
     }
     .dish {
         margin: 3% 4%;
     }
-    .food {
+    .img-wrap {
         position: absolute;
         background-color: black;
         overflow: hidden;
@@ -179,7 +219,6 @@ const Processing = styled.div`
         height: 370px;
         margin-top: 20%;
         margin-left: 20.5%;
-        z-index: 100;
         border-radius: 70%;
     }
     .food-img {
@@ -194,10 +233,8 @@ const Processing = styled.div`
         transition: 0.5s;
     }
     .food-name {
-        position: absolute;
-        z-index: 101;
         font-size: 80px;
-        width: 500px;
+        width: 80%;
         left: 50%;
         transform: translate(-50%);
         margin-left: 300px;
@@ -205,6 +242,7 @@ const Processing = styled.div`
         text-align: center;
     }
 `
+
 const blink = keyframes`
     0% {
         transform: scale(1)
@@ -231,7 +269,17 @@ const flicker = keyframes`
         text-shadow: none;
     }    
 `
-
+const fadein = keyframes`
+    from {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+`
 const Finished = styled.div`
     position: fixed;
     left: 50%; 
@@ -245,13 +293,12 @@ const Finished = styled.div`
         position: relative;
         animation: ${blink} 1s 0.2s 3;
     }
-    .winner {
+    .img-wrap {
         width: 320px;
         height: 320px;
         position: absolute;
         margin-top: 9%;
         margin-left: 33.5%;
-        z-index: 100;
         border-radius: 70%;
         overflow: hidden;
     }
@@ -262,13 +309,24 @@ const Finished = styled.div`
     }
     .winner-name {
         position: absolute;
-        z-index: 3;
         font-size: 80px;
         left: 50%;
         transform: translate(-50%);
-        // color: #fff; 
         text-shadow: 0 0 7px #000, 0 0 42px #fff;
         animation: ${flicker} 1.2s 3.5s infinite;
+    }
+    .retry-button {
+        position: relative;
+        top: 5%;
+        left: 105%;
+        font-size: 35px;
+        color: brown;
+        border: solid 3px brown;
+        border-radius: 10px;
+        padding: 5px 15px;
+        background-color: white;
+        animation: ${fadein} 5s;
+        cursor: pointer;
     }
 `
 export default MenuCup;

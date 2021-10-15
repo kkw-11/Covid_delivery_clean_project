@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { BACKEND_URL } from "../env";
 import axios from "axios";
 import Pagination from "react-js-pagination";
+import loading from '../images/loading5.gif';
 
 const StoreDetail = () => {
     const area = useLocation();
@@ -161,17 +162,23 @@ const StoreDetail = () => {
             <MainWrap>
                 <GirdContainer>
                     <div>
-                        {allstorelist === null || selectstorelist === null || showstorelist === null ? (<p>loading</p>) : (
-                            <>
-                                <Radio />
-                                <Search placeholder="검색" onChange={handleSearch} onFocus="this.placeholder=''" onBlur="this.placeholder='검색'" />
-                                <Searchtitle>
-                                {check === 'region' ? '지역' : '가게이름'}기준 : {search !== '' ? search : '전체'}의 위생가게 리스트입니다.
-                                </Searchtitle>
-                                <StoreTable />
-                                <Pagination
-                                    activePage={page} itemsCountPerPage={20} totalItemsCount={selectstorelist.length} pageRangeDisplayed={5} prevPageText={"이전"} nextPageText={"다음"} firstPageText={"처음"} lastPageText={"끝"} onChange={handlePageChange} />
-                            </>
+                        {allstorelist === null || selectstorelist === null || showstorelist === null ? 
+                            (<img 
+                                alt="loading..." 
+                                src={loading} 
+                                style={{ width:"90%", height:"100%"}}
+                            />) : 
+                            (
+                                <>
+                                    <Radio />
+                                    <Search placeholder="검색" onChange={handleSearch} onFocus="this.placeholder=''" onBlur="this.placeholder='검색'" />
+                                    <Searchtitle>
+                                    {check === 'region' ? '지역' : '가게이름'}기준 : {search !== '' ? search : '전체'}의 위생가게 리스트입니다.
+                                    </Searchtitle>
+                                    <StoreTable />
+                                    <Pagination
+                                        activePage={page} itemsCountPerPage={20} totalItemsCount={selectstorelist.length} pageRangeDisplayed={5} prevPageText={"이전"} nextPageText={"다음"} firstPageText={"처음"} lastPageText={"끝"} onChange={handlePageChange} />
+                                </>
                         )}
                     </div>
                     <div style={{ borderLeft: '1px solid black' }}>
@@ -187,7 +194,7 @@ const StoreDetail = () => {
 }
 
 const WrapOfMainWrap = styled.div`
-  border: 3px solid;
+  border: 2px solid #8B4513;
   margin: 2% 2%;
   background-color: white;
   position: absolute;
@@ -197,7 +204,7 @@ const WrapOfMainWrap = styled.div`
 `
 
 const MainWrap = styled.div`
-  border: 4px solid;
+  border: 4px solid #8B4513;
   margin: 0.5% 0.5%;
   padding: 40px;
 `
