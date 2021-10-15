@@ -4,7 +4,6 @@ from db_connect import db
 class cleanTable(db.Model):
     
     __tablename__ = 'clean_store'
-
     index = db.Column(db.Integer, primary_key=True, nullable=False)
     asgn_to = db.Column(db.Integer)
     prsdnt_nm = db.Column(db.String(255))
