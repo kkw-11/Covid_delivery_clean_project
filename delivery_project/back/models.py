@@ -4,14 +4,6 @@ from db_connect import db
 class cleanTable(db.Model):
     
     __tablename__ = 'clean_store'
-
-<<<<<<< HEAD
-    __tablename__ = 'testTable'
-
-    id = db.Column(db.Integer, primary_key=True, nullable=False)
-    store_id = db.Column(db.String(255), nullable =False)
-    star = db.Column(db.Integer, nullable=False)
-=======
     index = db.Column(db.Integer, primary_key=True, nullable=False)
     asgn_to = db.Column(db.Integer)
     prsdnt_nm = db.Column(db.String(255))
@@ -29,4 +21,3 @@ class cleanTable(db.Model):
     franchise = db.Column(db.Integer)
     addr1 = db.Column(db.String(255))
     addr2 = db.Column(db.String(255))
->>>>>>> dev

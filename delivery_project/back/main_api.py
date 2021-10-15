@@ -28,9 +28,6 @@ def regioncount():
 
     return jsonify(result)
 
-<<<<<<< HEAD
-    return 
-=======
 # 지역별로 위생가게의 등급별 수를 반환하는 API
 @bp.route('/gradecount', methods=['POST'])
 def gradecount():
@@ -206,4 +203,3 @@ def allstorelist2():
                                 "addr1" : store.addr1,
                                 "addr2" : store.addr2 })
     return jsonify(result)
->>>>>>> dev
