@@ -44,6 +44,9 @@ import food38 from '../images/40.PNG';
 import food39 from '../images/41.PNG';
 import food40 from '../images/42.PNG';
 
+
+// 1. webkit
+// 2. @media
 function MenuCup() {
     const allfoods = [
         { name: "치킨", src: food1}, { name: "돈까스", src: food2}, { name: "피자", src: food3}, { name: "족발", src: food4},
@@ -90,7 +93,7 @@ function MenuCup() {
         }
     }, [round]);
 
-    const worldcupHandler = food => () => {
+    const MenuCupHandler = food => () => {
         if (foods.length <= 2) {
             if (winners.length === 0) {
                 setFinished(true);
@@ -136,7 +139,9 @@ function MenuCup() {
             {finished ? 
                 <Finished>
                     <div className='winner-wrap'>
-                        <div className='winner'><img className='winner-img' src={winner.src} /></div>
+                        <div className='img-wrap'>
+                            <img className='winner-img' src={winner.src}/>
+                        </div>
                         <img src={dish} />
                         <div className='winner-name'>{winner.name}</div>
                     </div>
@@ -146,12 +151,16 @@ function MenuCup() {
                 match.map(food => {
                     return (
                         <Processing>
-                            <div className='round'><span style={{fontWeight:"bold"}}>{round}</span>{bracket}{thCnt}{th}</div>
+                            <div className='round'>
+                                <span style={{fontWeight:"bold"}}>{round}</span>{bracket}{thCnt}{th}
+                            </div>
                             <div className='vs'>VS</div>
                             <div className='food-wrap' key={food.name} >
                                 <div style={{position : "fixed"}}>
-                                    <div style={{position : "fixed", cursor:"pointer"}} onClick={worldcupHandler(food)}>
-                                        <div className='food'><img className='food-img' src={food.src} /></div>
+                                    <div style={{position : "fixed", cursor:"pointer"}} onClick={MenuCupHandler(food)}>
+                                        <div className='img-wrap'>
+                                            <img className='food-img' src={food.src} />
+                                        </div>
                                         <img className='dish' src={dishonly} />
                                     </div>
                                     <div className='food-name'>{food.name}</div>
@@ -179,7 +188,6 @@ const Processing = styled.div`
         top: 10%;
         left: 50%;
         transform: translate(-50%);
-        padding: 5px 30px;
         font-size: 50px;
     }
     .round-th {
@@ -199,12 +207,11 @@ const Processing = styled.div`
     }
     .food-wrap {
         position: relative;
-        text-align: center;
     }
     .dish {
         margin: 3% 4%;
     }
-    .food {
+    .img-wrap {
         position: absolute;
         background-color: black;
         overflow: hidden;
@@ -212,7 +219,6 @@ const Processing = styled.div`
         height: 370px;
         margin-top: 20%;
         margin-left: 20.5%;
-        z-index: 100;
         border-radius: 70%;
     }
     .food-img {
@@ -227,10 +233,8 @@ const Processing = styled.div`
         transition: 0.5s;
     }
     .food-name {
-        position: absolute;
-        z-index: 101;
         font-size: 80px;
-        width: 500px;
+        width: 80%;
         left: 50%;
         transform: translate(-50%);
         margin-left: 300px;
@@ -238,6 +242,7 @@ const Processing = styled.div`
         text-align: center;
     }
 `
+
 const blink = keyframes`
     0% {
         transform: scale(1)
@@ -275,7 +280,6 @@ const fadein = keyframes`
         opacity: 1;
     }
 `
-
 const Finished = styled.div`
     position: fixed;
     left: 50%; 
@@ -289,13 +293,12 @@ const Finished = styled.div`
         position: relative;
         animation: ${blink} 1s 0.2s 3;
     }
-    .winner {
+    .img-wrap {
         width: 320px;
         height: 320px;
         position: absolute;
         margin-top: 9%;
         margin-left: 33.5%;
-        z-index: 100;
         border-radius: 70%;
         overflow: hidden;
     }
@@ -306,11 +309,9 @@ const Finished = styled.div`
     }
     .winner-name {
         position: absolute;
-        z-index: 3;
         font-size: 80px;
         left: 50%;
         transform: translate(-50%);
-        // color: #fff; 
         text-shadow: 0 0 7px #000, 0 0 42px #fff;
         animation: ${flicker} 1.2s 3.5s infinite;
     }
@@ -318,7 +319,6 @@ const Finished = styled.div`
         position: relative;
         top: 5%;
         left: 105%;
-        width: 150px;
         font-size: 35px;
         color: brown;
         border: solid 3px brown;
@@ -326,6 +326,7 @@ const Finished = styled.div`
         padding: 5px 15px;
         background-color: white;
         animation: ${fadein} 5s;
+        cursor: pointer;
     }
 `
 export default MenuCup;
