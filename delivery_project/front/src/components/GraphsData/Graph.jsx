@@ -7,6 +7,7 @@ import '../../fonts/font.css';
 import loading from '../../images/loading3.gif';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReactApexChart from 'react-apexcharts';
+import { Icon } from 'semantic-ui-react'
 
 import { BACKEND_URL } from "../../env";
 import { ProgressBar } from 'react-bootstrap';
@@ -101,17 +102,22 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                         <p><span style={{ border: "3px solid #8B4513", borderRadius: "5px", padding: '0.1em 0.5em', color: '#8B4513', fontSize: "1.7em", fontWeight: "bold" }}>{area} 위생가게 리스트</span></p>
                     </div>
                     <div style={{ width: '80%', textAlign: 'left', lineHeight: '5vh', marginLeft: '15%' }}>
-                            <StoreName>{storelist.data[area][0]}</StoreName>
-                            <StoreName>{storelist.data[area][1]}</StoreName>
-                            <StoreName>{storelist.data[area][2]}</StoreName>
-                            <StoreName>{storelist.data[area][3]}</StoreName>
-                            <StoreName>{storelist.data[area][4]}</StoreName>
-                            <Link to={{
-                                pathname: `/storeDetail`,
-                                state: area
-                        }}> 더보기 </Link>
-                        </div>
-
+                        <StoreName>{storelist.data[area][0]}</StoreName>
+                        <StoreName>{storelist.data[area][1]}</StoreName>
+                        <StoreName>{storelist.data[area][2]}</StoreName>
+                        <StoreName>{storelist.data[area][3]}</StoreName>
+                        <StoreName>{storelist.data[area][4]}</StoreName>
+                    </div>
+                    <MoreInfo>
+                        
+                        <Link to={{
+                            pathname: `/storeDetail`,
+                            state: area
+                        }}>
+                            <Icon name="search" />
+                            더보기
+                        </Link>
+                    </MoreInfo>            
                 </>
             )}
         </>
@@ -140,4 +146,9 @@ const StyleGraph = styled.div`
     background-color: transparent;
     box-shadow: 2px 2px 2px 1px #bdbebd;
     
+`
+
+const MoreInfo = styled.div`
+    position: absolute;
+    margin: -1.5% 0 0 24%;
 `

@@ -174,8 +174,8 @@ const Graph1 = () => {
                     </ResponsiveContainer>
                 </div>
             </div>
-            <div style={{color: "#FF8000",}}>
-                출처: ㅇㅇㅇ
+            <div style={{color: "#FF8000", margin:"5% 0 0 2%"}}>
+                출처: 바로고
             </div>
         </div>
     );
