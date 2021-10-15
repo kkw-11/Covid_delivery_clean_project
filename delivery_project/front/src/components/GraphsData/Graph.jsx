@@ -111,7 +111,7 @@ const Graphs1 = ({ area, franchise, allfranchise, storelist }) => {
                     <MoreInfo>
                         
                         <Link to={{
-                            pathname: `/Storedetail`,
+                            pathname: `/storeDetail`,
                             state: area
                         }}>
                             <Icon name="search" />
