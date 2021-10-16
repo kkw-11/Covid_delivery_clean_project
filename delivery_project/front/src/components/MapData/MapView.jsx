@@ -67,10 +67,15 @@ const relativeColorSpectrum  = (num) => {
   else return 10
 }
 
-const MapView = ({ setIsSeoul, franchise, allstore, onAreaClick }) => {
+const MapView = ({ setIsSeoul, franchise, allstore, onAreaClick, setArea }) => {
 
   const [isRelative, setIsRelative] = useState(true)
- 
+
+  const ButtonClick = (e) => {
+    setIsSeoul(true);
+    setArea(e.target.value);
+  } 
+  
   return (
     <>
       <MapLegend isRelative={isRelative}/>
@@ -86,8 +91,9 @@ const MapView = ({ setIsSeoul, franchise, allstore, onAreaClick }) => {
             color="brown"
             size='mini'
             floated="right"
+            value="서울특별시"
             style={{ margin:"1% 3% 0 0" }} 
-            onClick={() => {setIsSeoul(true)}} 
+            onClick={ButtonClick} 
         >서울</Button>
       
       <svg margin="0" width="45%" height= "90%" viewBox="0 0 800 1200" style={{position:'absolute', display:'flex'}}>

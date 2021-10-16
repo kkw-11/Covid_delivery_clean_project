@@ -5,7 +5,6 @@ class cleanTable(db.Model):
     
     __tablename__ = 'clean_store'
     index = db.Column(db.Integer, primary_key=True, nullable=False)
-    asgn_to = db.Column(db.Integer)
     prsdnt_nm = db.Column(db.String(255))
     hg_asgn_lv = db.Column(db.String(255))
     hg_asgn_ymd = db.Column(db.Integer)
@@ -21,3 +20,10 @@ class cleanTable(db.Model):
     franchise = db.Column(db.Integer)
     addr1 = db.Column(db.String(255))
     addr2 = db.Column(db.String(255))
+<<<<<<< HEAD
+=======
+    latitude = db.Column(db.String(255))
+    longitude = db.Column(db.String(255))
+    addr3 = db.Column(db.String(255))
+    code_big = db.Column(db.String(255))
+>>>>>>> dev
