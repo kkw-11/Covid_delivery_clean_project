@@ -167,11 +167,12 @@ const Ellie = ({ isEllie, setIsEllie }) => {
         <>
           <Card.Content>
             <Card.Description>
-              뒤늦게 배운 코딩이 제일 재미있는, 사랑스러운 딸 아이 둘의
-              엄마이기도한 개발자 최윤성입니다. 클린한끼 팀에서는 데이터 분석과
-              백엔드를 맡았습니다. 더 열심히 공부해서 제 딸들이 살아갈 세상을 더
-              편리하게 만들어주고 싶어요. 미래에는 미국 실리콘밸리로 가서
-              아이들에게 무한한 가능성을 보여주는 엄마가 될 거예요.
+              뒤늦게 배운 코딩이 제일 재미있는, 사랑스러운 두 아이의
+              엄마이기도한 최윤성입니다. 클린한끼 팀에서는 데이터 분석과
+              백엔드를 맡았습니다. CS, 알고리즘 등 기본기가 튼튼한 개발자, 제
+              딸들이 살아갈 세상이 더 좋아지고 지속가능한 발전을 할 수 있도록
+              기여하는 개발자가 되고 싶어요. 미래에는 미국 실리콘밸리로 가서
+              아이들에게 무한한 가능성을 보여줄 거예요.
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -196,25 +197,24 @@ const Noelle = ({ isNoelle, setIsNoelle }) => {
     setHover(false);
   }
 
-  return (
-    <Card color="green">
-      <Image
-        src={among3}
-        wrapped
-        ui={false}
-        onClick={() => setIsNoelle(!isNoelle)}
-        style={{
-          ...(hover && {
-            transform: "scale(0.9)",
-            opacity: "0.7",
-            cursor: "pointer",
-            transition: "0.3s",
-          }),
-        }}
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
-      />
-
+    return (
+        <Card color="green" >
+            <Image 
+                src={among3} 
+                wrapped ui={false} 
+                onClick={() => setIsNoelle(!isNoelle)}
+                style={{
+                    ...(hover && {
+                        transform: "scale(0.9)",
+                        opacity: "0.7",
+                        cursor: "pointer",
+                        transition: "0.3s"
+                    })
+                }}
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
+            />
+            
       <Card.Content>
         <Card.Header>고예림</Card.Header>
         <Card.Meta>
