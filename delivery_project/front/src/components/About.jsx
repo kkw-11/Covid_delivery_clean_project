@@ -197,24 +197,50 @@ const Noelle = ({ isNoelle, setIsNoelle }) => {
     setHover(false);
   }
 
-  return (
-    <Card color="green">
-      <Image
-        src={among3}
-        wrapped
-        ui={false}
-        onClick={() => setIsNoelle(!isNoelle)}
-        style={{
-          ...(hover && {
-            transform: "scale(0.9)",
-            opacity: "0.7",
-            cursor: "pointer",
-            transition: "0.3s",
-          }),
-        }}
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
-      />
+    return (
+        <Card color="green" >
+            <Image 
+                src={among3} 
+                wrapped ui={false} 
+                onClick={() => setIsNoelle(!isNoelle)}
+                style={{
+                    ...(hover && {
+                        transform: "scale(0.9)",
+                        opacity: "0.7",
+                        cursor: "pointer",
+                        transition: "0.3s"
+                    })
+                }}
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
+            />
+            
+            <Card.Content>
+                <Card.Header>고예림</Card.Header>
+                <Card.Meta>
+                    <span className='meta'>프론트엔드, 디자인</span>
+                </Card.Meta>
+            </Card.Content>
+            {isNoelle ? (
+                <>
+                    <Card.Content>
+                        <Card.Description>
+                        위생이라는 주제와 '클린한끼'라는 타이틀을 제안했으며, 프론트엔드와 디자인을 담당했던 웹 개발자 고예림입니다. 레이아웃 구축을 진행하면서 CSS 기능이 많아지면 기능 간의 충돌로 역할을 제대로 하지 못한다는 걸 알게되고, CSS는 최소한으로만 구현해야한다는 것을 배웠습니다. 저는 사용자에게 편리한 웹 사이트를 구현하기 위해, 알고리즘과 CSS기초에 힘쓰는 개발자가 될 것입니다.
+                        </Card.Description>
+                        </Card.Content>
+                        <Card.Content extra>
+                        <a href="https://github.com/YeahLim" target="_blank">
+                            <Icon name='blogger' />
+                            Git Hub 주소
+                        </a>
+                    </Card.Content>
+                </>
+            ) : (
+                null
+            )}
+        </Card>
+    )
+}
 
       <Card.Content>
         <Card.Header>고예림</Card.Header>
