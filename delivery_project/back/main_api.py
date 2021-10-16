@@ -3,6 +3,8 @@ from models import *
 from collections import defaultdict
 import json
 import random
+import requests
+from haversine import haversine
 
 bp = Blueprint('main', __name__, url_prefix='/api')
 
@@ -192,14 +194,19 @@ def allstorecount():
     return jsonify(result)
 
 @bp.route('/allstorelist', methods=['POST'])
-def allstorelist2():
+def allstorelist():
+    data = request.get_json()
+    start = (float(data['map1']), float(data['map2']))
     result = {'data': []}
     store_list = cleanTable.query.all()
     for store in store_list:
+        goal = (float(store.latitude), float(store.longitude))
+        distance = format(haversine(start, goal), ".2f")
         result['data'].append({"bssh_nm" : store.bssh_nm,
                                 "hg_asgn_lv" : store.hg_asgn_lv,
                                 "addr" : store.addr,
                                 "franchise" : store.franchise,
                                 "addr1" : store.addr1,
-                                "addr2" : store.addr2 })
+                                "addr2" : store.addr2,
+                                "distance" : distance })
     return jsonify(result)

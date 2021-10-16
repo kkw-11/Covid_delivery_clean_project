@@ -88,6 +88,7 @@ const Map = ({ setArea }) => {
                 franchise={franchise.data}
                 allstore={allstore.data}
                 onAreaClick={handlerAreaSelect}
+                setArea={setArea}
               />
             </SeoulMap>
           ) : (
@@ -97,6 +98,7 @@ const Map = ({ setArea }) => {
                 franchise={franchise.data}
                 allstore={allstore.data}
                 onAreaClick={handlerAreaSelect}
+                setArea={setArea}
               />
             </>
           )}
