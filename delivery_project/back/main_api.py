@@ -1,3 +1,4 @@
+import re
 from flask import Blueprint, render_template, request, url_for, redirect, jsonify
 from models import *
 from collections import defaultdict
@@ -202,11 +203,15 @@ def allstorelist():
     for store in store_list:
         goal = (float(store.latitude), float(store.longitude))
         distance = format(haversine(start, goal), ".2f")
+        addr3 = str(store.addr3).replace(' ', '').rstrip()
+        code_big = str(store.code_big)
         result['data'].append({"bssh_nm" : store.bssh_nm,
                                 "hg_asgn_lv" : store.hg_asgn_lv,
                                 "addr" : store.addr,
                                 "franchise" : store.franchise,
                                 "addr1" : store.addr1,
                                 "addr2" : store.addr2,
-                                "distance" : distance })
+                                "distance" : distance,
+                                "addr3": addr3,
+                                "code_big": code_big })
     return jsonify(result)

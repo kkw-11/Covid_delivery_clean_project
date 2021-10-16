@@ -3,10 +3,9 @@ from db_connect import db
 # 위생가게에 대한 데이터베이스
 class cleanTable(db.Model):
     
-    __tablename__ = 'clean_store2'
+    __tablename__ = 'clean_store'
 
     index = db.Column(db.Integer, primary_key=True, nullable=False)
-    asgn_to = db.Column(db.Integer)
     prsdnt_nm = db.Column(db.String(255))
     hg_asgn_lv = db.Column(db.String(255))
     hg_asgn_ymd = db.Column(db.Integer)
@@ -24,3 +23,5 @@ class cleanTable(db.Model):
     addr2 = db.Column(db.String(255))
     latitude = db.Column(db.String(255))
     longitude = db.Column(db.String(255))
+    addr3 = db.Column(db.String(255))
+    code_big = db.Column(db.String(255))
