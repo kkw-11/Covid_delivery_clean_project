@@ -20,10 +20,7 @@ class cleanTable(db.Model):
     franchise = db.Column(db.Integer)
     addr1 = db.Column(db.String(255))
     addr2 = db.Column(db.String(255))
-<<<<<<< HEAD
-=======
     latitude = db.Column(db.String(255))
     longitude = db.Column(db.String(255))
     addr3 = db.Column(db.String(255))
     code_big = db.Column(db.String(255))
->>>>>>> dev

@@ -48,7 +48,7 @@ const CleanMap = () => {
     )
 }
 
-export default CleanStore;
+export default CleanMap;
 
 const GirdContainer = styled.div`
     display: grid;

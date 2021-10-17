@@ -15,6 +15,8 @@ import team7 from "../images/team7.jpg";
 import team8 from "../images/team8.jpg";
 import team9 from "../images/team9.jpg";
 import team10 from "../images/team10.jpg";
+import team11 from "../images/team11.jpg";
+import team12 from "../images/team12.jpg";
 
 const Kaky = ({ isKaky, setIsKaky }) => {
   const [hover, setHover] = useState(false);
@@ -402,6 +404,20 @@ const About = () => {
         <SlideList className="slide">
           <img
             src={team10}
+            alt=""
+            style={{ width: "100%", height: "45vh", borderRadius: "10px" }}
+          />
+        </SlideList>
+        <SlideList className="slide">
+          <img
+            src={team11}
+            alt=""
+            style={{ width: "100%", height: "45vh", borderRadius: "10px" }}
+          />
+        </SlideList>
+        <SlideList className="slide">
+          <img
+            src={team12}
             alt=""
             style={{ width: "100%", height: "45vh", borderRadius: "10px" }}
           />

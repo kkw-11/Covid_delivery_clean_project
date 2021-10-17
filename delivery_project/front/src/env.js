@@ -1,1 +1,1 @@
-export const BACKEND_URL = "http://kdt-vm-0202011.koreacentral.cloudapp.azure.com/api";
+export const BACKEND_URL = "https://kdt-vm-0202011.koreacentral.cloudapp.azure.com/api";
