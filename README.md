@@ -1,6 +1,6 @@
 # (클린한끼)
 - 코로나로 인한 배달서비스 급증에 따른 소비자 민원 조사 및 위생상태 불량 적발 건수 데이터 분석과 이러한 사용자들의 불만해결을 위한 지역별 위생 가게 정보 제공
-- https://kdt-vm-0202011.koreacentral.cloudapp.azure.com/
+- [클린한끼 사이트 바로가기](https://kdt-vm-0202011.koreacentral.cloudapp.azure.com/)
 
 ## 프로젝트 아키텍처 
 
