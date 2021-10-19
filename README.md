@@ -39,7 +39,6 @@
 
 ## 4. 프로젝트 구성도 및 기능 설명
   - [클린한끼](https://whimsical.com/v3-3ctRi38AoRBshnap5YwmxJ)
-  -
 ### To-Do List
 
 * [x] 지역별 위생등급별 가게수 확인 기능
