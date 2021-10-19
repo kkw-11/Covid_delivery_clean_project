@@ -1,7 +1,7 @@
 # (클린한끼)
 - 코로나로 인한 배달서비스 급증에 따른 소비자 민원 조사 및 위생상태 불량 적발 건수 데이터 분석과 이러한 사용자들의 불만해결을 위한 지역별 위생 가게 정보 제공
 
-## 프로젝트 구성 안내
+## 프로젝트 Architecture 안내
 
 ![image](https://user-images.githubusercontent.com/76929823/137636476-de8b0ccd-67cb-4ada-abf0-91760cdf315e.png)
 
