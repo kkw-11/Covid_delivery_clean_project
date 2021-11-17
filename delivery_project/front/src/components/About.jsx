@@ -114,11 +114,12 @@ const Steve = ({ isSteve, setIsSteve }) => {
         <>
           <Card.Content>
             <Card.Description>
-              DataScientist로 근무하다가 SW개발자로 이직 준비중입니다. 
-              알고리즘을 좋아하고 코딩이 취미이며 덕업일치를 꿈꾸는 개발자입니다.
-              클린한끼에서는 기획과 백엔드를 맡았습니다. 튼튼한 CS 기본기를 갖춘 개발자로 성장하여 
-              10년 후에는 IT기술 발전 근원지인 실리콘밸리에서 일하며 컴퓨터과학 기술발전에 기여하고 세상을 바꿀 기술을 개발하는 
-              개발자가 되는 것이 꿈입니다.          
+              DataScientist로 근무하다가 SW개발자로 이직 준비중입니다.
+              알고리즘을 좋아하고 코딩이 취미이며 덕업일치를 꿈꾸는
+              개발자입니다. 클린한끼에서는 기획과 백엔드를 맡았습니다. 튼튼한 CS
+              기본기를 갖춘 개발자로 성장하여 10년 후에는 IT기술 발전 근원지인
+              실리콘밸리에서 일하며 컴퓨터과학 기술발전에 기여하고 세상을 바꿀
+              기술을 개발하는 개발자가 되는 것이 꿈입니다.
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
@@ -180,7 +181,7 @@ const Ellie = ({ isEllie, setIsEllie }) => {
             </Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <a href="http://www.github.com/ysyschoi" target="_blank">
+            <a href="http://www.github.com/ellie-ys" target="_blank">
               <Icon name="blogger" />
               Git Hub 주소
             </a>
@@ -201,24 +202,25 @@ const Noelle = ({ isNoelle, setIsNoelle }) => {
     setHover(false);
   }
 
-    return (
-        <Card color="green" >
-            <Image 
-                src={among3} 
-                wrapped ui={false} 
-                onClick={() => setIsNoelle(!isNoelle)}
-                style={{
-                    ...(hover && {
-                        transform: "scale(0.9)",
-                        opacity: "0.7",
-                        cursor: "pointer",
-                        transition: "0.3s"
-                    })
-                }}
-                onMouseOver={handleMouseOver}
-                onMouseLeave={handleMouseLeave}
-            />
-            
+  return (
+    <Card color="green">
+      <Image
+        src={among3}
+        wrapped
+        ui={false}
+        onClick={() => setIsNoelle(!isNoelle)}
+        style={{
+          ...(hover && {
+            transform: "scale(0.9)",
+            opacity: "0.7",
+            cursor: "pointer",
+            transition: "0.3s",
+          }),
+        }}
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+      />
+
       <Card.Content>
         <Card.Header>고예림</Card.Header>
         <Card.Meta>
