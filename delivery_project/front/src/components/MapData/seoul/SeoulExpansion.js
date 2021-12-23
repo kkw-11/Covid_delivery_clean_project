@@ -47,9 +47,14 @@ const relativeColorSpectrum  = (num) => {
     else return 10
   }
 
-const SeoulExpansion = ({ setIsSeoul, franchise, allstore, onAreaClick }) => {
+const SeoulExpansion = ({ setIsSeoul, franchise, allstore, onAreaClick, setArea }) => {
 
-    const [isRelative, setIsRelative] = useState(true)
+    const [isRelative, setIsRelative] = useState(true);
+
+    const ButtonClick = (e) => {
+        setIsSeoul(false);
+        setArea(e.target.value);
+    }
 
     return (
     <>
@@ -65,9 +70,10 @@ const SeoulExpansion = ({ setIsSeoul, franchise, allstore, onAreaClick }) => {
             inverted
             color="brown"
             size='mini'
+            value='전국'
             floated="right"
             style={{ margin:"1% 3% 0 0" }} 
-            onClick={() => {setIsSeoul(false)}} 
+            onClick={ButtonClick} 
         >전국</Button>
 
         <svg height= { 650 } width= { 750 } margin= { 100 } viewBox="0 0 900 700" style={{position:'absolute', display:'flex'}}>

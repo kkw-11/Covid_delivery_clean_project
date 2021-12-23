@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+
+    {% for test in test_list %}
+    {{test.id}}  {{test.store_id}} {{test.star}}
+    {% endfor %}
+</body>
     <form action="/menu" method="post">
         메뉴 : <input type="text" name="input_menu" placeholder="메뉴를 입력하세요"><br>
         가격 <input type="radio" name="gender" value="money">
@@ -38,3 +43,4 @@
     {% endfor %}
 </body>
 </html>
+

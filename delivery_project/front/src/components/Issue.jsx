@@ -53,15 +53,12 @@ const Issue = () => {
         </Modal>
       </TextStyle>
     
-      {/* <TextStyle style={{textDecoration:"underline"}}> */}
       <TextStyle>
           <span style={{fontWeight:"bold"}}>클린한끼</span>에서 많은 소비자들이 위생에 대한 정보를 정확하게 알 수 있도록, 
       </TextStyle>
 
-      {/* <TextStyle style={{fontWeight:'bold'}}> */}
-      {/* <TextStyle style={{textDecoration:"underline"}}> */}
       <TextStyle>
-          <Link to="/cleanStore" y> 우리나라 위생 음식점 현황</Link>과  
+          <Link to="/cleanMap" y> 우리나라 위생 음식점 현황</Link>과  
           <Link to="/storeDetail" y> 식약처에서 위생 인증을 받은 음식점</Link>에 대한 정보를 제공하고 있습니다.
       </TextStyle>
     </>

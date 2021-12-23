@@ -11,7 +11,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Menu from "./components/Menu";
 import Issue from "./components/Issue";
-import CleanStore from "./components/CleanStore";
+import CleanMap from "./components/CleanMap";
 import StoreDetail from "./components/StoreDetail";
 import MenuHunt from "./components/MenuHunt";
 import MenuCup from "./components/MenuCup";
@@ -38,7 +38,7 @@ const App = () => {
       <Route path="/" exact><Home /></Route>
       <Route path="/menu"><Menu /></Route>
       <Route path="/issue"><Issue /></Route>
-      <Route path="/cleanStore"><CleanStore /></Route>
+      <Route path="/cleanMap"><CleanMap /></Route>
       <Route path="/storeDetail"><StoreDetail /></Route>
       <Route path="/menuHunt"><MenuHunt /></Route>
       <Route path="/menuCup"><MenuCup /></Route>
